@@ -1,0 +1,19 @@
+\input{header}
+
+\begin{document}
+
+\maketitle
+% Inhaltsverzeichnis
+\begin{spacing}{1.1}
+	\setcounter{tocdepth}{1}
+	%für die Anzeige von Unterkapiteln im Inhaltsverzeichnis
+	%\setcounter{tocdepth}{2}
+	\tableofcontents
+	\thispagestyle{empty}
+\end{spacing}
+\cleardoublepage
+\setcounter{page}{1}
+
+\include{01kapitel}
+
+\end{document}
