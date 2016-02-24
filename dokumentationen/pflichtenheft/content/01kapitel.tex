@@ -1,0 +1,257 @@
+%!TEX root = ../documentation.tex
+
+\chapter{Einleitung}
+
+
+\chapter{Konventionen}
+\section{Identifizieren von Aufgaben, Funktionen und Eigenschaften}
+In diesem Dokument werden Aufgaben oder Eigenschaften mit einer ID identifiziert.
+Dabei spaltet sich jede ID in einen Buchstaben, der für das Kapitel steht und eine Nummer, die für das Unterkapitel steht.\\
+\begin{center}
+    \textbf{Bsp.: A-10.1}
+\end{center}
+Eine genaue Übersicht zu den Kapiteln ist in der Tabelle \ref{einleitung:kapitel} zu finden.
+\begin{table}[H]
+    \caption{ID Kapitel Zuweisung}
+    \label{einleitung:kapitel}
+    \begin{tabularx}{\textwidth}{|l|X|}
+        \toprule
+        \textbf{ID-Kürzel} & \textbf{Kapitel} \\
+        \endhead
+        \hline
+        L-SYS & Umgebung \\
+        D & Daten \\
+        L & Leistungsmerkmale \\
+        B-UI & Benutzeroberfläche \\
+        Q & Qualitätsziele \\
+        T & Testszenarien \\
+        \hline
+    \end{tabularx}
+\end{table}
+
+\section{Prioritäten}
+In diesem Dokument wird die Priorität der Funktionen durch eine Nummer zwischen 1 und 3 angegebenen. Nähere Informationen finden sich in der nachfolgenden Tabelle \ref{einleitung:priority}.
+\begin{table}[H]
+    \caption{Prioritätsskala}
+    \label{einleitung:priority}
+    \begin{tabularx}{\textwidth}{|l|X|}
+        \toprule
+        \textbf{Nummer} & \textbf{Wertigkeit}\\
+        \endhead
+        \hline
+        1 & Muss-Kriterium\\
+        2 & Soll-Kriterium\\
+        3 & optionale Umsetzung\\
+        \hline
+    \end{tabularx}
+\end{table}
+
+
+
+\chapter{Ziele}
+Das Ziel des Projektes ist es, ein Produkt zu entwickeln, mit dem mehr DHBW-Studenten als Leser des E-Newspapers gewonnen werden können. Die Lösung wird zu Marketingzwecken  des Magazins genutzt. Das primäre Ziel ist, die zurzeit geringe Leseranzahl von DHBW-Studenten zu steigern. Dabei soll die Lösung dem Studierenden bzw. Studienberechtigten die positiven Aspekte eines Studiums an der Dualen Hochschule vermitteln. Die Vorteile dieses Intensivstudiums sind zum Beispiel das monatliches Gehalt, die Theorie-Praxis-Beziehungen, sowie die guten Noten. Deshalb ist die Entwicklung eines Computerspiels gefordert, welches einen studentischen DHBW-Lebenslauf simuliert. Ziel des Spiels ist es, das Studium mit einem virtuellen Bachelor zu bestehen. \\\\
+
+\begin{table}[H]
+\caption{Ziele}
+\label{ziele:entwicklungsziele}
+\begin{tabularx}{\textwidth}{|l|X|l|}
+\toprule
+\textbf{ID} & \textbf{Beschreibung} & \textbf{Priorität}\\
+\endhead
+\hline
+Z-10 & Mehr DHBW-Studenten als Leser des StudiLife-Magazins gewinnen. & 1 \\
+Z-20 & StudiLife-Leser für ein DHBW-Studium begeistern & 1 \\
+Z-20.1 & Vorteile der DHBW vermitteln. & 1 \\
+Z-20.2 & Vorteile des dualen Systems vermitteln. & 1 \\
+Z-30 & Das Produkt ist eine spielbare Software. & 1\\
+\hline
+\end{tabularx}
+\end{table}
+
+\chapter{Lieferbedingungen}
+\section{Lieferdetails}
+Wir streben an, eine erste Vorabversion des Softwareproduktes am 9. November an den Kunden zu liefern. Die finale Version des Spiels wird dem Kunden am 16. November übergeben.
+Mit der finalen Version werden folgende Komponenten ausgeliefert:
+\begin{enumerate}
+	\item Quelltext
+	\item Spiel als ausführbare Datei
+	\item Spielanleitung
+	\item Technische Dokumentation
+	
+\end{enumerate}
+
+
+\section{Kosten}
+Die Kosten für das Produkt sind der folgenden Tabelle zu entnehmen:
+\begin{table}[H]
+\begin{tabularx}{\textwidth}{|l|l|}
+\toprule
+Personentage (a 8h): & 55,2 \\
+Stundenlohn: & 20\euro \\ \hline
+\textbf{Kosten:} & \textbf{8832\euro} \\
+
+\hline
+\end{tabularx}
+\end{table}
+
+
+\chapter{Einsatzbereich}
+\section{Zielgruppen}
+Aufgrund des Ziels, neue Studenten für die DHBW zu gewinnen, sind die Hauptzielgruppen der Software:
+\begin{enumerate}
+    \item Studenten
+    \item Schüler
+    \item Studienberechtigte
+\end{enumerate}
+
+Eine weitere große Rolle bei der Entscheidungsfindung eines Studiums spielt das familiäre Umfeld.
+Allerdings wird diese Zielgruppe nicht von dem Spiel angesprochen.
+Der Haupteinsatzzweck ist, die genannten Zielgruppen zu motivieren, sich über ein Duales Studium zu informieren.
+Dadurch soll erreicht werden, das Duale Studium bekannter und lukrativer zu machen.
+
+\section{Anwendungsbereich}
+
+
+\chapter{Umgebung}
+\section{Hardwareumgebung}
+Folgende Anforderungen sind Mindestanforderungen, die für einen flüssiges Spielerlebnis benötigt werden:
+
+\begin{enumerate}
+	\item Bildschirm
+	\item Tastatur (QWERTZ-Layout)
+	\item Maus
+	\item optional: Lautsprecher
+\end{enumerate}
+
+Weiterhin müssen folgenden Leistungsanforderungen unter Standardauslastung des Systems erfüllt werden:
+\begin{table}[H]
+\caption{Mindestanforderungen Hardware}
+\label{hardware:mindestanforderungen}
+\begin{tabularx}{\textwidth}{|l|X|l|}
+\toprule
+\textbf{ID} & \textbf{Beschreibung} & \textbf{Priorität}\\
+\endhead
+\hline
+L-SYS-10 &  \textbf{Festplattenspeicher:} min. 1GB  & 1\\
+L-SYS-20 & \textbf{RAM:} 4GB/ 8GB & 1\\
+L-SYS-30 & \textbf{Prozessor:} i5-4300U/ i5-4500M/ 
+ i5-5200U & 1\\
+L-SYS-40 & \textbf{Grafikkarte:} Intel HD 4400/ Intel HD 4600/ Geforce 920M & 1\\
+\hline
+\end{tabularx}
+\end{table}
+
+
+\section{Softwareumgebung}
+\begin{table}[H]
+\caption{Unterstützte Betriebssysteme}
+\label{hardware:systeme}
+\begin{tabularx}{\textwidth}{|l|X|l|}
+\toprule
+\textbf{ID} & \textbf{Beschreibung} & \textbf{Priorität}\\
+\endhead
+\hline
+L-SYS-50 & Windows 7, 8.1, 10 64bit & 1\\
+\hline
+L-SYS-60 & Ubuntu 14.04 64bit & 1\\
+\hline
+\end{tabularx}
+\end{table}
+
+\chapter{Funktionen}
+Es gibt eine spielbare Software, in der die Professoren und deren Gehilfen verrückt geworden sind.
+Sie reden nur noch unsinnige Sätze und versuchen, die Studenten zu exmatrikulieren. Der Spieler ist ein Student, der es sich zur Aufgabe gemacht hat, die DHBW doch noch zu retten und die Professoren zu heilen. Dabei muss er jedoch aufpassen, dass er nicht selbst exmatrikuliert wird und gleichzeitig anderen Studenten helfen.
+
+\begin{longtable}{|l|p{10cm}|l|}
+    \toprule
+    \textbf{ID} & \textbf{Beschreibung} & \textbf{Priorität} \\
+    \hline
+    \endhead
+
+    \hline
+    \endfoot
+    \textbf{F-00} & Es gibt eine spielbare Software. & 1 \\
+    
+    \hline
+    \textbf{F-10} & Das Spiel hat eine grafische Oberfläche. & 1 \\
+    F-10.1 & Die Grafik ist zweidimensional. & 1 \\
+    F-10.2 & Die Spielfläche wird durch eine Draufsicht realisiert. & 1 \\
+
+    \hline
+    \textbf{F-20} & Der Benutzer steuert einen Spielcharakter. & 1 \\
+    F-20.1 & Der Spielcharakter wird am Anfang des Spieles mit einem Nickname benannt. & 2 \\
+    F-20.2 & Der Spielcharakter wird über die Tastatur gesteuert. & 1 \\
+    F-20.3 & Der Spielcharakter kann laufen oder rennen. & 1\\
+    F-20.4 & Der Spielcharakter kann sich mit anderen Charakteren des Spiels verständigen. & 1\\
+    F-20.5 & Der Spielcharakter erhält ein monatliches Gehalt. & 3\\
+    F-20.6 & Für den Spielcharakter ist ein Avatar auswählbar. & 1\\
+
+\end{longtable}
+
+\chapter{Daten}
+
+\section{Allgemein}
+In Tabelle \ref{daten:allgemein} werden die allgemeinen Eigenschaften des Spiels spezifiziert.
+
+\begin{table}[H]
+    \caption{Daten}
+    \label{daten:allgemein}
+    \begin{tabularx}{\textwidth}{|l|X|l|}
+        \toprule
+        \textbf{Id} & \textbf{Beschreibung} & \textbf{Priorität}\\
+        \endhead
+        \hline
+	D-10 & Nickname & 1 \\
+	D-20 & Level & 3 \\
+	D-30 & Zeit & 3 \\
+	D-40 & Punktzahl & 3 \\
+        \hline
+    \end{tabularx}
+\end{table}
+
+
+\chapter{Benutzeroberfläche}
+Im Folgenden wird das Aussehen der Benutzeroberfläche beschreiben.
+
+
+\chapter{Qualitätsziele}
+Als grundsätzliche Qualitätsziele sollen die spezifizierten Punkte erfüllt werden.
+
+\begin{tabularx}{\textwidth}{|l|X|l|}
+\toprule
+\textbf{ID} & \textbf{Beschreibung}\\
+\endhead
+\hline
+Q-10 & Flüssiges Spielerlebnis (min. 25 FPS)  \\
+Q-20 & Intuitive Bedienbarkeit  \\
+Q-30 & Robuste Anwendung  \\
+Q-40 & Dokumentiert  \\  
+Q-50 & Toleranz bei Eingabefehlern \\
+\hline
+\end{tabularx}
+
+
+\chapter{Testszenarien}
+Folgende Testszenarien sollen die Einhaltung der Qualitätsziele sicherstellen:
+\begin{tabularx}{\textwidth}{|l|X|l|}
+\toprule
+\textbf{ID} & \textbf{Beschreibung}\\
+\endhead
+\hline
+T-10 & Code-Reviews  \\
+T-20 & Alphatests durch Kommilitonen  \\
+T-30 & Prüfung der Qualitätsziele vor jedem Betarelease  \\
+\hline
+\end{tabularx}
+
+
+\chapter{Entwicklungsumgebung}
+
+
+\section{Buildsystem}
+
+\section{Versionsverwaltung}
+Zur Versionsverwaltung des Quellcodes wird Git verwendet. Unter Gitlab\footnote{\url{https://gitlab.com/groups/DHBWTheseus}} ist das zentrales Repository zu finden. So kann sichergestellt werden, dass jedem Teammitglied zu jeder Zeit die aktuellste Version des Quelltextes zur Verfügung steht. Der \enquote{Master}-Branch enthält dabei jeweils die neuste lauffähige Version des Projektes. Der aktuelle Entwicklungsstand befindet sich, nach Features geordnet, in separaten Branches.
+
+
+
