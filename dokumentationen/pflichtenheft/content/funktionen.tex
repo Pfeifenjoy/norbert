@@ -56,5 +56,133 @@ PDFs parsen
 Dokumente anhand von Keywörtern gruppieren -> Vorschlag für weitere Quellen.
 Vorschlag von dokumenten anhand von tasks erstellen.
 
-Google Places anzeigen -> Pizza, Bars, Festivals
+Emails im Kursverteiler (Samt angehängter Dokumente) parsen.
+    - Sobald genug Daten im System sind: Erkennung des Fachs, zu dem die Nachricht gehört. (Absenderadresse, Signatur, Betreff, Keywords)
+    - Datumsangaben erkennen --> Erinnerungen
+    - Phrasen wie "bis zur nächsten Vorlesung" erkennen. Wenn das Fach erkannt wurde: Abgleich mit dem Kurskalender --> Erinnerungen
+
+Erkennen von Trends (z.B.: 10 Studenten legen Aufgabe für Mathe-Hausaufgabe an)
+    --> Die restlichen Studenten bekommen solche Aufgaben als Vorschlag.
+Erkennen von Nutzergruppen mit ähnlichen Aufgaben (z.B. die Mitglieder von Norbert)
+    --> Vorschläge von Aufgaben innerhalb dieser Nutzergruppen
+(Beides ist für den Nutzer nicht sichtbar. für ihn wirkt es bloß "intelligent" die eigentliche 
+Funktion wäre also: "Vorschlagen von Aufgaben / Hinweisen von anderen Kursteilnehmern basierend
+auf einem personalisierten Ranking... oder so ähnlich...).
+
+Google Places anzeigen -> Pizza, Bars, Festivals, Freizeitmöglichkeiten
+
+Diverse DHBW-Dienste per webscraping parsen (Stundenplan, Mensaplan, Dualis???) - Am Besten mithilfe irgend einer Plugin-Architektur, damit dass System auch bei anderen UNIs laufen kann.
+    - Immer Ende der aktuellen Vorlesung bzw. Beginn der nächsten Vorlesung anzeigen.
+
+Export der Erinnerungen als ical --> Macht synchronisation mit Google kalendar / Apple kalender / Outlook / ... Möglich
+
+Android APP:
+    - Erinnerungen
+    - Wecker, der immer HH:MM vor Vorlesungsbeginn klingelt. (Oder: Systemwecker immer richtig einstellen)
+
+Fächer
+    - Bei SEEEEEHR vielen Stellen hilft es, wenn man die Einträge einem Fach zuordnen kann. (Bessere Vorschläge oder Vorschläge so überhaupt erst realisierbar). Daher sollte hier eine globale Liste aller Fächer existieren. Der Admin kann die Liste bei der Installation "initial" mit Werten füllen, aber auch Studenten sollten Fächer hinzufügen können)
+    - Feld für das Fach sollte jedoch nie erzwungen werden, um es dem Benutzer so einfach wie möglich zu machen. Wenn das feld freigelassen wurde: 
+    - Zuordnung zum Fach bei bestimmten (gelernten?) Schlüsselwärtern automatisch. Insbesondere natürlich, wenn in einem anderen Feld der Name eines Fachs erwähnt wurde (z.B.: Titel: "Datenbanken lernen" --> Fach ist offensichtlich Datenbanken. Oder: "Mathe lernen" --> Fach ist statistik, da das wort "Mathe" bei anderen Einträgen oft mit dem Fach Statistik in Verbindung gebracht wurde.)
+    - (Für den Benutzer könnten die Fächer evtl. wie Tags angezeigt werden)
+    - Die Zuordnung Fach <--> Professor ist auch sehr hilfreich, um die Vorlesungsmaterialien, die über den Kurskalender reinkommen, einem Fach zuordnen zu können (--> Durchsuchbarkeit!). Ich würde versuchen, diese Zuordnung zu lernen. Alternativ wäre auch das eine Datenquelle, für die sich eine manuelle Eingabe vom Aufwand/Nutzen-Verhältniss lohnen würde.
+
+ZIELE und HERLEITUNG VON ZEUGS VON DEN ZIELEN
+ - Ein erfüllteres Studentenleben
+    - Bessere Noten
+        - Gezielter lernen
+            - Lernplan kann erstellt werden
+            - Umsetzung Über ToDos, die Unterpunkte haben können. (Kann natürlich auch für anderes genutzt werden)
+            - Vorschläge für Unterpunkte aus ähnlichen Lernplänen anderer Kursteilnehmer. --> So wird auf jedem Fall nichts vergessen.
+            - Als "Ähnlichkeitskriterium" ist auch hier das Fach sehr wichtig...
+        - Mehr lernen
+            - Über die Vorschlagsfunktion
+            - (Viele Studenten legen Lerntasks an --> Man selber wird gefragt, ob man nicht lernen möchte)
+        - Früh genug anfangen zu lernen.
+            - Siehe Punkt "Mehr lernen"
+        - Motivation zum Lernen
+            - Gamification...??????????
+            - Coole Animation beim Abhaken von erledigten Tasks.
+            - Lobende Worte beim Abhaken erledigter Tasks.
+            - Möglichkeit zum Teilen erledigter Tasks.
+        - Unterstützung beim Lernen
+            - Fragen stellen, Experten zu Themen finden.
+                - Naja, Eigentlich sind wir ja kein Forum...
+            - Lerngruppen
+                - Vorschlag, Lerngruppen zu bilden
+                    - 2 Benutzer haben eine ähnliche Erinnerung zu ähnlichen Zeiten angelegt
+                    - Aufgrund der Analyse von sozialen Beziehungen im Kurs (Wer weist wem wie häufig Tasks zu, ...)
+                - Möglichkeiten zu Lerngruppenanfragen
+                    --> 1 Benutzer erstellt Lerngruppenanfrage.
+                    --> Anfrage erscheint beim ganzen Kurs ganz oben im Newsfeed
+                    --> Auswahlmöglichkeiten: (Y) Accept - (N) Decline
+                    --> Möglichkeit zur Angabe von Präferenzen, mit wem man gerne lernen will und wie groß die eigene Lerngruppe sein soll.
+                    --> Es erfolgt ein automatisches Matching der Lerngruppen unter Berücksichtigung der Präferenzen der user.
+                    --> Anschließend kann natürlich noch manuell aus lerngruppen ausgetreten werden bzw. Personen hinzugefügt werden.
+                    --> Lerngruppen verweilen im Newsfeed der Teilnehmer. Innerhalb der Lerngruppen können Erinnerungen angelegt werden, die für alle Teilnehmer gelten.
+                    --> Evtl eine Möglichkeit zum Erstellen einer Telegram/Whattsapp-Gruppe mit einem Klick.
+            - Lernmaterialien
+                - Literatur zum lernen, die die komplette Vorlesung umfasst
+                        - Basierend auf
+                            - Literaturangaben/Empfehlungen in Dokumenten des Professors
+                            - Ähnlichkeit des Inhaltsverzeichnis mit Dokumenten (Slides...) des Professors
+                            - Bücher, die der Professor selbst geschrieben hat, oder von denen er die Autorennamen in einem Dokument erwähnt hat.
+                            - Interaktion anderer Studenten mit den Vorschlägen (Bei wie vielen anderen Studenten wurde der Vorschlag weggewischt bzw. angeklickt)
+                        - Datenquellen
+                            - Springer Link, andere EBook-Seiten (Fokus auf Seiten, die für den Student kostenlos sind)
+                            - Online-Katalog v. DHBW-Bib (und andere, am Besten locationbasiert oder Pluginsystem)
+                            - (Lokale) Buchläden (Location!)
+                            - Amazon-Links zu Büchern (Am Besten Affiliate-Links...!)
+                            - Vorlesungsskripte von anderen Universitäten
+                            - Vorlesungsaufzeichnungen von anderen Universitäten
+                        - Solche Vorschläge bevorzugt am Anfang des Semesters und vor den Klausurphasen (Lernphasen könnte man anhand der vom Benutzer angelegten Tasks erkennen!)
+                - Material zum besseren Verständnis einzelner Themen.
+                    - Basierend auf
+                        - Überschriften/Schlagwörter in den Materialien der Dozenten, die per Kursverteiler reinkommen.
+                    - Datenquellen
+                        - Links in den Vorlesungsunterlagen der Professoren (oder andere Dokumente im System)
+                        - Wikipedia-Artikel zu Themen aus den Vorlesungsunterlagen / Anderen Dokumenten
+                        - Online-Kurse??? (Coursera, etc...) ??????????????????????????????????
+                        - Google-Suchergebnisse (Wie Qualität sicherstellen???)
+                    - Solche Vorschläge bevorzugt direkt nach einer Vorlesung zum entsprechenden Thema.
+                - Vorlesungsunterlagen
+                    - Durchsuchbar
+                    - Zentral abrufbar
+                    - Übersichtlich sortiert
+    - Stressfreier Alltag
+        - Spaß haben
+            - Freunde finden
+            - Freizeitaktivitäten
+                - Google Places
+                - Facebook-Events in der Umgebung
+                - Schneckenhof-Parties
+                - Vorschläge aus dem Angebot der Uni (Sport, Kursverteilerevents wie Kneipentouren)
+            - Mehr Freizeit
+                - Nicht zu viel lernen. Bzw. effizienter lernen.
+        - Stressfreie Vorlesungen
+            - Vorhersage des DHBW-Glücksrads
+                -> Phillip fragen, ob er für uns den Code nicht noch mal etwas abändern will ;-)
+                -> Vieleicht auch nicht...
+        - Informiert sein
+            - Tages-Briefing
+                - Heutiger Stundenplan
+                - Wann muss ich losfahren, um rechtzeitig anzukommen (Auto, Bahn)
+                - Was gibt es in der Mensa
+                - Anstehende Aufgaben
+                - Wann beginnt die morgige Vorlesung
+        - Weniger DHBW-Bürokratie
+            - Erinnerung an Fristen
+                - Parsen der Dokumente/Kursverteilermails auf Datumsangaben. --> Erinnerung mit der entsprechenden Textpassage
+                - Es können auch händisch kursweite Erinnerungen angelegt werden.
+            - Hinweise bei Stundenplan / Raumänderungen
+                --> Parsen des Online-Stundenplans
+                --> Per Pluginsystem etc, damit auch für andere UNIs einsetzbar
+            - Raussuchen der richtigen Dokumente und wo möglich teilweise automatische Ausfüllung
+                - Keine Ahnung, wie das ohne aufwändige manuelle Eingaben umsetzbar wäre.
+                - Höchstens: Wenn in Emails auf Dokumente verwiesen wird.
+        - Kursorganisation
+            - Globale Hinweise, manuell erstellt
+            - Globale Erinnerungen, manuell erstellt (z.B. an Fristen, ...)
+            - Globale Abstimmungen
+
 
