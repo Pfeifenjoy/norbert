@@ -4,12 +4,14 @@
 \begin{table}[H]
     %\caption{ID Kapitel Zuweisung} %TODO
     \label{Funktionen::main}
-    \begin{longtable}{|l|l|l|l}
+    \begin{tabularx}{\textwidth}{|l|X|l|l|}
         \toprule
         \textbf{ID-Kürzel} & \textbf{Beschreibung} & \textbf{Prio} & \textbf{Abhängig von} \\
         \endhead
         \hline
-        F-00 & Es gibt eine Software & 1 & \\
+        \multicolumn{4}{|l|}{General}\\
+        \hline
+        F-00 & Das Produkt ist eine Softwarelösung. & 1 & \\
         F-00.1 & Mehrere Benutzer können auf die Software zugreifen ohne sie installieren zu müssen. & 1 & \\
         F-00.2 & Die Software kann an Desktopgeräten und mobilen Geräten verwendet werden. & 1 & \\
         \hline
@@ -48,39 +50,44 @@
 
 
         \hline
-    \end{longtable}
+    \end{tabularx}
+
 \end{table}
 
-Datums-termine aus Dokumenten finden
-PDFs parsen
-Dokumente anhand von Keywörtern gruppieren -> Vorschlag für weitere Quellen.
-Vorschlag von dokumenten anhand von tasks erstellen.
+Datums-termine aus Dokumenten finden % 1
+PDFs parsen % 2
+Dokumente anhand von Keywörtern gruppieren -> Vorschlag für weitere Quellen. % 2
+Vorschlag von dokumenten anhand von tasks erstellen. % 2
 
-Emails im Kursverteiler (Samt angehängter Dokumente) parsen.
-    - Sobald genug Daten im System sind: Erkennung des Fachs, zu dem die Nachricht gehört. (Absenderadresse, Signatur, Betreff, Keywords)
-    - Datumsangaben erkennen --> Erinnerungen
-    - Phrasen wie "bis zur nächsten Vorlesung" erkennen. Wenn das Fach erkannt wurde: Abgleich mit dem Kurskalender --> Erinnerungen
+Emails im Kursverteiler (Samt angehängter Dokumente) parsen. % 1
+    - Sobald genug Daten im System sind: Erkennung des Fachs, zu dem die Nachricht gehört. (Absenderadresse, Signatur, Betreff, Keywords) % 2
+    - Datumsangaben erkennen --> Erinnerungen % 1
+    - Phrasen wie "bis zur nächsten Vorlesung" erkennen. Wenn das Fach erkannt wurde: Abgleich mit dem Kurskalender --> Erinnerungen % 1
 
 Erkennen von Trends (z.B.: 10 Studenten legen Aufgabe für Mathe-Hausaufgabe an)
-    --> Die restlichen Studenten bekommen solche Aufgaben als Vorschlag.
+    --> Die restlichen Studenten bekommen solche Aufgaben als Vorschlag. % 1
 Erkennen von Nutzergruppen mit ähnlichen Aufgaben (z.B. die Mitglieder von Norbert)
-    --> Vorschläge von Aufgaben innerhalb dieser Nutzergruppen
+    --> Vorschläge von Aufgaben innerhalb dieser Nutzergruppen % 1
 (Beides ist für den Nutzer nicht sichtbar. für ihn wirkt es bloß "intelligent" die eigentliche 
 Funktion wäre also: "Vorschlagen von Aufgaben / Hinweisen von anderen Kursteilnehmern basierend
 auf einem personalisierten Ranking... oder so ähnlich...).
 
-Google Places anzeigen -> Pizza, Bars, Festivals, Freizeitmöglichkeiten
+Google Places anzeigen -> Pizza, Bars, Festivals, Freizeitmöglichkeiten % 3
 
 Diverse DHBW-Dienste per webscraping parsen (Stundenplan, Mensaplan, Dualis???) - Am Besten mithilfe irgend einer Plugin-Architektur, damit dass System auch bei anderen UNIs laufen kann.
     - Immer Ende der aktuellen Vorlesung bzw. Beginn der nächsten Vorlesung anzeigen.
 
-Export der Erinnerungen als ical --> Macht synchronisation mit Google kalendar / Apple kalender / Outlook / ... Möglich
+    %Stundenplan 1
+    %Mensaplan 1
+    %Dualis 3
 
-Android APP:
+Export der Erinnerungen als ical --> Macht synchronisation mit Google kalendar / Apple kalender / Outlook / ... Möglich % 2
+
+Android APP: % 3
     - Erinnerungen
     - Wecker, der immer HH:MM vor Vorlesungsbeginn klingelt. (Oder: Systemwecker immer richtig einstellen)
 
-Fächer
+Fächer % 1 
     - Bei SEEEEEHR vielen Stellen hilft es, wenn man die Einträge einem Fach zuordnen kann. (Bessere Vorschläge oder Vorschläge so überhaupt erst realisierbar). Daher sollte hier eine globale Liste aller Fächer existieren. Der Admin kann die Liste bei der Installation "initial" mit Werten füllen, aber auch Studenten sollten Fächer hinzufügen können)
     - Feld für das Fach sollte jedoch nie erzwungen werden, um es dem Benutzer so einfach wie möglich zu machen. Wenn das feld freigelassen wurde: 
     - Zuordnung zum Fach bei bestimmten (gelernten?) Schlüsselwärtern automatisch. Insbesondere natürlich, wenn in einem anderen Feld der Name eines Fachs erwähnt wurde (z.B.: Titel: "Datenbanken lernen" --> Fach ist offensichtlich Datenbanken. Oder: "Mathe lernen" --> Fach ist statistik, da das wort "Mathe" bei anderen Einträgen oft mit dem Fach Statistik in Verbindung gebracht wurde.)
