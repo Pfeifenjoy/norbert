@@ -1,64 +1,121 @@
 \chapter{Funktionen}
 
+\section{Allgemeine Funktionsweise}
+
+Im folgenden soll die Funktionsweise und Begrifflichkeiten der Anwendung Norbert erläutert werden.
+Norbert soll als \enquote{Study Buddy}, ünterstützer eines DHBW-Studenten, dienen.
+
+Um die Grundlegende Benutzung zu verstehen soll erst einmal skizziert werden wie Norbert mit den Studenten interagiert.
+Norbert ist eine Webbasierte Anwendung welche den Austausch von Informationen zwischen den Studenten ermöglicht.
+Dabei können Informationen Aufgaben, Erinnerungen, Notizen oder sonstiges sein.
+Diese Informationen werden auf einem Server gesammelt und ausgewertet.
+Anschließend kann sich ein Benutzer über ein Webinterface mit Norbert verbinden.
+Norbert schlägt dem Benutzer dann vor, welche Informationen ihn interessieren könnten. (Vgl. Abbildung \ref{funktionen:datenaustausch})
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.6\textwidth]{images/funktionsweise.png}
+    \caption{Datenaustausch}
+    \label{funktionen:datenaustausch}
+\end{figure}
+
+Diese Informationen werden im folgenden als Einträge beschrieben.
+Jeder Benutzer kann Einträge anlegen. Diese Einträge werden dann von Norbert analysiert und können anderen Benutzern vorgeschlagen werden.
+Dabei kann ein Eintrag mehrere Eigenschaften besitzen, welche im folgenden als Typen bezeichnet werden und in Tabelle \ref{funktionen:typen} beschrieben sind.
+
+\begin{tabularx}{\textwidth}{|l|l|X|l|}
+    \toprule
+    \textbf{ID-Kürzel} & \textbf{Name des Types} & \textbf{Beschreibung} & \textbf{Prio}\\
+    \midrule
+    \endhead
+    \hline
+    \caption{Typen von Einträgen}
+    \label{funktionen:typen}
+    \endfoot
+    F-Types-00 & Text & Kann zur Beschreibung des Eintrags verwendet werden. & 1\\
+    F-Types-10 & Erinnerung & Ein Eintrag der zu einem Zeitpunkt wieder News-Feed angezeigt wird. & 2 \\
+    F-Types-20 & Aufgabe & Dieser Beitrag kann als erledigt markiert werden. & 1\\
+    F-Types-30 & Teilen & Der Eintrag kann mit anderen Benutzern geteilt werden.
+    Wenn jemand anderes diesen Eintrag editiert, wird dieser auch bei dem Ersteller des Eintrags editiert. & 1\\
+    F-Types-40 & Ort & Dem Eintrag kann ein Ort zugewiesen werden. & 2 \\
+    F-Types-50 & Bild & Es wird ein Bild in einem Eintrag angezeigt. & 2 \\
+    F-Types-60 & Dokument & Es kann ein Dokument an den Eintrag angehängt werden. & 1\\
+    F-Types-70 & Link & Der eintrag kann auf eine Spezielle Addresse im Internet verlinken. & 2\\
+\end{tabularx}
+
+\section{Spezifische Funktionsweise}
+\begin{tabularx}{\textwidth}{|l|X|l|l|}
+    \toprule
+    \textbf{ID-Kürzel} & \textbf{Beschreibung} & \textbf{Prio} & \textbf{Abhängig von} \\
+    \midrule
+    \endhead
+    \hline
+    \caption{Functionen}
+    \endfoot
+    \multicolumn{4}{|l|}{F-00 Allgemein}\\
+    \hline
+    F-00.1 & Das Produkt ist eine Softwarelösung. & 1 & \\
+    F-00.2 & Mehrere Benutzer können auf die Software zugreifen ohne sie installieren zu müssen. & 1 & \\
+    F-00.3 & Die Software kann an Desktopgeräten und mobilen Geräten verwendet werden. & 1 & \\
+    F-00.4 & Es wird ein Server zum Austausch der Daten zwischen den Clients verwendet. & 1 & \\
+    F-00.5 & Eine Website kann als zum Aufruf der Daten verwendet werden und dient als User Interface. & 1 & F-00.4\\
+    F-00.6 & Eine Android-App wird als User Interface verwendet. & 3 & F-00.4\\
+    \hline
+    \multicolumn{4}{|l|}{F-10 Installation und Adminstration}\\
+    \hline
+    F-10.1 & Die Server-Software kann auf einem Server über einen Installer installiert werden. & 1 & F-00.4 \\
+    F-10.2 & Es wird eine Anleitung in form einer README-Datei erstellt, welche den Installationsprozess dokumentiert. & 1 & F-10.1\\
+    F-10.3 & Die Android-App kann aus dem Google-Play Store herunter geladen werden. & 3 & F-00.6\\
+    F-10.4 & Die gesammelten Daten der Anwendung können exportiert und importiert werden. & 2 & F-00.4\\
+    F-10.5 & Die Server Anwendung kann einem anderen Kurs übergeben werden. & 2 & F-00.4\\
+    \hline
+    \multicolumn{4}{|l|}{Einträge}\\
+    \hline
+    \hline
+    \multicolumn{4}{|l|}{Suche}\\
+    \hline
+    \multicolumn{4}{|l|}{Vorschläge}\\
+    \hline
+    \multicolumn{4}{|l|}{Erinnerungen}\\
+    \hline
+
+    F-10 & Die Software dient als persönlicher Assistent während des Studiums. & & \\
+    F-10 & Planen von Aufgaben & 1 & \\
+    F-10.1 & Es können Aufgaben erstellt werden. & 1 & \\
+
+    F-20 & Dem Benutzer werden hilfreiche Informationen über das Studium angezeigt. & 1 & \\
+
+    F-30 & Die Software kann Erinnerungen anzeigen. & 1 & \\
+
+    F-40 & Die Software kann Push-Notifikations an den Benutzer senden. & & \\
+
+    F-50 & Es gibt einen Administrationsbereich & & \\
+    F-50.1 & Der Administrationsbereich ist durch ein Kennwort geschützt. & & \\ % Kennwort wurde während der Installation festgelegt
+    F-50.2 & Es können benutzer durch die eingabe von Emailadresse hinterlegt werden. & & \\
+    F-50.2.1 & Die so erstellten Benutzer erhalten über eine Email Zugriff auf das System. & & \\ % TODO: Formulierung
+    
+    F-60 & Die Software kann auf Datenquellen, wie z.B. Google-Drive, DHBW Seite, Moodle etc. zugreifen. & & \\
+
+    F-70 & Die Software kann Informationen zwischen den Studenten austauschen. & & \\
+    F-70.1 & Todo's von anderen Studenten werden angezeigt. & &\\
+    F-70.2 & Es können Kursnachrichten versendet werden. & &\\
+    F-80 & Es können Bezüge zu Dateien aus Dropbox etc. hergestellt werden. & &\\
+    F-90 & User werden anhand ihres namen markiert & &\\ %Noch unklar
+
+    F-* & Formulare & &\\
+
+    F-* & Todo's können privat sein. & & \\
+
+    
+
+    % Todo liste analysieren ob es andere gibt.
+    % ToDo: Prozessdiagramm
 
 
-\begin{table}[H]
-    %\caption{ID Kapitel Zuweisung} %TODO
-    \label{Funktionen::main}
-    \begin{tabularx}{\textwidth}{|l|X|l|l|}
-        \toprule
-        \textbf{ID-Kürzel} & \textbf{Beschreibung} & \textbf{Prio} & \textbf{Abhängig von} \\
-        \endhead
-        \hline
-        \multicolumn{4}{|l|}{Allgemein}\\
-        \hline
-        F-00 & Das Produkt ist eine Softwarelösung. & 1 & \\
-        F-00.1 & Mehrere Benutzer können auf die Software zugreifen ohne sie installieren zu müssen. & 1 & \\
-        F-00.2 & Die Software kann an Desktopgeräten und mobilen Geräten verwendet werden. & 1 & \\
-        \hline
-        \multicolumn{4}{|l|}{Installation}
-        \multicolumn{4}{|l|}{Installation und Administration}
-        \multicolumn{4}{|l|}{}
-        \multicolumn{4}{|l|}{Erinnerungen}
-        \multicolumn{4}{|l|}{
-        F-10 & Die Software dient als persönlicher Assistent während des Studiums. & & \\
-        F-10 & Planen von Aufgaben & 1 & \\
-        F-10.1 & Es können Aufgaben erstellt werden. & 1 & \\
 
-        F-20 & Dem Benutzer werden hilfreiche Informationen über das Studium angezeigt. & 1 & \\
+    \bottomrule
+\end{tabularx}
 
-        F-30 & Die Software kann Erinnerungen anzeigen. & 1 & \\
-
-        F-40 & Die Software kann Push-Notifikations an den Benutzer senden. & & \\
-
-        F-50 & Es gibt einen Administrationsbereich & & \\
-        F-50.1 & Der Administrationsbereich ist durch ein Kennwort geschützt. & & \\ % Kennwort wurde während der Installation festgelegt
-        F-50.2 & Es können benutzer durch die eingabe von Emailadresse hinterlegt werden. & & \\
-        F-50.2.1 & Die so erstellten Benutzer erhalten über eine Email Zugriff auf das System. & & \\ % TODO: Formulierung
-        
-        F-60 & Die Software kann auf Datenquellen, wie z.B. Google-Drive, DHBW Seite, Moodle etc. zugreifen. & & \\
-
-        F-70 & Die Software kann Informationen zwischen den Studenten austauschen. & & \\
-        F-70.1 & Todo's von anderen Studenten werden angezeigt. & &\\
-        F-70.2 & Es können Kursnachrichten versendet werden. & &\\
-        F-80 & Es können Bezüge zu Dateien aus Dropbox etc. hergestellt werden. & &\\
-        F-90 & User werden anhand ihres namen markiert & &\\ %Noch unklar
-
-        F-* & Formulare & &\\
-
-        F-* & Todo's können privat sein. & & \\
-
-        
-
-        % Todo liste analysieren ob es andere gibt.
-        % ToDo: Prozessdiagramm
-
-
-
-        \hline
-    \end{tabularx}
-
-\end{table}
 
 Datums-termine aus Dokumenten finden % 1
 PDFs parsen % 2
