@@ -2,67 +2,72 @@
 
 \section{Allgemeine Funktionsweise}
 
-Im folgenden soll die Funktionsweise und Begrifflichkeiten der Anwendung Norbert erläutert werden.
-Norbert soll als \enquote{Study Buddy}, ünterstützer eines DHBW-Studenten, dienen.
+Im Folgenden sollen die Funktionsweise und Begrifflichkeiten der Anwendung Norbert erläutert werden.
+Norbert dient als \enquote{Study Buddy}, Unterstützer eines DHBW-Studenten.
 
-Um die Grundlegende Benutzung zu verstehen soll erst einmal skizziert werden wie Norbert mit den Studenten interagiert.
-Norbert ist eine Webbasierte Anwendung welche den Austausch von Informationen zwischen den Studenten ermöglicht.
-Dabei können Informationen z.B. Aufgaben, Erinnerungen oder Notizen sein.
-Diese Informationen werden auf einem Server gesammelt und ausgewertet.
-Anschließend kann sich ein Benutzer über ein Webinterface mit Norbert verbinden.
-Norbert schlägt dem Benutzer dann vor, welche Informationen ihn interessieren könnten. (Vgl. Abbildung \ref{funktionen:datenaustausch})
+Um die grundlegende Benutzung zu verstehen, soll zunächst skizziert werden, wie Norbert mit den Benutzer interagiert:
+
+Benutzer können in Norbert Informationen wie zum Beispiel Aufgaben, Erinnerungen oder Notizen ablegen. Diese werden als \enquote{Einträge} bezeichnet. Die Einträge aller Nutzer werden zentral gesammelt.
+
+Aufgrund der vorhandenen Daten prognostiziert Norbert, welche Informationen für welchen Benutzer relevant sein könnten. Dabei kann es sich um Einträge anderer Benutzer handeln, aber auch andere Informationsquellen, wie der Speiseplan der Kantine, werden berücksichtigt.
+
+Jedem Benutzer werden die für ihn relevanten Informationen angezeigt. Handelt es sich dabei um die Einträge anderer Benutzer, schlägt Norbert vor, diese direkt in die eigenen Einträge zu übernehmen. (Vergleiche Abbildung~\ref{funktionen:datenaustausch})
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.6\textwidth]{images/funktionsweise.png}
+    \includegraphics[width=0.8\textwidth]{images/funktionsweise.png}
     \caption{Datenaustausch}
     \label{funktionen:datenaustausch}
 \end{figure}
 
-Diese Informationen werden im folgenden als Einträge beschrieben.
-Jeder Benutzer kann Einträge anlegen. Diese Einträge werden dann von Norbert analysiert und können anderen Benutzern vorgeschlagen werden.
-Dabei kann ein Eintrag mehrere Eigenschaften besitzen, welche im folgenden als Typen bezeichnet werden und in Tabelle \ref{funktionen:typen} beschrieben sind.
+Ein Eintrag kann aus mehreren Komponenten bestehen. Je nach Typ der jeweiligen Komponenten können diese unterschiedliche Informationstypen speichern oder Funktionalitäten erfüllen. Tabelle~\ref{funktionen:typen} gibt eine Übersicht über alle Komponententypen.
 
 \begin{tabularx}{\textwidth}{|l|l|X|l|}
     \toprule
-    \textbf{ID-Kürzel} & \textbf{Name des Types} & \textbf{Beschreibung} & \textbf{Prio}\\
+    \textbf{ID-Kürzel} & \textbf{Name} & \textbf{Beschreibung} & \textbf{Prio}\\
     \midrule
     \endhead
     \hline
-    \caption{Typen von Einträgen}
+    \caption{Typen von Komponenten}
     \label{funktionen:typen}
     \endfoot
-    F-Types-00 & Text & Kann zur Beschreibung des Eintrags verwendet werden. & 1\\
-    F-Types-10 & Erinnerung & Ein Eintrag der zu einem Zeitpunkt wieder News-Feed angezeigt wird. & 2 \\
-    F-Types-20 & Aufgabe & Dieser Beitrag kann als erledigt markiert werden. & 1\\
-    F-Types-30 & Teilen & Der Eintrag kann mit anderen Benutzern geteilt werden.
-    Wenn jemand anderes diesen Eintrag editiert, wird dieser auch bei dem Ersteller des Eintrags editiert. & 1\\
-    F-Types-40 & Ort & Dem Eintrag kann ein Ort zugewiesen werden. & 2 \\
-    F-Types-50 & Bild & Es wird ein Bild in einem Eintrag angezeigt. & 2 \\
-    F-Types-60 & Dokument & Es kann ein Dokument an den Eintrag angehängt werden. & 1\\
-    F-Types-70 & Link & Der eintrag kann auf eine Spezielle Addresse im Internet verlinken. & 2\\
+    F-Comp-00 & Text & Kann zur Beschreibung des Eintrags verwendet werden. & 1\\
+    F-Comp-10 & Erinnerung & Ermöglicht, einen Zeitpunkt zu definieren, an dem der Benutzer an den Eintrag erinnert wird. & 2 \\
+    F-Comp-20 & Aufgabe & Ermöglicht es, den Eintrag als \enquote{erledigt} oder \enquote{nicht erledigt} zu markieren. & 1\\
+    F-Comp-30 & Ort & Dem Eintrag wird ein Ort zugewiesen. & 2 \\
+    F-Comp-40 & Bild & Es wird ein Bild in einem Eintrag angezeigt. & 2 \\
+    F-Comp-50 & Dokument & Es kann ein Dokument an den Eintrag angehängt werden. & 1\\
+    F-Comp-60 & Link & Der Eintrag verweist auf eine Internetadresse. & 2\\
+    %F-Types-30 & Teilen & Der Eintrag kann mit anderen Benutzern geteilt werden.
+    %Wenn jemand anderes diesen Eintrag editiert, wird dieser auch bei dem Ersteller des Eintrags editiert. & 1\\
 \end{tabularx}
 
-Das Konzept eines solchen Eintrags soll anhand der Abbildung \ref{funktionen:Eintrag} verdeutlicht werden. 
-Hier ist zu sehen das ein Eintrag modular aufgebaut ist. Standardmäßig muss für einen Eintrag ein Titel vergeben werden.
-Die in Tabelle \ref{funktionen:typen} genannten Typen können durch hinzufügen von Feldern realisiert werden. Zum Beispiel wird eine Erinnerung durch hinzufügen eines Datums oder eines Ortes erstellt.
+%Das Konzept eines solchen Eintrags soll anhand der Abbildung \ref{funktionen:Eintrag} verdeutlicht werden. 
+%Hier ist zu sehen das ein Eintrag modular aufgebaut ist. Standardmäßig muss für einen Eintrag ein Titel vergeben werden.
+%Die in Tabelle \ref{funktionen:typen} genannten Typen können durch hinzufügen von Feldern realisiert werden. Zum Beispiel wird eine Erinnerung durch hinzufügen eines Datums oder eines Ortes erstellt.
 
-\begin{figure}[H]
-    \centering
-    \includegraphics[width=0.4\textwidth]{images/beispiel-eintrag.png}
-    \caption{Funktionsweise-Eintrag}
-    \label{funktionen:Eintrag}
+%\begin{figure}[H]
+%    \centering
+%    \includegraphics[width=0.4\textwidth]{images/beispiel-eintrag.png}
+%    \caption{Funktionsweise-Eintrag}
+%    \label{funktionen:Eintrag}
+%
+%\end{figure}
 
-\end{figure}
+Der \enquote{Newsfeed} ist der Sammelpunkt, an dem jedem Benutzer alle Informationen angezeigt werden, die für ihn relevant sind. Er enthält:
 
-Die dadurch generierten Einträge werden bei jedem Nutzer in einem sogenannten News-Feed angezeigt.
-Dabei werden die Einträge nach Relevanz geordnet.
-Die Relevanz der Einträge kann dabei von der Zeit, der Wichtigkeit oder der Aktualität abhängen.
-Der Newsfeed wird automatisch von Norbert aktualisiert.
+\begin{enumerate}
+    \item Die Einträge des Benutzers.
+    \item Vorschläge, welche Einträge anderer Benutzer in die eigenen Einträge übernommen werden sollten.
+    \item Informationen aus externen Informationsquellen.
+\end{enumerate}
+
+Die Informationen werden innerhalb des Feeds nach Relevanz sortiert angezeigt. Die Relevanz kann dabei von der Wichtigkeit oder der Aktualität der Informationen abhängen. Der Newsfeed wird von Norbert automatisch aktuell gehalten.
 
 \newpage
 \section{Spezifische Funktionen}
-Im folgenden werden spezifische Funktionen welche in Gruppen zusammengefasst sind aufgelistet und beschrieben.
+Im Folgenden werden spezifische Funktionen aufgelistet und beschrieben:
+
 \begin{tabularx}{\textwidth}{|l|X|l|l|}
     \toprule
     \textbf{ID-Kürzel} & \textbf{Beschreibung} & \textbf{Prio} & \textbf{Abhängig von} \\
@@ -74,12 +79,20 @@ Im folgenden werden spezifische Funktionen welche in Gruppen zusammengefasst sin
     \multicolumn{4}{|l|}{F-00 Allgemein}\\
     \hline
     F-00.1 & Das Produkt ist eine Softwarelösung. & 1 & \\
-    F-00.2 & Mehrere Benutzer können auf die Software zugreifen ohne sie installieren zu müssen. & 1 & \\
-    F-00.3 & Die Software kann an Desktopgeräten und mobilen Geräten verwendet werden. & 1 & \\
-    F-00.4 & Es wird ein Server zum Austausch der Daten zwischen den Clients verwendet. & 1 & \\
-    F-00.5 & Eine Website kann als zum Aufruf der Daten verwendet werden und dient als User Interface. & 1 & F-00.4\\
-    F-00.6 & Eine Android-App wird als User Interface verwendet. & 3 & F-00.4\\
+    F-00.2 & Mehrere Benutzer können auf die Software zugreifen. & 1 & \\
+    F-00.3 & Die Daten werden auf einem zentralen Server gespeichert. & 1 & \\
+    F-00.4 & Eine Website kann     zum Aufrufen der Daten verwendet werden und dient als User Interface. & 1 & F-00.3 \\
+    F-00.5 & Eine Android-App kann zum Aufrufen der Daten verwendet werden und dient als User Interface. & 3 & F-00.3 \\
     \hline
+
+
+    % ----------------------------------------- Lesezeichen: Hier habe ich aufgehört! (Please do not remove!) ------------------------------------
+    % ToDo: Klassifizierung von Einträgen
+    % ToDo: Broadcast-Einträge: Werden auf jedem fall allen Kursteilnehmern angezeigt
+    % ToDo: 1 Installation pro Kurs
+    % ToDo: Webseite: Mobil und Desktop
+
+
     \multicolumn{4}{|l|}{F-10 Installation und Adminstration}\\
     \hline
     F-10.1 & Die Server-Software kann auf einem Server über einen Installer installiert werden. & 1 & F-00.4 \\
