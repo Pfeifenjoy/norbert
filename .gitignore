@@ -1,3 +1,5 @@
+# latexmk output directory
+output/
 
 # Created by https://www.gitignore.io/api/microsoftoffice,vim,latex,node
 
