@@ -7,27 +7,32 @@ In diesem Kapitel wird beschrieben, welche Daten für die Anwendung unserer Soft
 \begin{table}[H]
     \caption{Daten}
     \label{einleitung:kapitel}
-    \begin{tabularx}{\textwidth}{|l|X|}
+    \begin{tabularx}{\textwidth}{|l|X|l|}
         \toprule
-        \textbf{ID-Kürzel} & \textbf{Kapitel} \\
+        \textbf{ID-Kürzel} & \textbf{Kapitel} & \textbf{Priorität}\\
         \endhead
         \hline
-        D-10 & Nutzerspezifische Daten \\
-        D-10.1 & Benutzername \\
-        D-10.2 & E-Mail-Adresse \\
-        D-10.3 & DHBW-Kurskürzel\\
+        D-10 & Nutzerspezifische Daten & 1\\
+        D-10.1 & Name &1\\
+        D-10.2 & E-Mail-Adresse &1 \\       
         \hline
-        D-20 & Aufgabenbezogene Daten \\
-        D-20.1 & Aufgabenbeschreibung \\
-        D-20.2 & Zugewiesene Personen \\
-        D-20.3 & Fertigstellungsdatum \\
-        \hline        
-        D-30 & Erinnerungs- und Termindaten \\
+        D-20 & Eintragsbezogene Daten & 1\\
+        D-20.1 & Titel &1\\
+        D-20.2 & Beschreibung & 1\\
+        D-20.3 & Zugewiesene Personen & 1\\
+        D-20.4 & Erinnerung &1\\
+        D-20.5 & Link &1\\
+        D-20.6 & Anhang &1\\
+        D-20.7 & Aufgaben & 1\\
+        D-20.8 & Ort &  2\\
         \hline
-        D-40 & Externe Daten \\
-        D-40.1 & E-Mail-Verteiler \\
-        D-40.2 & Externe Webseiten \\
-        D-40.3 & Dokumente (Bsp. PDF)\\
+        D-40 & Externe Daten & 2\\
+        D-40.1 & E-Mail-Verteiler & 2\\
+        D-40.2 & Externe Webseiten & 3 \\
+        D-40.2.1 & Online Bibliothek & 3\\
+        D-40.3.2 & Dropbox & 3 \\
+        D-40.3.3 & Bahnverbindungen & 3\\
+        
         \hline
     \end{tabularx}
 \end{table}
