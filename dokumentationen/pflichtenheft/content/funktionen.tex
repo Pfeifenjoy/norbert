@@ -69,7 +69,7 @@ Im folgenden werden spezifische Funktionen welche in Gruppen zusammengefasst sin
     \midrule
     \endhead
     \hline
-    \caption{Functionen}
+    \caption{Funktionen}
     \endfoot
     \multicolumn{4}{|l|}{F-00 Allgemein}\\
     \hline
@@ -89,7 +89,8 @@ Im folgenden werden spezifische Funktionen welche in Gruppen zusammengefasst sin
     F-10.5 & Die Server Anwendung kann einem anderen Kurs übergeben werden. & 2 & F-00.4\\
     F-10.6 & Ein Administrator kann die Server-Anwendung verwalten. & 1 & F-00.4\\
     F-10.7 & Es können externe Dienste wie z.B. ein Kursverteiler als Datenquelle durch einen Adminstrator festgelegt werden. & 1 & F-10.6\\
-
+    F-10.8 & Es können Benutzer angelegt werden. & 1 &\\
+    F-10.9 & Ein Benutzer kann über einen Namen oder eine E-Mail Addresse identifiziert werden. & 1 &\\
     \hline
     \multicolumn{4}{|l|}{F-20 Einträge}\\
     \hline
@@ -98,12 +99,40 @@ Im folgenden werden spezifische Funktionen welche in Gruppen zusammengefasst sin
     F-20.3 & Ein Eintrag kann von einem anderen Benutzer kopiert werden. & 1 & \\
     F-20.4 & Ein Eintrag kann bearbeitet werden. & 1 & \\
     F-20.5 & Ein Eintrag kann mit einem anderen Benutzer geteilt werden. & 1 & \\
+    F-20.6 & Einträge können als privat markiert werden. & 2 &\\
+    F-20.7 & Einem Eintrag kann eine Kategorie zugewiesen werden. & 1 & \\
+    F-20.8 & An einen Eintrag können Dokumente angehängt werden. & 2 & \\
     \hline
-    \multicolumn{4}{|l|}{News-Feed}\\
+    \multicolumn{4}{|l|}{F-30 News-Feed}\\
     \hline
-    \multicolumn{4}{|l|}{Suche}\\
+    F-30.1 & Der Newsfeed wird automatisch aktualisiert. & 1 & \\
+    F-30.2 & Die Einträge werden nach Relevanz sortiert. & 1 & \\
+    F-30.3 & Der Benutzer kann Einträge aus seinem Newsfeed entfernent, hinzufügen. & 1 & \\
+    F-30.4 & Es werden auch Einträge von anderen Benutzern angezeigt. & 1 & \\
+    F-30.5 & Einträge von anderen Benutzern werden auf Basis von der eigenen Einträge gefiltert. Diese Funktion ist nicht immer eindeutig, weshalb auch interessante Einträge gefiltert werden können. & 1 & F-30.4\\
+    F-30.6 & Private Einträge werden nicht bei anderen Benutzern angezeigt. & 2 & F-20.6\\
     \hline
-    \multicolumn{4}{|l|}{Vorschläge}\\
+    \multicolumn{4}{|l|}{F-40 Suche}\\
+    \hline
+    F-40.1 & Einträge innerhalb des Newsfeeds können durchsucht werden. & 1 & F-30\\
+    F-40.2 & Es kann nach einer Kategorie gesucht werden. & 1 & F-20.7\\
+    F-40.3 & Es können Einträge anhand von Benutzernamen gesucht werden. & 1 & F-10.9\\
+    F-40.4 & Einträge können nach Schlüsselwörtern durchsucht werden. & 1 & \\
+    F-40.5 & Einträge können anhand eines Datums durchsucht werden. Es kann ein Zeitraum angegeben werden. & 2 & \\
+    F-40.6 & Zur Datums basierten suche können Alltagswörter wie z.B. \enquote{morgen}, \enquote{im Januar} verwendet werden. & 3 & F-40.5\\
+    F-40.7 & Die Einträge können Anhand von Dokumenten durchsucht werden. & 2 & F-20.8\\
+    \hline
+    \multicolumn{4}{|l|}{F-50 Externe Dienste}\\
+    F-50.1 & Der Administrator kann externe Dienste registrieren. & 1 & \\
+    F-50.2 & Es kann ein E-Mail Verteiler angegeben werden. & 1 & \\
+    F-50.3 & Es kann ein online Kalender (ical) angegeben werden. & 2 & \\
+    F-50.4 & Es kann eine Dropbox angegeben werden. & 2 & \\
+
+    \hline
+    \multicolumn{4}{|l|}{F-60 Vorschläge}\\
+    \hline 
+    F-60.1 & Dem Benutzer werden Vorschläge anhand von Einträgen anderer Nutzer angezeigt. & 1 & \\
+
     \hline
     \multicolumn{4}{|l|}{Erinnerungen}\\
     \hline
@@ -134,6 +163,7 @@ Im folgenden werden spezifische Funktionen welche in Gruppen zusammengefasst sin
     F-* & Todo's können privat sein. & & \\
 
     
+
 
     % Todo liste analysieren ob es andere gibt.
     % ToDo: Prozessdiagramm
