@@ -1,31 +1,46 @@
 %!TEX root = ../documentation.tex
 
 \chapter{Einsatzbereiche}
-\section{Norbert - Wie kommt er in das Leben eines Studierenden?}
 Norbert - Your StudyBuddy ist eine Anwendung zum Optimieren des Studienalltags. Doch wie werden die Studierenden darauf aufmerksam?
-Um Norbert bekannt zu machen und die Vorteile der Software zu verbreiten, existieren verschiedene Strategien, die in den nächsten Unterkapiteln vorgestellt werden. Spätestens ab dem ersten Studientag kann der Studierende über die Kurskennung einem virtuellen Kurs beitreten, sich mit anderen Studierenden vernetzen und aktiv Wissensmanagement und Zeitmanagement betreiben.
+Ziel ist es dass die Studenten aus eigener Motivation Norbert benutzen. Dazu muss ein Student in dem jeweiligen Kurs Norbert auf einem Server installieren und einrichten.
+Dabei soll die Installation möglichst einfach gestaltet werden.
+Vorteil einer Kurs spezifischen Installation ist die spezialisierung der Software. Es können externe Dienste angegeben werden welche für jeden Kurs unterschiedlich sind. Damit wird z.B. ermöglicht, dass verschiedene Kurse unterschiedliche Mail-Verteiler besitzen können.
 
-Die verschiedenen Verbreitungs- und Hostingstrategien, die in den folgenden Unterkapitel vorgestellt werden, lassen sich parallel anwenden. Die einzelnen Instanzen können - wenn gewünscht - dann miteinander  verbunden werden, um Wissen und Aufgaben besser auszutauschen. Außerdem hat jeder Hoster die Möglichkeit nach einer Einführungs- und Verbreitungsphase Werbung auf der Anwendung zu schalten.
+\begin{tabularx}{\textwidth}{|l|X|l|l|}
+    \toprule
+    \textbf{ID-Kürzel} & \textbf{Beschreibung} & \textbf{Prio} & \textbf{Abhägig von}\\
+    \midrule
+    \endhead
+    \hline
+    \caption{Einsatzbereiche}
+    \label{Einsatzbereiche:tabelle}
+    \endfoot
+    E-00 & Die Software wird innerhalb eines einzelnen Kurses an der DHBW verwendet. & 1 & \\
+    E-10 & Die Software wird zum verwalten von Dokumenten verwendet. & 2 & \\
+    E-20 & Mit Hilfe der Software können Aufgaben geplant werden. & 1 & \\
+    E-30 & Die Software wird zum Verteilen von Wissen in Form von Dokumenten oder Aufgaben verwendet. & 1 & \\
+    E-40 & Die Software dient zur Aufbearbeitung wichtiger Informationen aus externen Diensten, wie z.B. einem E-Mail Verteiler oder einer Dropbox. Dadurch können Informationen dieser Dienste in einer Einheitlichen Anwendung abgerufen werden. & 2 & \\
+\end{tabularx}
 
-\subsection{Kurssprecher / Freiwillige Studierende}
-Aufmerksamkeit auf die Anwendung kann durch die Partnerunternehmen, die DHBW oder durch die Studierendenvertretung erzeugt werden. Da diese Einrichtungen aber nicht immer schnell und flexibel sind, bietet unsere Softwarelösung die Möglichkeit von einen Studierenden des Kurses selbst gehostet zu werden. Dadurch kann die Software schnell und unabhängig von Unternehmen und staatlichen Einrichtungen verbreitet werden. 
+%\subsection{Kurssprecher / Freiwillige Studierende}
+%Aufmerksamkeit auf die Anwendung kann durch die Partnerunternehmen, die DHBW oder durch die Studierendenvertretung erzeugt werden. Da diese Einrichtungen aber nicht immer schnell und flexibel sind, bietet unsere Softwarelösung die Möglichkeit von einen Studierenden des Kurses selbst gehostet zu werden. Dadurch kann die Software schnell und unabhängig von Unternehmen und staatlichen Einrichtungen verbreitet werden. 
 
-\subsection{Das duale Partnerunternehmen}
-Die dualen Partnerunternehmen sind meistens die ersten Anlaufstellen der Studierenden. Im Vorpraktikum wird  - soweit möglich - bei Studierenden in höheren Semestern nachgefragt, auf welche Aspekte man in den ersten Semestern den Fokus legen sollte. Doch meistens gestaltet sich dies nicht immer als einfach, denn der Austausch von Dokumenten oder speziellen ToDo's im neuen Semester, haben sich auch die Studierenden der höheren Semester nicht mehr behalten. An diesen Punkten setzt Norbert ein: Das Partnerunternehmen macht auf die Anwendung aufmerksam. Darüber werden zentral alle wichtigen Informationen weitergeben. Zudem könnten die Partnerunternehmen als mögliche Anbieter (Hosting) der Anwendung in Frage kommen und würden somit die Verwaltung der Anwendung übernehmen.
+%\subsection{Das duale Partnerunternehmen}
+%Die dualen Partnerunternehmen sind meistens die ersten Anlaufstellen der Studierenden. Im Vorpraktikum wird  - soweit möglich - bei Studierenden in höheren Semestern nachgefragt, auf welche Aspekte man in den ersten Semestern den Fokus legen sollte. Doch meistens gestaltet sich dies nicht immer als einfach, denn der Austausch von Dokumenten oder speziellen ToDo's im neuen Semester, haben sich auch die Studierenden der höheren Semester nicht mehr behalten. An diesen Punkten setzt Norbert ein: Das Partnerunternehmen macht auf die Anwendung aufmerksam. Darüber werden zentral alle wichtigen Informationen weitergeben. Zudem könnten die Partnerunternehmen als mögliche Anbieter (Hosting) der Anwendung in Frage kommen und würden somit die Verwaltung der Anwendung übernehmen.
+%
+%\textit{Warum sollte eine Firma die Anwendung auf eigene Kosten hosten?}
+%
+%Gerade in den ersten Semestern wird das Lernpensum gerne unterschätzt, Aufgaben vergessen, Termine und Fristen nicht eingehalten. Dies führt häufig dazu, dass bereits nach dem ersten Semester bis zu 50\% der dualen Studierenden ihr Studium abbrechen müssen und das Partnerunternehmen verlassen. Das investierte Geld der Unternehmen und wichtige zukünftige Mitarbeiter sind damit verloren. Durch die Anbietung unserer Softwarelösung besteht die Möglichkeit, dass die Exmatrikulationsquoten verringert werden und mehr dual Studierende ihr Studium erfolgreich bestehen.
 
-\textit{Warum sollte eine Firma die Anwendung auf eigene Kosten hosten?}
-
-Gerade in den ersten Semestern wird das Lernpensum gerne unterschätzt, Aufgaben vergessen, Termine und Fristen nicht eingehalten. Dies führt häufig dazu, dass bereits nach dem ersten Semester bis zu 50\% der dualen Studierenden ihr Studium abbrechen müssen und das Partnerunternehmen verlassen. Das investierte Geld der Unternehmen und wichtige zukünftige Mitarbeiter sind damit verloren.
-
-\subsection{Die Duale Hochschule \& Studienvertretung}
-Die Duale Hochschule könnte wie die Partnerunternehmen als Anbieter (Hosting) der Anwendung in Frage kommen. Durch die Vermarktung der Software auf der DHBW-Webseite oder bei Studieninformationstagen kann bereits früh auf die neue Software aufmerksam gemacht werden. Außerdem können über diese Anwendung wichtige DHBW-Pressemitteilungen schnell und kostengünstig verbreitet werden. Nicht zu verachten ist auch, dass die Möglichkeit besteht, dass die Durchfallquoten der DHBW sinken und dadurch mehr Partnerunternehmen, besser Zuschüsse und ein allgemein höheres Ansehen erzeugt werden kann.
-
-Die Studienvertretung kann ähnlich wie die DHBW über die Anwendung über Tagungen, Wahlen, Mitteilungen und Kneipentouren informieren und kommt als potentieller Anbieter in Frage.
+%\subsection{Die Duale Hochschule \& Studienvertretung}
+%Die Duale Hochschule könnte wie die Partnerunternehmen als Anbieter (Hosting) der Anwendung in Frage kommen. Durch die Vermarktung der Software auf der DHBW-Webseite oder bei Studieninformationstagen kann bereits früh auf die neue Software aufmerksam gemacht werden. Außerdem können über diese Anwendung wichtige DHBW-Pressemitteilungen schnell und kostengünstig verbreitet werden. Nicht zu verachten ist auch, dass die Möglichkeit besteht, dass die Durchfallquoten der DHBW sinken und dadurch mehr Partnerunternehmen, besser Zuschüsse und ein allgemein höheres Ansehen erzeugt werden kann.
+%
+%Die Studienvertretung kann ähnlich wie die DHBW über die Anwendung über Tagungen, Wahlen, Mitteilungen und Kneipentouren informieren und kommt als potentieller Anbieter in Frage.
 
 \section{Norbert - Welchen Vorteil bietet er?}
 Norbert hilft den Studierenden den Studienalltag besser zu organisieren. Insbesondere hilft Nobert - Your StudyBuddy in folgenden Aspekten:
 \begin{enumerate}
-	\item Wissensmanagement: Er erinnert die Studierenden an wichtige Termine und lässt sie keine Information mehr vergessen
+	\item Wissensmanagement: Er erinnert die Studierenden an wichtige Termine und lässt sie keine Information mehr vergessen.
 	\item Wissensweitergabe: Durch die Möglichkeit Aufgaben, Dokumente und Informationen automatisch an Studienkollegen weiterzugeben, kann jeder Studierende selbst aktiv dafür sorgen, dass jeder immer und überall top informiert ist.
 	\item Zeitmanagement: Durch die bessere und einfachere Planung des Alltags hat der Student mehr Zeit für Kneipentouren und Partys.	
 \end{enumerate}
@@ -38,8 +53,9 @@ Die folgende Abbildung verdeutlicht welche Informationen, Termine und Aufgaben d
 	\begin{figure}[H]
 	\centering
 	\includegraphics[scale=0.75]{images/timeline.pdf}
+	\caption{Lebenslauf eines dual Studierenden mit Norbert - Your StudyBuddy}
 	\end{figure}
-
+	
 \end{landscape}
 \newpage
 
@@ -49,4 +65,4 @@ Die folgende Abbildung verdeutlicht welche Informationen, Termine und Aufgaben d
 Ein Erstsemester-Studierender verfügt nur über relativ wenig Wissen, welche Aufgaben und Informationen er zum erfolgreichen Absolvieren des Studiums benötigt. Durch die Vorpraktikumsphase in den Partnerunternehmen werden zwar bereits einige Informationen vorab ausgetauscht, doch oftmals sind diese nicht sehr präzise und geraten schnell in Vergessenheit. Wichtige Termine und Fristen werden zu spät wahrgenommen oder sogar versäumt. Die Vielzahl an Aufgaben in den ersten Semestern überfordern viele Studierende schnell. Zudem fehlen ihm oft die richtigen Informationen zu Beginn des Studiums. Nutzt der Studierende Norbert - Your StudyBuddy bereits zu Beginn des erstem Semesters - oder sogar im Vorpraktikum - bekommt er  das nötige Wissen zum Studium und zur DHBW mitgeteilt. Weiterhin bekommt er sinnvolle Aufgaben und Termine aus vorherigen Jahrgängen vorgeschlagen und kann sich an ToDo's der Studienkollegen orientieren. Somit findet eine Wissensweitergabe statt. Durch dieses optimierte Wissens- und Aufgabenmanagement, welche speziell auf duale Studierende abgestimmt ist, hat der Studierende mehr Freizeit, die er für Hobbys, Kneipentouren und Partys nutzen kann.
 
 \subsection{Erfahrene Studierende}
-Studierende in den höheren Semestern nutzen die Anwendung nicht mehr hauptsächlich, um einfach nur Informationen zu erhalten, sondern können über die Anwendung Aufgaben und Projekte verwalten. Außerdem geben sie Wissen an Erstsemester-Studierenden weiter. Somit profitieren die neuen Studierenden von den Erfahrungen  der vorherigen Semestern. Dabei geht die Wissensweitergabe automatisiert vonstatten, sodass niemand zusätzlich Termine und Aufgaben für andere Studierende erstellen muss. Die Integration von verschiedenen häufig genutzten Diensten ermöglicht Informationen in einer Anwendung zu bündeln und auf einen Blick darzustellen. Durch einen optimierten und strukturierten Studienalltag hat der erfahrene Studierende mehr Zeit zum bearbeiten von Projekten, Studienarbeiten und kann sich besser auf Prüfungen vorbereiten.
+Studierende in den höheren Semestern nutzen die Anwendung nicht mehr hauptsächlich, um einfach nur Informationen zu erhalten, sondern können über die Anwendung Aufgaben und Projekte verwalten. Außerdem geben sie Wissen an Erstsemester-Studierenden weiter. Somit profitieren die neuen Studierenden von den Erfahrungen  der vorherigen Semestern. Dabei geht die Wissensweitergabe automatisiert vonstatten, sodass niemand zusätzlich Termine und Aufgaben für andere Studierende erstellen muss. Die Integration von verschiedenen häufig genutzten Diensten ermöglicht Informationen in einer Anwendung zu bündeln und auf einen Blick darzustellen. Durch einen optimierten und strukturierten Studienalltag hat der erfahrene Studierende mehr Zeit zum Bearbeiten von Projekten, Studienarbeiten und kann sich besser auf Prüfungen vorbereiten.
