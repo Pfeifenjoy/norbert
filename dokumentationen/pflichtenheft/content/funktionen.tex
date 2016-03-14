@@ -112,7 +112,7 @@ Im Folgenden werden spezifische Funktionen aufgelistet und beschrieben:
     \hline
     F-30.1 & Der Newsfeed zeigt die Einträge des aktuellen Benutzers an. & 1 & \\
     F-30.2 & Der Newsfeed zeigt Informationen aus externen Informationsquellen an. (Siehe F-50) & 2 & \\
-    F-30.3 & Der Newsfeed zeigt Einträge anderer Benutzer als Vorschläge an, zu den eigenen Einträgen hinzugefügt werden können. & 1 & \\
+    F-30.3 & Der Newsfeed zeigt Einträge anderer Benutzer als Vorschläge an, die zu den eigenen Einträgen hinzugefügt werden können. & 1 & \\
     F-30.3.1 & Die Auswahl der angezeigten Vorschläge erfolgt aufgrund einer Prognose der Software, wie relevant diese Einträge für den Benutzer sein könnten. Die Prognose wird auf Basis der vorhandenen Einträge des Benutzers getroffen. & 1 & \\
     F-30.4 & Alle Informationen im Newsfeed werden in einer Liste nach Relevanz sortiert angezeigt. & 1 & \\
     F-30.5 & Private Einträge werden nicht bei anderen Benutzern angezeigt. & 3 & F-20.7 \\
@@ -123,7 +123,6 @@ Im Folgenden werden spezifische Funktionen aufgelistet und beschrieben:
     
     % ----------------------------------------- Lesezeichen: Hier habe ich aufgehört! (Please do not remove!) ------------------------------------
     % ToDo: Klassifizierung von Einträgen
-    % ToDo: Broadcast-Einträge: Werden auf jedem fall allen Kursteilnehmern angezeigt
     % ToDo: 1 Installation pro Kurs
     % ToDo: Webseite: Mobil und Desktop
     % ToDo: Nutzerregistrierungsprozess
@@ -133,43 +132,46 @@ Im Folgenden werden spezifische Funktionen aufgelistet und beschrieben:
 
 
     \hline
-    F-40.1 & Einträge innerhalb des Newsfeeds können durchsucht werden. & 1 & F-30\\
-    F-40.2 & Es kann nach einer Kategorie gesucht werden. & 1 & F-20.7\\
-    F-40.3 & Es können Einträge anhand von Benutzernamen gesucht werden. & 1 & F-10.9\\
-    F-40.4 & Einträge können nach Schlüsselwörtern durchsucht werden. & 1 & \\
-    F-40.5 & Einträge können anhand eines Datums durchsucht werden. Es kann ein Zeitraum angegeben werden. & 2 & \\
-    F-40.6 & Zur Datums basierten suche können Alltagswörter wie z.B. \enquote{morgen}, \enquote{im Januar} verwendet werden. & 3 & F-40.5\\
-    F-40.7 & Die Einträge können Anhand von Dokumenten durchsucht werden. & 2 & F-20.8\\
+    F-40.1 & Einträge können durchsucht werden. & 1 & F-30\\
+    F-40.1.1 & Es werden sowohl die Informationen in den Komponenten der Einträge als auch die angehängten Dokumente durchsucht. & 2 & \\
+    F-40.2 & Es können Schlüsselwörter als Suchkriterium verwendet werden. & 1 &\\
+    F-40.2 & Es können Tags als Suchkriterium verwendet werden. & 1 & F-20.7\\
+    F-40.3 & Es können Benutzernamen als Suchkriterium verwendet werden. & 1 & F-10.9\\
+    F-40.5 & Es kann ein Datum oder eine Zeitspanne als Suchkriterium verwendet werden. & 2 & \\
+    F-40.5.1 & Zur Angabe von Zeitpunkten können umgangssprachliche Wörter wie \enquote{morgen} oder \enquote{im Januar} verwendet werden. & 3 & F-40.5\\
     \hline
     \multicolumn{4}{|l|}{F-50 Externe Dienste}\\
     \hline
-    F-50.1 & Der Administrator kann externe Dienste registrieren, welche als Datenbasis zum Vorschlagen von Einträgen dienen. & 1 & \\
-    F-50.2 & Es kann ein E-Mail Verteiler angegeben werden. & 1 & \\
-    F-50.3 & Es kann ein online Kalender (ical) angegeben werden. & 2 & \\
+    F-50.1 & Der Administrator kann externe Dienste konfigurieren, welche als Datenbasis zum Vorschlagen von Einträgen dienen. & 1 & \\
+    F-50.2 & Es kann ein E-Mail Postfach angegeben werden, das die Emails aus dem Email-Verteiler des Kurses empfängt. & 1 & \\
+    F-50.3 & Es kann ein Online-Kalender im *.ical-Format angegeben werden. & 2 & \\
     F-50.4 & Es kann eine Dropbox angegeben werden. & 2 & \\
     F-50.5 & Es kann Google Drive angegeben werden. & 3 & \\
     F-50.7 & Es kann ein ftp-Server angegeben werden. & 3 & \\
     F-50.8 & Es kann der DHBW-Mannheim Mensa Plan angegeben werden. & 3 & \\
+    F-50.9 & Es kann eine Moodle-Instanz angegeben werden.&3&\\
     \hline
     \multicolumn{4}{|l|}{F-50.A Datenanalyse Externe Dienste}\\
     \hline
-    F-50.A.1 & Externe Dienste werden nach Daten durchsucht aus denen neue Einträge für die Benutzer generiert werden. & 1 & \\
-    F-50.A.2 & Externe Dienste werden nach einem Datum durchsucht, wodurch Einträge generiert werden welche anhand des Datums in den Newsfeed eingebettet werden können. & 1 & \\
-    F-50.A.3 & Externe Dienste werden nach Links (Url) durchsucht. Dadraus wird ein Eintrag generiert der dem Benutzer diese als nützlichen Link vorschlägt. & 1 & \\
-    F-50.A.4 & Externe Dienste werden nach Dokumenten untersucht, welche im Newsfeed dem Benutzer zum download angeboten werden. & 2 & \\
-    F-50.A.5 & Externe Dienste werden nach User namen / E-Mail Addressen durchsucht, wodurch gezielte Eintragsvorschläge für einen Benutzer generiert werden. & 2 & F-10.9 \\
+    F-50.A.1 & Externe Dienste werden nach Daten durchsucht aus denen neue Einträge für die Benutzer erzeugt werden können. Es werdem dem Benutzer Vorschläge im NewsFeed angezeigt, entsprechende Einträge zu erstellen. & 1 & \\
+    F-50.A.2 & Externe Dienste werden nach einem Datum durchsucht, wodurch Einträge generiert werden, welche anhand des Datums in den Newsfeed eingebettet werden können. & 1 & \\
+    F-50.A.3 & Externe Dienste werden nach Links durchsucht. Dadraus wird ein Eintrag generiert, der dem Benutzer diese als nützlichen Link vorschlägt. & 1 & \\
+    F-50.A.4 & Externe Dienste werden nach Dokumenten untersucht, welche dem Benutzer im Newsfeed zum Herunterladen angeboten werden. & 2 & \\
+    F-50.A.5 & Externe Dienste werden nach Namen und E-Mail-Adressen von Benutzern durchsucht, wodurch gezielte Eintragsvorschläge für einen Benutzer generiert werden. & 2 & F-10.9 \\
     F-50.A.6 & Externe Dienste werden nach Ortsnamen durchsucht, wodurch ein Link zu Google maps in einem Eintrag generiert wird. & 3 & \\
     \hline
     \multicolumn{4}{|l|}{F-60 Vorschläge}\\
     \hline 
-    F-60.1 & Dem Benutzer werden Vorschläge anhand von Einträgen anderer Nutzer angezeigt. & 1 & \\
+    F-60.1 & Dem Benutzer werden Vorschläge anhand der Einträgen anderer Nutzer angezeigt. & 1 & \\
     F-60.2 & Dem Benutzer werden Vorschläge für Einträge anhand von externen Diensten angezeigt. & 1 & F-50 \\
-    F-60.3 & Ein Benutzer kann gefragt werden ob aus den von Norbert analysierten Daten ein Eintrag angelegt werden soll. Dabei steht die Wahlfreiheit bei dem Benutzer. & 2 & \\
-    F-60.4 & Im Falle einer Allgemeinen Frage, wie z.B. der Bestätigung eines Klausurtermins kann ein einzelner Benutzer die Frage für alle Benutzer beantworten. & 2 & F-60.2 \\
-    F-60.5 & Einträge werden klassifiziert und bilden somit Abhängigkeiten von einander. Anhand dieser Abhängigkeiten werden einem Nutzer Vorschläge gemacht welche Einträge ihn interessieren könnten. & 2 & \\
-    F-60.6 & Einträge werden anhand von Tags klassifiziert. & 1 & F-60.5, F-20.7\\
+    F-60.3 & Ein Vorschlag kann abgelehnt werden. Er verschwindet dann aus dem Newsfeed des Benutzers. & 1 & \\
+    F-60.3 & Ein Vorschlag kann angenommen werden. Es wird dann ein Eintrag basierend auf dem Vorschlag angezeigt. & 1 & \\
     \hline
-    \multicolumn{4}{|l|}{Erinnerungen}\\
+    \multicolumn{4}{|l|}{F-70 Erinnerungen}\\
+    F-70.1 & Einträgen kann die Komponente \enquote{Erinnerung} hinzugefügt werden. & 2 & F-Comp-10 \\
+    F-70.2 & Bei diesen Einträgen kann ein Zeitpunkt festgelegt werden. & 2 & F-70.1 \\
+    F-70.3 & Wenn der eingegebene Zeitpunkt erreicht ist, wird der Eintrag im Newsfeed ganz oben angezeigt. & 2 & F-70.2 \\
+    F-70.4 & Wenn der eingegebene Zeitpunkt erreicht ist, wird der Benutzer mittels einer Push-Benachrichtigung erinnert. & 3 & F-70.2 \\
     \hline
 
 %    F-10 & Die Software dient als persönlicher Assistent während des Studiums. & & \\
