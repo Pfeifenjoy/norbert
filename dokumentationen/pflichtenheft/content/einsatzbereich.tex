@@ -1,16 +1,29 @@
 %!TEX root = ../documentation.tex
 
 \chapter{Einsatzbereiche}
-\section{Norbert - Wie kommt er in das Leben eines Studierenden?}
 Norbert - Your StudyBuddy ist eine Anwendung zum Optimieren des Studienalltags. Doch wie werden die Studierenden darauf aufmerksam?
 Ziel ist es dass die Studenten aus eigener Motivation Norbert benutzen. Dazu muss ein Student in dem jeweiligen Kurs Norbert auf einem Server installieren und einrichten.
+Dabei soll die Installation möglichst einfach gestaltet werden.
+Vorteil einer Kurs spezifischen Installation ist die spezialisierung der Software. Es können externe Dienste angegeben werden welche für jeden Kurs unterschiedlich sind. Damit wird z.B. ermöglicht, dass verschiedene Kurse unterschiedliche Mail-Verteiler besitzen können.
 
-Um Norbert bekannt zu machen und die Vorteile der Software zu verbreiten, existieren verschiedene Strategien, die in den nächsten Unterkapiteln vorgestellt werden. Spätestens ab dem ersten Studientag soll der Studierende über die Kurskennung einem virtuellen Kurs beitreten können, sich mit anderen Studierenden vernetzen und aktiv Wissensmanagement und Zeitmanagement betreiben können.
+\begin{tabularx}{\textwidth}{|l|X|l|l|}
+    \toprule
+    \textbf{ID-Kürzel} & \textbf{Beschreibung} & \textbf{Prio} & \textbf{Abhägig von}\\
+    \midrule
+    \endhead
+    \hline
+    \caption{Einsatzbereiche}
+    \label{Einsatzbereiche:tabelle}
+    \endfoot
+    E-00 & Die Software wird innerhalb eines einzelnen Kurses an der DHBW verwendet. & 1 & \\
+    E-10 & Die Software wird zum verwalten von Dokumenten verwendet. & 2 & \\
+    E-20 & Mit Hilfe der Software können Aufgaben geplant werden. & 1 & \\
+    E-30 & Die Software wird zum Verteilen von Wissen in Form von Dokumenten oder Aufgaben verwendet. & 1 & \\
+    E-40 & Die Software dient zur Aufbearbeitung wichtiger Informationen aus externen Diensten, wie z.B. einem E-Mail Verteiler oder einer Dropbox. Dadurch können Informationen dieser Dienste in einer Einheitlichen Anwendung abgerufen werden. & 2 & \\
+\end{tabularx}
 
-Die verschiedenen Verbreitungs- und Hostingstrategien, die in den folgenden Unterkapitel vorgestellt werden, lassen sich parallel anwenden. Die einzelnen Instanzen können - wenn gewünscht - dann miteinander  verbunden werden, um Wissen und Aufgaben besser auszutauschen. Außerdem hat jeder Hoster die Möglichkeit nach einer Einführungs- und Verbreitungsphase Werbung auf der Anwendung zu schalten.
-
-\subsection{Kurssprecher / Freiwillige Studierende}
-Aufmerksamkeit auf die Anwendung kann durch die Partnerunternehmen, die DHBW oder durch die Studierendenvertretung erzeugt werden. Da diese Einrichtungen aber nicht immer schnell und flexibel sind, bietet unsere Softwarelösung die Möglichkeit von einen Studierenden des Kurses selbst gehostet zu werden. Dadurch kann die Software schnell und unabhängig von Unternehmen und staatlichen Einrichtungen verbreitet werden. 
+%\subsection{Kurssprecher / Freiwillige Studierende}
+%Aufmerksamkeit auf die Anwendung kann durch die Partnerunternehmen, die DHBW oder durch die Studierendenvertretung erzeugt werden. Da diese Einrichtungen aber nicht immer schnell und flexibel sind, bietet unsere Softwarelösung die Möglichkeit von einen Studierenden des Kurses selbst gehostet zu werden. Dadurch kann die Software schnell und unabhängig von Unternehmen und staatlichen Einrichtungen verbreitet werden. 
 
 %\subsection{Das duale Partnerunternehmen}
 %Die dualen Partnerunternehmen sind meistens die ersten Anlaufstellen der Studierenden. Im Vorpraktikum wird  - soweit möglich - bei Studierenden in höheren Semestern nachgefragt, auf welche Aspekte man in den ersten Semestern den Fokus legen sollte. Doch meistens gestaltet sich dies nicht immer als einfach, denn der Austausch von Dokumenten oder speziellen ToDo's im neuen Semester, haben sich auch die Studierenden der höheren Semester nicht mehr behalten. An diesen Punkten setzt Norbert ein: Das Partnerunternehmen macht auf die Anwendung aufmerksam. Darüber werden zentral alle wichtigen Informationen weitergeben. Zudem könnten die Partnerunternehmen als mögliche Anbieter (Hosting) der Anwendung in Frage kommen und würden somit die Verwaltung der Anwendung übernehmen.
@@ -19,10 +32,10 @@ Aufmerksamkeit auf die Anwendung kann durch die Partnerunternehmen, die DHBW ode
 %
 %Gerade in den ersten Semestern wird das Lernpensum gerne unterschätzt, Aufgaben vergessen, Termine und Fristen nicht eingehalten. Dies führt häufig dazu, dass bereits nach dem ersten Semester bis zu 50\% der dualen Studierenden ihr Studium abbrechen müssen und das Partnerunternehmen verlassen. Das investierte Geld der Unternehmen und wichtige zukünftige Mitarbeiter sind damit verloren. Durch die Anbietung unserer Softwarelösung besteht die Möglichkeit, dass die Exmatrikulationsquoten verringert werden und mehr dual Studierende ihr Studium erfolgreich bestehen.
 
-\subsection{Die Duale Hochschule \& Studienvertretung}
-Die Duale Hochschule könnte wie die Partnerunternehmen als Anbieter (Hosting) der Anwendung in Frage kommen. Durch die Vermarktung der Software auf der DHBW-Webseite oder bei Studieninformationstagen kann bereits früh auf die neue Software aufmerksam gemacht werden. Außerdem können über diese Anwendung wichtige DHBW-Pressemitteilungen schnell und kostengünstig verbreitet werden. Nicht zu verachten ist auch, dass die Möglichkeit besteht, dass die Durchfallquoten der DHBW sinken und dadurch mehr Partnerunternehmen, besser Zuschüsse und ein allgemein höheres Ansehen erzeugt werden kann.
-
-Die Studienvertretung kann ähnlich wie die DHBW über die Anwendung über Tagungen, Wahlen, Mitteilungen und Kneipentouren informieren und kommt als potentieller Anbieter in Frage.
+%\subsection{Die Duale Hochschule \& Studienvertretung}
+%Die Duale Hochschule könnte wie die Partnerunternehmen als Anbieter (Hosting) der Anwendung in Frage kommen. Durch die Vermarktung der Software auf der DHBW-Webseite oder bei Studieninformationstagen kann bereits früh auf die neue Software aufmerksam gemacht werden. Außerdem können über diese Anwendung wichtige DHBW-Pressemitteilungen schnell und kostengünstig verbreitet werden. Nicht zu verachten ist auch, dass die Möglichkeit besteht, dass die Durchfallquoten der DHBW sinken und dadurch mehr Partnerunternehmen, besser Zuschüsse und ein allgemein höheres Ansehen erzeugt werden kann.
+%
+%Die Studienvertretung kann ähnlich wie die DHBW über die Anwendung über Tagungen, Wahlen, Mitteilungen und Kneipentouren informieren und kommt als potentieller Anbieter in Frage.
 
 \section{Norbert - Welchen Vorteil bietet er?}
 Norbert hilft den Studierenden den Studienalltag besser zu organisieren. Insbesondere hilft Nobert - Your StudyBuddy in folgenden Aspekten:
