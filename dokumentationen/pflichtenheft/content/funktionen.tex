@@ -86,46 +86,52 @@ Im Folgenden werden spezifische Funktionen aufgelistet und beschrieben:
     \hline
 
 
+    \multicolumn{4}{|l|}{F-10 Installation und Adminstration}\\
+    \hline
+    F-10.1 & Die Server-Software kann mithilfe eines Installations-Skripts installiert werden. & 2 & F-00.4 \\
+    F-10.2   & Ein Administrator kann die Server-Anwendung verwalten. & 1 & F-00.4\\
+    F-10.2.1 & Es können Benutzer angelegt werden. & 1 & F-10.2 \\
+    F-10.2.2 & Es können Benutzer gelöscht werden. & 1 & F-10.2 \\
+    F-10.2.3 & Es können externe Dienste konfiguriert werden. (Siehe: F-50)& 2 & F-10.2 \\
+    F-10.2.4 & Die gesammelten Daten können exportiert und importiert werden. & 2 & F-10.2 \\
+    F-10.3 & Die Android-App kann aus dem Google Play Store heruntergeladen werden. & 3 & F-00.5\\
+    \hline
+    \multicolumn{4}{|l|}{F-20 Einträge}\\
+    \hline
+    F-20.1 & Ein Eintrag kann erstellt werden. & 1 & \\
+    F-20.2 & Ein Eintrag kann gelöscht werden. & 1 & \\
+    F-20.3   & Ein Eintrag kann bearbeitet werden. & 1 & \\
+    F-20.3.1 & Komponenten können hinzugefügt, editiert und entfernt werden. & 1 & \\
+    F-20.4 & Einträge anderer Benutzer können in die eigenen Einträge übernommen werden. & 1 & \\
+    F-20.5 & Ein Eintrag kann mit anderen Benutzern geteilt werden. & 1 & \\
+    F-20.6 & Einem Eintrag können mehrere Tags zugewiesen werden, die als Kategorien fungieren. & 1 & \\
+    F-20.7 & Einträge können als privat markiert werden.            Solche Einträge werden anderen Nutzern nicht angezeigt. & 3 & \\
+    F-20.8 & Einträge können als broadcast-Eintrag markiert werden. Solche Einträge werden allen Nutzern angezeigt. & 3 & \\
+    \hline
+    \multicolumn{4}{|l|}{F-30 Newsfeed}\\
+    \hline
+    F-30.1 & Der Newsfeed zeigt die Einträge des aktuellen Benutzers an. & 1 & \\
+    F-30.2 & Der Newsfeed zeigt Informationen aus externen Informationsquellen an. (Siehe F-50) & 2 & \\
+    F-30.3 & Der Newsfeed zeigt Einträge anderer Benutzer als Vorschläge an, zu den eigenen Einträgen hinzugefügt werden können. & 1 & \\
+    F-30.3.1 & Die Auswahl der angezeigten Vorschläge erfolgt aufgrund einer Prognose der Software, wie relevant diese Einträge für den Benutzer sein könnten. Die Prognose wird auf Basis der vorhandenen Einträge des Benutzers getroffen. & 1 & \\
+    F-30.4 & Alle Informationen im Newsfeed werden in einer Liste nach Relevanz sortiert angezeigt. & 1 & \\
+    F-30.5 & Private Einträge werden nicht bei anderen Benutzern angezeigt. & 3 & F-20.7 \\
+    F-30.6 & Broadcast-Einträge werden bei allen Nutzern angezeigt. & 3 & F-20.8 \\
+    \hline
+    \multicolumn{4}{|l|}{F-40 Suche}\\
+
+    
     % ----------------------------------------- Lesezeichen: Hier habe ich aufgehört! (Please do not remove!) ------------------------------------
     % ToDo: Klassifizierung von Einträgen
     % ToDo: Broadcast-Einträge: Werden auf jedem fall allen Kursteilnehmern angezeigt
     % ToDo: 1 Installation pro Kurs
     % ToDo: Webseite: Mobil und Desktop
+    % ToDo: Nutzerregistrierungsprozess
+    % ToDo: Nichtfunktionale Requirements
+    %           - Sicherheit
+    %           - Performance
 
 
-    \multicolumn{4}{|l|}{F-10 Installation und Adminstration}\\
-    \hline
-    F-10.1 & Die Server-Software kann durch einen Studenten installiert und eingerichtet werden. & 1 & F-00.3 \\
-    %F-10.2 & Es wird eine Anleitung in Form einer README-Datei erstellt, welche den Installationsprozess dokumentiert. & 1 & F-10.1\\
-    F-10.3 & Die Android-App kann aus dem Google-Play Store herunter geladen und installiert werden. & 3 & F-00.6\\
-    F-10.4 & Die gesammelten Daten der Anwendung können exportiert und importiert werden. & 3 & F-00.3\\
-    %F-10.5 & Die Daten (Dokumente) der Server Anwendung können an einem anderen Kurs übergeben werden. & 3 & F-00.3\\
-    F-10.6 & Ein Administrator kann die Server-Anwendung verwalten. & 1 & F-00.3\\
-    F-10.7 & Es können externe Dienste wie z.B. ein Kursverteiler als Datenquelle durch einen Adminstrator festgelegt werden. & 1 & F-10.6\\
-    F-10.8 & Es können Benutzer angelegt und verwaltet werden. & 1 &\\
-    F-10.9 & Ein Benutzer kann über einen Namen oder eine E-Mail Addresse identifiziert werden. & 1 &\\
-    \hline
-    \multicolumn{4}{|l|}{F-20 Einträge}\\
-    \hline
-    F-20.1 & Ein Eintrag kann von jedem Benutzer erstellt werden. & 1 & \\
-    F-20.2 & Ein Eintrag kann gelöscht werden. & 1 & \\
-    F-20.3 & Ein Eintrag kann von einem anderen Benutzer kopiert werden. & 1 & \\
-    F-20.4 & Ein Eintrag kann bearbeitet werden. & 1 & \\
-    F-20.5 & Ein Eintrag kann mit einem anderen Benutzer geteilt werden. & 1 & \\
-    F-20.6 & Einträge können als privat markiert werden. & 2 &\\
-    F-20.7 & Einem Eintrag kann einer Kategorie durch einen \enquote{Tag} zugewiesen werden. & 1 & \\
-    F-20.8 & An einen Eintrag können Dokumente angehängt werden. & 2 & \\
-    \hline
-    \multicolumn{4}{|l|}{F-30 News-Feed}\\
-    \hline
-    F-30.1 & Der Newsfeed wird automatisch aktualisiert. & 1 & \\
-    F-30.2 & Die Einträge werden nach Relevanz sortiert. & 1 & \\
-    F-30.3 & Der Benutzer kann Einträge aus seinem Newsfeed entfernent, hinzufügen. & 1 & \\
-    F-30.4 & Es werden auch Einträge von anderen Benutzern angezeigt. & 1 & \\
-    F-30.5 & Einträge von anderen Benutzern werden auf Basis von der eigenen Einträge gefiltert. Diese Funktion ist nicht immer eindeutig, weshalb auch interessante Einträge gefiltert werden können. & 1 & F-30.4\\
-    F-30.6 & Private Einträge werden nicht bei anderen Benutzern angezeigt. & 2 & F-20.6\\
-    \hline
-    \multicolumn{4}{|l|}{F-40 Suche}\\
     \hline
     F-40.1 & Einträge innerhalb des Newsfeeds können durchsucht werden. & 1 & F-30\\
     F-40.2 & Es kann nach einer Kategorie gesucht werden. & 1 & F-20.7\\
