@@ -3,13 +3,13 @@
 \section{Allgemeine Funktionsweise}
 
 Im folgenden soll die Funktionsweise und Begrifflichkeiten der Anwendung Norbert erläutert werden.
-Norbert soll als \enquote{Study Buddy}, ünterstützer eines DHBW-Studenten, dienen.
+Norbert soll als \enquote{Study Buddy}, Unterstützer eines DHBW-Studenten, dienen.
 
-Um die Grundlegende Benutzung zu verstehen soll erst einmal skizziert werden wie Norbert mit den Studenten interagiert.
-Norbert ist eine Webbasierte Anwendung welche den Austausch von Informationen zwischen den Studenten ermöglicht.
-Dabei können Informationen z.B. Aufgaben, Erinnerungen oder Notizen sein.
+Um die Grundlegende Benutzung zu verstehen wird erst einmal skizziert wie Norbert mit den Studenten interagiert.
+Norbert ist eine webbasierte Anwendung, welche den Austausch von Informationen zwischen den Studenten ermöglicht.
+Dabei können dies Informationen (z.B. Aufgaben, Erinnerungen) oder Notizen sein.
 Diese Informationen werden auf einem Server gesammelt und ausgewertet.
-Anschließend kann sich ein Benutzer über ein Webinterface mit Norbert verbinden.
+Ein Benutzer kann sich über ein Webinterface mit Norbert verbinden.
 Norbert schlägt dem Benutzer dann vor, welche Informationen ihn interessieren könnten. (Vgl. Abbildung \ref{funktionen:datenaustausch})
 
 \begin{figure}[H]
@@ -33,7 +33,7 @@ Dabei kann ein Eintrag mehrere Eigenschaften besitzen, welche im folgenden als T
     \label{funktionen:typen}
     \endfoot
     F-Types-00 & Text & Kann zur Beschreibung des Eintrags verwendet werden. & 1\\
-    F-Types-10 & Erinnerung & Ein Eintrag der zu einem Zeitpunkt wieder News-Feed angezeigt wird. & 2 \\
+    F-Types-10 & Erinnerung & Ein Eintrag der zu einem Zeitpunkt in einem News-Feed angezeigt wird. & 2 \\
     F-Types-20 & Aufgabe & Dieser Beitrag kann als erledigt markiert werden. & 1\\
     F-Types-30 & Teilen & Der Eintrag kann mit anderen Benutzern geteilt werden.
     Wenn jemand anderes diesen Eintrag editiert, wird dieser auch bei dem Ersteller des Eintrags editiert. & 1\\
@@ -44,7 +44,7 @@ Dabei kann ein Eintrag mehrere Eigenschaften besitzen, welche im folgenden als T
 \end{tabularx}
 
 Das Konzept eines solchen Eintrags soll anhand der Abbildung \ref{funktionen:Eintrag} verdeutlicht werden. 
-Hier ist zu sehen das ein Eintrag modular aufgebaut ist. Standardmäßig muss für einen Eintrag ein Titel vergeben werden.
+Hier ist zu sehen, dass ein Eintrag modular aufgebaut ist. Standardmäßig muss für einen Eintrag ein Titel vergeben werden.
 Die in Tabelle \ref{funktionen:typen} genannten Typen können durch hinzufügen von Feldern realisiert werden. Zum Beispiel wird eine Erinnerung durch hinzufügen eines Datums oder eines Ortes erstellt.
 
 \begin{figure}[H]
@@ -66,31 +66,30 @@ Im folgenden werden spezifische Funktionen welche in Gruppen zusammengefasst sin
 \begin{tabularx}{\textwidth}{|l|X|l|l|}
     \toprule
     \textbf{ID-Kürzel} & \textbf{Beschreibung} & \textbf{Prio} & \textbf{Abhängig von} \\
-    \midrule
-    \endhead
     \hline
+    \endhead
     \caption{Funktionen}
     \endfoot
     \multicolumn{4}{|l|}{F-00 Allgemein}\\
     \hline
     F-00.1 & Das Produkt ist eine Softwarelösung. & 1 & \\
     F-00.2 & Mehrere Benutzer können auf die Software zugreifen ohne sie installieren zu müssen. & 1 & \\
-    F-00.3 & Die Software kann an Desktopgeräten und mobilen Geräten verwendet werden. & 1 & \\
+    F-00.3 & Die Software kann auf Desktopgeräten und mobilen Geräten verwendet werden. & 1 & \\
     F-00.4 & Es wird ein Server zum Austausch der Daten zwischen den Clients verwendet. & 1 & \\
-    F-00.5 & Eine Website kann als zum Aufruf der Daten verwendet werden und dient als User Interface. & 1 & F-00.4\\
+    F-00.5 & Eine Website dient als Schnittstelle zwischen dem Anwender und den Daten und dient als User Interface. & 1 & F-00.4\\
     F-00.6 & Eine Android-App wird als User Interface verwendet. & 3 & F-00.4\\
     \hline
     \multicolumn{4}{|l|}{F-10 Installation und Adminstration}\\
     \hline
     F-10.1 & Die Server-Software kann auf einem Server über einen Installer installiert werden. & 1 & F-00.4 \\
-    F-10.2 & Es wird eine Anleitung in form einer README-Datei erstellt, welche den Installationsprozess dokumentiert. & 1 & F-10.1\\
-    F-10.3 & Die Android-App kann aus dem Google-Play Store herunter geladen werden. & 3 & F-00.6\\
+    F-10.2 & Es wird eine Anleitung in Form einer README-Datei erstellt, welche den Installationsprozess dokumentiert. & 1 & F-10.1\\
+    F-10.3 & Die Android-App kann aus dem Google-Play Store heruntergeladen werden. & 3 & F-00.6\\
     F-10.4 & Die gesammelten Daten der Anwendung können exportiert und importiert werden. & 2 & F-00.4\\
     F-10.5 & Die Server Anwendung kann einem anderen Kurs übergeben werden. & 2 & F-00.4\\
     F-10.6 & Ein Administrator kann die Server-Anwendung verwalten. & 1 & F-00.4\\
-    F-10.7 & Es können externe Dienste wie z.B. ein Kursverteiler als Datenquelle durch einen Adminstrator festgelegt werden. & 1 & F-10.6\\
+    F-10.7 & Es können externe Dienste wie z.B. ein Kursverteiler als Datenquelle durch einen Administrator festgelegt werden. & 1 & F-10.6\\
     F-10.8 & Es können Benutzer angelegt werden. & 1 &\\
-    F-10.9 & Ein Benutzer kann über einen Namen oder eine E-Mail Addresse identifiziert werden. & 1 &\\
+    F-10.9 & Ein Benutzer kann über einen Namen oder eine E-Mail Adresse identifiziert werden. & 1 &\\
     \hline
     \multicolumn{4}{|l|}{F-20 Einträge}\\
     \hline
@@ -107,9 +106,9 @@ Im folgenden werden spezifische Funktionen welche in Gruppen zusammengefasst sin
     \hline
     F-30.1 & Der Newsfeed wird automatisch aktualisiert. & 1 & \\
     F-30.2 & Die Einträge werden nach Relevanz sortiert. & 1 & \\
-    F-30.3 & Der Benutzer kann Einträge aus seinem Newsfeed entfernent, hinzufügen. & 1 & \\
+    F-30.3 & Der Benutzer kann Einträge aus seinem Newsfeed entfernen und hinzufügen. & 1 & \\
     F-30.4 & Es werden auch Einträge von anderen Benutzern angezeigt. & 1 & \\
-    F-30.5 & Einträge von anderen Benutzern werden auf Basis von der eigenen Einträge gefiltert. Diese Funktion ist nicht immer eindeutig, weshalb auch interessante Einträge gefiltert werden können. & 1 & F-30.4\\
+    F-30.5 & Einträge von anderen Benutzern werden auf Basis der eigenen Einträge gefiltert. Diese Funktion ist nicht immer eindeutig, weshalb auch interessante Einträge gefiltert werden können. & 1 & F-30.4\\
     F-30.6 & Private Einträge werden nicht bei anderen Benutzern angezeigt. & 2 & F-20.6\\
     \hline
     \multicolumn{4}{|l|}{F-40 Suche}\\
@@ -119,7 +118,7 @@ Im folgenden werden spezifische Funktionen welche in Gruppen zusammengefasst sin
     F-40.3 & Es können Einträge anhand von Benutzernamen gesucht werden. & 1 & F-10.9\\
     F-40.4 & Einträge können nach Schlüsselwörtern durchsucht werden. & 1 & \\
     F-40.5 & Einträge können anhand eines Datums durchsucht werden. Es kann ein Zeitraum angegeben werden. & 2 & \\
-    F-40.6 & Zur Datums basierten suche können Alltagswörter wie z.B. \enquote{morgen}, \enquote{im Januar} verwendet werden. & 3 & F-40.5\\
+    F-40.6 & Zur Datums basierten Suche können Alltagswörter wie z.B. \enquote{morgen}, \enquote{im Januar} verwendet werden. & 3 & F-40.5\\
     F-40.7 & Die Einträge können Anhand von Dokumenten durchsucht werden. & 2 & F-20.8\\
     \hline
     \multicolumn{4}{|l|}{F-50 Externe Dienste}\\
@@ -136,22 +135,22 @@ Im folgenden werden spezifische Funktionen welche in Gruppen zusammengefasst sin
     \hline
     F-50.A.1 & Externe Dienste werden nach Daten durchsucht aus denen neue Einträge für die Benutzer generiert werden. & 1 & \\
     F-50.A.2 & Externe Dienste werden nach einem Datum durchsucht, wodurch Einträge generiert werden welche anhand des Datums in den Newsfeed eingebettet werden können. & 1 & \\
-    F-50.A.3 & Externe Dienste werden nach Links (Url) durchsucht. Dadraus wird ein Eintrag generiert der dem Benutzer diese als nützlichen Link vorschlägt. & 1 & \\
+    F-50.A.3 & Externe Dienste werden nach Links (Url) durchsucht. Daraus wird ein Eintrag generiert der dem Benutzer diese als nützlichen Link vorschlägt. & 1 & \\
     F-50.A.4 & Externe Dienste werden nach Dokumenten untersucht, welche im Newsfeed dem Benutzer zum download angeboten werden. & 2 & \\
-    F-50.A.5 & Externe Dienste werden nach User namen / E-Mail Addressen durchsucht, wodurch gezielte Eintragsvorschläge für einen Benutzer generiert werden. & 2 & F-10.9 \\
-    F-50.A.6 & Externe Dienste werden nach Ortsnamen durchsucht, wodurch ein Link zu Google maps in einem Eintrag generiert wird. & 3 & \\
+    F-50.A.5 & Externe Dienste werden nach Benutzernamen / E-Mail Adressen durchsucht, wodurch gezielte Eintragsvorschläge für einen Benutzer generiert werden. & 2 & F-10.9 \\
+    F-50.A.6 & Externe Dienste werden nach Ortsnamen durchsucht, wodurch ein Link zu Google Maps in einem Eintrag generiert wird. & 3 & \\
     \hline
     \multicolumn{4}{|l|}{F-60 Vorschläge}\\
     \hline 
     F-60.1 & Dem Benutzer werden Vorschläge anhand von Einträgen anderer Nutzer angezeigt. & 1 & \\
     F-60.2 & Dem Benutzer werden Vorschläge für Einträge anhand von externen Diensten angezeigt. & 1 & F-50 \\
-    F-60.2 & Ein Benutzer kann gefragt werden ob aus den von Norbert analysierten Daten ein Eintrag angelegt werden soll. Dabei steht die Wahlfreiheit bei dem Benutzer. & 2 & \\
+    F-60.2 & Ein Benutzer kann gefragt werden ob aus den von Norbert analysierten Daten ein Eintrag angelegt werden soll. Dabei hat der Benutzer die Wahl ob der Eintrag hinzugefügt werden soll. & 2 & \\
     F-60.3 & Im Falle einer Allgemeinen Frage, wie z.B. der Bestätigung eines Klausurtermins kann ein einzelner Benutzer die Frage für alle Benutzer beantworten. & 2 & F-60.2 \\
     F-60.4 & Einträge werden klassifiziert und bilden somit Abhängigkeiten von einander. Anhand dieser Abhängigkeiten werden einem Nutzer Vorschläge gemacht welche Einträge ihn interessieren könnten. & 2 & \\
 
-    \hline
-    \multicolumn{4}{|l|}{F-60.4 Klassifizierung von Einträgen}\\
-    \hline
+%    \hline
+%    \multicolumn{4}{|l|}{F-60.4 Klassifizierung von Einträgen}\\
+%    \hline
 
     \hline
     \multicolumn{4}{|l|}{Erinnerungen}\\
@@ -167,8 +166,8 @@ Im folgenden werden spezifische Funktionen welche in Gruppen zusammengefasst sin
 
     F-40 & Die Software kann Push-Notifikations an den Benutzer senden. & & \\
 
-    F-50.2 & Es können Benutzer durch die eingabe von Emailadresse hinterlegt werden. & & \\
-    F-50.2.1 & Die so erstellten Benutzer erhalten über eine Email Zugriff auf das System. & & \\ % TODO: Formulierung
+    F-50.2 & Es können Benutzer durch die Eingabe von E-Mail Adressen hinterlegt werden. & & \\
+    F-50.2.1 & Die so erstellten Benutzer erhalten über eine E-Mail Zugriff auf das System. & & \\ % TODO: Formulierung
     
     F-60 & Die Software kann auf Datenquellen, wie z.B. Google-Drive, DHBW Seite, Moodle etc. zugreifen. & & \\
 
@@ -176,7 +175,7 @@ Im folgenden werden spezifische Funktionen welche in Gruppen zusammengefasst sin
     F-70.1 & Todo's von anderen Studenten werden angezeigt. & &\\
     F-70.2 & Es können Kursnachrichten versendet werden. & &\\
     F-80 & Es können Bezüge zu Dateien aus Dropbox etc. hergestellt werden. & &\\
-    F-90 & User werden anhand ihres namen markiert & &\\ %Noch unklar
+    F-90 & User werden anhand ihres Namens markiert & &\\ %Noch unklar
 
     F-* & Formulare & &\\
 
