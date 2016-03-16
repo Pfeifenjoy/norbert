@@ -1,0 +1,132 @@
+%!TEX root = ../documentation.tex
+
+\chapter{Projektstrukturplan}
+\begin{landscape}
+	\begin{figure}[H]
+	\centering
+	\includegraphics[scale=0.75]{images/projektstrukturplan.pdf}
+	\end{figure}
+\end{landscape}
+
+\chapter{Projektablaufplan}
+\begin{landscape}
+    \centering
+    \resizebox{0.7\pdfpageheight}{0.99\textwidth}{\begin{tikzpicture}
+    \begin{ganttchart}[
+    hgrid,
+    vgrid,
+    x unit=5mm,
+    time slot format=isodate,
+    milestone inline label node/.append style={left=5mm},
+    progress=today,
+    today=2015-10-28
+    ]{2015-09-01}{2015-11-16}
+    \gantttitlecalendar{month=name} \\
+
+    \input{content/projektmanagement}
+    \input{content/anforderungsanalyse}
+    \input{content/softwareentwurf}
+    \input{content/implementierung}
+    \input{content/softwarevalidierung}
+    \input{content/auslieferung}
+
+    \end{ganttchart}
+    \end{tikzpicture}
+    }
+
+\end{landscape}
+\begin{landscape}
+\chapter{Risikoanalyse}
+	Die Spalte \enquote{Eintrittswahrscheinlichkeit} beschreibt, wie hoch die Eintrittswahrscheinlichkeit des Risikos eingeschätzt wurde, wenn keine aktiven präventiven Maßnahmen durchgeführt werden.
+	Die Wichtigkeit eines Risikos ergibt sich aus dem Produkt der Eintrittswahrscheinlichkeit mit der Auswirkung beim Risikoeintritt.
+	\begin{longtable}{|p{1.5cm}|p{4.5cm}|p{0.4cm}|p{0.4cm}|p{0.8cm}|p{4.5cm}|p{4.5cm}|}
+
+		\hline
+		\textbf{ID}
+			& \textbf{Risiko} 
+				& \begin{turn}{90}\textbf{Eintrittswahrscheinlichkeit in \%}\end{turn}
+					& \begin{turn}{90}\textbf{Auswirkung bei Eintritt}\end{turn}
+						& \begin{turn}{90}\textbf{Wichtigkeit}\end{turn} 
+							& \textbf{Prävention} 
+								& \textbf{Lösung} 
+		\\ \hline
+
+		RSK-10 	& Ein Teammitglied erkrankt
+				& 20 	& 30 	& 6 	& - 	& Die Aufgaben werden so umverteilt, dass die kranke Person von zu Hause arbeiten kann. 
+
+		\\ \hline
+
+		RSK-20 	& Ein Teammitglied muss aus dem Projekt aussteigen. (Zum Beispiel wegen Exmatrikulation)
+				& 5 	& 70 	& 3.5 	& Sicherstellen, dass keine Wissens- oder Fähigkeitsmonopole entstehen, um die Aufgaben beim Risikoeintritt umverteilen zu können.
+								& Die Aufgaben des ausgestiegenen Teammitglieds unter den anderen Teammitgliedern aufteilen.
+
+		\\ \hline
+
+		RSK-30 	& Neue Teammitglieder kommen hinzu
+				& 2.5 	& 10 	& 2.50 	& Viel dokumentieren, damit die neue Person schnell eingelernt werden kann.
+								& Die neue Person in das Projekt (Projektstruktur und technisches) einlernen und ihr Aufgaben zuweisen, die gut zu ihren Fähigkeiten passen.
+
+		\\ \hline
+
+		RSK-40 	& Anforderungsänderungen - der Kunde stellt ein Changerequest.
+				& 25 	& 50 	& 12.5	& Software modular aufbauen, damit sie änderbar bleibt und Puffer für nicht geplante Änderungen einplanen.
+								& Das Changerequest wird auf Machbarkeit analysiert. Nach Rücksprache mit dem Kunden wird der Preis erhöht und eventuell der Abgabetermin nach hinten verschoben. Das Changerequest wird umgesetzt. Sollte sich die Änderung jedoch als nicht umsetzbar erweisen und der Kunde das Changerequest nicht zurücknehmen kann oder will, so ist das Projekt gescheitert. Dieser Fall wird gleich behandelt wie das Risiko \enquote{Kunde storniert den Auftrag}.
+
+		\\ \hline
+
+		RSK-50 	& Der Kunde storniert den Auftrag 
+				& 0.1 	& 100 	& 0.1 	& Im Projektauftrag wird eine Stornogebühr vereinbart 
+								& Der Kunde muss die Stornogebühr bezahlen. Tut er dies nicht, werden rechtliche Schritte eingeleitet.
+
+		\\ \hline
+		
+		RSK-60 	& Der Kunde ist insolvent und kann nicht zahlen
+				& 0.1 	& 100 	& .1 	& - 	& Projektende. Sollte das Projekt kurz vor der Vollendung stehen, wird es vollendet und vo uns selber vermarktet.
+
+		\\ \hline 
+
+		RSK-70 	& Unsere Entwicklungsgeräte, unsere Testgeräte oder die vom Kunde bereitgestellten Testgeräte gehen kaputt oder werden aus anderen Gründen unbrauchbar.
+				& 1 	& 5 	& 0.05 	& Wenn möglich einen Ersatz vorhalten.
+								& Auf das Ersatzsystem umsteigen.
+
+		\\ \hline
+
+		RSK-80 	& Daten oder der Quellcode gehen verloren.
+				& 0.1 	& 90 	& 0.09 	& Verwendung von Git / Gitlab. So gibt es auf dem Computer jedes Projektmitglieds sowie auf dem Server von Gitlab immer eine volle Kopie des Quellcodes und der Daten und den jeweiligen Dateihistorien.
+								& Wo es geht: Datenrettung. Sonst: Neuerstellung der Daten.
+
+		\\ \hline 
+
+		RSK-90	& Gitlab ist wegen technischen oder wirtschaftlichen Problemen nicht mehr verfügbar.
+				& 0.1 	& 5 	& 0.005 & - 	& Ausweichen auf GitHub.
+
+		\\ \hline
+
+		RSK-100	& Das Spiel funktioniert auf einer offiziell unterstützten Plattform nicht.
+				& 15 	& 50 	& 7.5 	& Ausschließlich plattformunabhängigen Code schreiben und plattformunabhängige Software-Bibliotheken verwenden. Die Systemanforderungen im Pflichtenheft möglichst stark einschränken. Auf möglichst vielen Plattformen testen.
+								& Die fehlerhaften Komponenten müssen ersetzt beziehungsweise neu implementiert werden.
+
+		\\ \hline
+
+		RSK-110	& C++, SFML oder eine andere verwendete Technologie ist zu komplex.
+				& 15 	& 50 	& 7.5 	& Präventive Schulungen durchführen und bei der Auswahl von Technologien auf die Komplexität achten. 
+								& Die Technologie wechseln oder, wenn das nicht mehr möglich ist, Hilfe von außen holen.
+
+		\\ \hline
+
+		RSK-120	& Schlechter Code oder eine schlechte Architektur verursacht Probleme
+				& 15 	& 50 	& 7.5 	& Code-Reviews werden durchgeführt.
+								& Refactoring
+
+		\\ \hline
+		
+		RSK-130	& Die geplante Spielmechanik weist Schwächen auf (zu einfach, zu schwer, zu eintönig, ...).
+				& 15 	& 30 	& 4.5 	& Tests mit Projektfremden Personen sollen helfen, probleme mit der Spielmechanik frühzeitig zu erkennen.
+								& Finetuning der Spielparameter, wie zum Beispiel die Anzahl der Helfer der Professoren. Wenn grundlegende Änderungen an der Spielmechanik nötig sind, muss ein Change-Request erstellt werden. (Siehe Punkt "Anforderungsänderungen")
+
+		\\ \hline
+
+	\end{longtable}
+
+	Die vier Risiken mit der höchsten Wichtigkeit sind RSK-40, RSK-100, RSK-110 und RSK-120. Dementsprechend ist es besonders wichtig für uns, bei der Planung einen Puffer mit einzuplanen und modular zu entwickeln. Außerdem sollten wir plattformunabhängig entwickeln sowie Schulungen und Code-Reviews durchführen. 
+\end{landscape}
