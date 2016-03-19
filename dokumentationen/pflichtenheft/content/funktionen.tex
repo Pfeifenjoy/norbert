@@ -80,7 +80,7 @@ Im Folgenden werden spezifische Funktionen aufgelistet und beschrieben:
     F-00.1 & Das Produkt ist eine Softwarelösung. & 1 & \\
     F-00.2 & Mehrere Benutzer können auf die Software zugreifen. & 1 & \\
     F-00.3 & Die Daten werden auf einem zentralen Server gespeichert. & 1 & \\
-    F-00.4 & Eine Website kann     zum Aufrufen der Daten verwendet werden und dient als User Interface. & 1 & F-00.3 \\
+    F-00.4 & Eine Website kann     zum Aufrufen der Daten verwendet werden und dient als User Interface. & 1 & F-00.3, F-80\\
     F-00.5 & Eine Android-App kann zum Aufrufen der Daten verwendet werden und dient als User Interface. & 3 & F-00.3 \\
     \hline
 
@@ -152,12 +152,12 @@ Im Folgenden werden spezifische Funktionen aufgelistet und beschrieben:
     \hline
     \multicolumn{4}{|l|}{F-50.A Datenanalyse Externe Dienste}\\
     \hline
-    F-50.A.1 & Externe Dienste werden nach Daten durchsucht aus denen neue Einträge für die Benutzer erzeugt werden können. Es werdem dem Benutzer Vorschläge im Newsfeed angezeigt, entsprechende Einträge zu erstellen. & 1 & \\
-    F-50.A.2 & Externe Dienste werden nach einem Datum durchsucht, wodurch Einträge generiert werden, welche anhand des Datums in den Newsfeed eingebettet werden können. & 1 & \\
-    F-50.A.3 & Externe Dienste werden nach Links durchsucht. Daraus wird ein Eintrag generiert, der dem Benutzer diese als nützlichen Link vorschlägt. & 1 & \\
-    F-50.A.4 & Externe Dienste werden nach Dokumenten untersucht, welche dem Benutzer im Newsfeed zum Herunterladen angeboten werden. & 2 & \\
-    F-50.A.5 & Externe Dienste werden nach Namen und E-Mail-Adressen von Benutzern durchsucht, wodurch gezielte Eintragsvorschläge für einen Benutzer generiert werden. & 2 & \\
-    F-50.A.6 & Externe Dienste werden nach Ortsnamen durchsucht, wodurch ein Link zu Google maps in einem Eintrag generiert wird. & 3 & \\
+    F-50.A.1 & Externe Dienste werden nach Daten durchsucht aus denen neue Einträge für die Benutzer erzeugt werden können. Es werdem dem Benutzer Vorschläge im Newsfeed angezeigt, entsprechende Einträge zu erstellen. & 1 & D-40\\
+    F-50.A.2 & Externe Dienste werden nach einem Datum durchsucht, wodurch Einträge generiert werden, welche anhand des Datums in den Newsfeed eingebettet werden können. & 1 & D-40 \\
+    F-50.A.3 & Externe Dienste werden nach Links durchsucht. Daraus wird ein Eintrag generiert, der dem Benutzer diese als nützlichen Link vorschlägt. & 1 & D-40\\
+    F-50.A.4 & Externe Dienste werden nach Dokumenten untersucht, welche dem Benutzer im Newsfeed zum Herunterladen angeboten werden. & 2 & D-40\\
+    F-50.A.5 & Externe Dienste werden nach Namen und E-Mail-Adressen von Benutzern durchsucht, wodurch gezielte Eintragsvorschläge für einen Benutzer generiert werden. & 2 & D-40\\
+    F-50.A.6 & Externe Dienste werden nach Ortsnamen durchsucht, wodurch ein Link zu Google maps in einem Eintrag generiert wird. & 3 & D-40\\
     \hline
     \multicolumn{4}{|l|}{F-60 Vorschläge}\\
     \hline 
@@ -172,6 +172,18 @@ Im Folgenden werden spezifische Funktionen aufgelistet und beschrieben:
     F-70.2 & Bei diesen Einträgen kann ein Zeitpunkt festgelegt werden. & 2 & F-70.1 \\
     F-70.3 & Wenn der eingegebene Zeitpunkt erreicht ist, wird der Eintrag im Newsfeed ganz oben angezeigt. & 2 & F-70.2 \\
     F-70.4 & Wenn der eingegebene Zeitpunkt erreicht ist, wird der Benutzer mittels einer Push-Benachrichtigung erinnert. & 3 & F-70.2 \\
+    \hline
+    \multicolumn{4}{|l|}{F-80 User-Interface}\\
+    \hline
+    F-80.1 & Die Webseite zeigt Einträgen an & 1 & \\
+    F-80.1.1 & Einträge werden vom Nutzer erstellt. & 1 & F80.1\\
+    F-80.2 & Die Webseite zeigt Vorschläge an. & 1 &  \\
+    F-80.2.1 & Vorschläge werden vom Anwender akzeptiert. & 1 &  F80.2\\
+    F-80.2.1 & Vorschläge werden vom Anwender abgelehnt. & 1 &  F80.2\\
+    F-80.2.1 & Vorschläge werden vom Anwender bearbeitet. & 1 &  F80.2\\
+    F-80.3 & Es gibt eine Suche. & 1 &  \\
+    F-80.4 & Es gibt ein Einstellungsmenü. & 1 & \\
+    F-80.5 & Der Benutzername wird angezeigt. & 2 & \\
     \hline
 
 %    F-10 & Die Software dient als persönlicher Assistent während des Studiums. & & \\
