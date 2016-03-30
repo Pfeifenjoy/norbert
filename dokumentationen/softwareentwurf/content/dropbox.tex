@@ -38,23 +38,23 @@ Die Dropbox HTTP-API besteht aus mehreren Endpoints (Abbildung \ref{04ergebnis:d
 	\label{04ergebnis:dpendpoints}	
 \end{figure}
 
-\section{Webhooks \& Benachrichtigungen}
-
-Die Benutzer von Norbert wollen nicht jedes mal wenn Sie Änderungen an ihrer Dropbox vornehmen, diese manuell an Norbert weitermelden. Stattdessen sollte dies automatisch vonstatten gehen. Dazu existieren zwei Architekturansätze:
-
-\begin{enumerate}
-	\item Norbert \enquote{scannt} automatisch in bestimmten Zeitintervallen die Dropbox nach Änderungen (keine zusätzlichen Komponenten nötig).
-	
-	\item Dropbox benachrichtigt Norbert vollautomatisch bei Änderungen mittels Webhooks.
-\end{enumerate}
-
-Beide Ansätze erfüllen ihren Zweck und haben ihre Vor- und Nachteile. Der erste Ansatz ist einfach umzusetzen und kann beispielsweise jede Nacht ausgeführt werden. Doch der zweite Ansatz kann Norbert schneller auf Änderungen reagieren lassen, benötigt aber zusätzliche Komponenten. Da schnelles Wissensmanagement im Vordergrund steht wird in diesem Kapitel auf die benötigten Komponenten zur Implementierung des zweiten Ansatzes eingegangen.
-
-Webhooks sind ein nicht standardisiertes Verfahren um Echtzeitbenachrichtigungen zwischen Servern und Software auszutauschen. Die Kommunikation findet dabei über HTTP-POST-Requests statt. Abbildung \ref{04ergebnis:webhook} zeigt den Ablauf der Benachrichtigungen und die daraufhin angestoßenen Prozesse.
-
-\begin{figure}[H]
-\centering
-	\scalebox{0.5}{\input{uml-diagramms/webhook}}
-	\caption{API-Zugriffe über die Dropbox-Endpoints}
-	\label{04ergebnis:webhook}	
-\end{figure}
+%\section{Webhooks \& Benachrichtigungen}
+%
+%Die Benutzer von Norbert wollen nicht jedes mal wenn Sie Änderungen an ihrer Dropbox vornehmen, diese manuell an Norbert weitermelden. Stattdessen sollte dies automatisch vonstatten gehen. Dazu existieren zwei Architekturansätze:
+%
+%\begin{enumerate}
+%	\item Norbert \enquote{scannt} automatisch in bestimmten Zeitintervallen die Dropbox nach Änderungen (keine zusätzlichen Komponenten nötig).
+%	
+%	\item Dropbox benachrichtigt Norbert vollautomatisch bei Änderungen mittels Webhooks.
+%\end{enumerate}
+%
+%Beide Ansätze erfüllen ihren Zweck und haben ihre Vor- und Nachteile. Der erste Ansatz ist einfach umzusetzen und kann beispielsweise jede Nacht ausgeführt werden. Doch der zweite Ansatz kann Norbert schneller auf Änderungen reagieren lassen, benötigt aber zusätzliche Komponenten. Da schnelles Wissensmanagement im Vordergrund steht wird in diesem Kapitel auf die benötigten Komponenten zur Implementierung des zweiten Ansatzes eingegangen.
+%
+%Webhooks sind ein nicht standardisiertes Verfahren um Echtzeitbenachrichtigungen zwischen Servern und Software auszutauschen. Die Kommunikation findet dabei über HTTP-POST-Requests statt. Abbildung \ref{04ergebnis:webhook} zeigt den Ablauf der Benachrichtigungen und die daraufhin angestoßenen Prozesse.
+%
+%\begin{figure}[H]
+%\centering
+%	\scalebox{0.5}{\input{uml-diagramms/webhook}}
+%	\caption{API-Zugriffe über die Dropbox-Endpoints}
+%	\label{04ergebnis:webhook}	
+%\end{figure}
