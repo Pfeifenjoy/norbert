@@ -3,12 +3,12 @@
 
 \chapter{Anbindung externer Dienste - Dropbox}
 
-Eines der Ziele von Norbert - Your StudyBuddy ist es Wissensmanagement zu betreiben und somit Wissen zu sammeln und weiterzugeben. Da Informationen und Wissen von Studierenden einer DHBW meistens in Dropbox-Ordner abgelegt werden, wird in diesem Kapitel die technische Anbindung von Dropbox an Norbert beschrieben. Dabei wird zunächst erst allgemein auf den standardisierten Autorisiuerngsprozess \enquote{OAuth} eingegangen und daraufhin die verschiedenen Dropbox Endpoints mit ihren Schnittstellen vorgestellt.
+Eines der Ziele von Norbert - Your StudyBuddy ist es Wissensmanagement zu betreiben und somit Wissen zu sammeln und weiterzugeben. Da Informationen und Wissen von Studierenden meistens in Dropbox-Ordner abgelegt werden, wird in diesem Kapitel die technische Anbindung von Dropbox an Norbert beschrieben. Dabei wird zunächst erst allgemein auf den standardisierten Autorisiuerngsprozess \enquote{OAuth} eingegangen und daraufhin die verschiedenen Dropbox Endpoints mit ihren Schnittstellen vorgestellt.
 
 
 \section{Autorisierungsprozess (OAuth)}
 
-OAuth ist ein offenes Protokoll, dass eine standardisierte und sichere API-Autorisierung für mobile Endgeräte, Webanwendungen und Desktop-Applikationen ermöglicht. Der Benutzer kann über den OAuth-Autorisierungsprozess (Abbildung \ref{04ergebnis:oauth}) einer Anwendung (in diesem Fall Norbert) Zugriff auf gespeicherte Daten erlauben. Dabei loggt sich der Benutzer über die Applikation (Norbert) die Zugriff benötigt, auf dem Dienst, der die freizugebenden Daten speichert, ein (hier Dropbox) und erlaubt der Applikation den Zugriff. Dabei wird ein spezieller App key mit entsprechendem App scecret und ein Access-Token zwischen der Applikation und dem Dienst ausgetauscht. Der Access-Token wird individuell für jeden Benutzer erstellt und wird bei API-Aufrufen mitgesendet. Dieser dient somit zur Authentifizierung des Benutzers, sodass kein Benutzername oder Passwörter ausgetauscht oder gespeichert werden müssen.
+OAuth ist ein offenes Protokoll, dass eine standardisierte und sichere API-Autorisierung für mobile Endgeräte, Webanwendungen und Desktop-Applikationen ermöglicht. Der Benutzer kann über den OAuth-Autorisierungsprozess (Abbildung \ref{04ergebnis:oauth}) einer Anwendung (in diesem Fall Norbert) Zugriff auf gespeicherte Daten erlauben. Dabei loggt sich der Benutzer über die Applikation (Norbert) die Zugriff benötigt, auf dem Dienst, der die freizugebenden Daten speichert, ein (hier Dropbox) und erlaubt der Applikation den Zugriff. Da nicht jede Severinstanz von Norbert über eine Redirect-URL, die nach einem erfolgreichen Login aufgerufen wird, für den OAuth-Prozess verfügt und nicht jeder Severadministrator in der Dropbox Developer Console Norbert - Your StudyBuddy eintragen möchte, wird statt einem Redirect ein Autorisationscode angezeigt, den der Nutzer in Norbert eingeben kann. Norbert kann dann mit diesem Autorisationscode ein wiederverwendbares Access-Token anfragen. Dieses Access-Token dient zur Authentifizierung des Benutzers, sodass kein Benutzername und keine Passwörter ausgetauscht oder gespeichert werden müssen.
 
 \begin{figure}[H]
 \centering
@@ -20,7 +20,7 @@ OAuth ist ein offenes Protokoll, dass eine standardisierte und sichere API-Autor
 
 \section{Dropbox Endpoints}
 
-Die Dropbox HTTP-API besteht aus mehreren Endpoints (Abbildung \ref{04ergebnis:dpendpoints}), die jeweils unterschiedliche Funktionene bereitstellen. Alle API-Aufrufe benötigen zu Autorisierung den individuellen Access-Token eines Benutzers.
+Die Dropbox HTTP-API besteht aus mehreren Endpoints (Abbildung \ref{04ergebnis:dpendpoints}), die jeweils unterschiedliche Funktionen bereitstellen. Alle API-Aufrufe benötigen zu Autorisierung das individuelle Access-Token des Benutzers.
 
 \begin{enumerate}
 	\item \textit{dropbox.com:} Über diesen Endpoint/Webseite wird die OAuth-Autorisierung durchgeführt. Es wird nur einmalig zur Generierung des Access-Tokens ein Kontakt zu diesem Endpoint hergestellt.
