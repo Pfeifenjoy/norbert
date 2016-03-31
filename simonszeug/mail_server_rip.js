@@ -35,16 +35,6 @@ var server = new SMTPServer({
     // Accept messages up to 10 MB
     size: 10 * 1024 * 1024,
 
-    // allow overriding connection properties. Only makes sense behind proxy
-    useXClient: true,
-
-    // use logging of proxied client data. Only makes sense behind proxy
-    useXForward: true,
-
-    // Setup authentication
-    // Allow only users with username 'testuser' and password 'testpass'
-  
-    
 
     // Handle message stream
     onData: function (stream, session, callback) {
