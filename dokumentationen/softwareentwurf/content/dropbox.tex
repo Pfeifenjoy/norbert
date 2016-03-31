@@ -1,0 +1,60 @@
+%!TEX root = ../documentation.tex
+
+
+\chapter{Anbindung externer Dienste - Dropbox}
+
+Eines der Ziele von Norbert - Your StudyBuddy ist es Wissensmanagement zu betreiben und somit Wissen zu sammeln und weiterzugeben. Da Informationen und Wissen von Studierenden meistens in Dropbox-Ordner abgelegt werden, wird in diesem Kapitel die technische Anbindung von Dropbox an Norbert beschrieben. Dabei wird zunächst erst allgemein auf den standardisierten Autorisiuerngsprozess \enquote{OAuth} eingegangen und daraufhin die verschiedenen Dropbox Endpoints mit ihren Schnittstellen vorgestellt.
+
+
+\section{Autorisierungsprozess (OAuth)}
+
+OAuth ist ein offenes Protokoll, dass eine standardisierte und sichere API-Autorisierung für mobile Endgeräte, Webanwendungen und Desktop-Applikationen ermöglicht. Der Benutzer kann über den OAuth-Autorisierungsprozess (Abbildung \ref{04ergebnis:oauth}) einer Anwendung (in diesem Fall Norbert) Zugriff auf gespeicherte Daten erlauben. Dabei loggt sich der Benutzer über die Applikation (Norbert) die Zugriff benötigt, auf dem Dienst, der die freizugebenden Daten speichert, ein (hier Dropbox) und erlaubt der Applikation den Zugriff. Da nicht jede Severinstanz von Norbert über eine Redirect-URL, die nach einem erfolgreichen Login aufgerufen wird, für den OAuth-Prozess verfügt und nicht jeder Severadministrator in der Dropbox Developer Console Norbert - Your StudyBuddy eintragen möchte, wird statt einem Redirect ein Autorisationscode angezeigt, den der Nutzer in Norbert eingeben kann. Norbert kann dann mit diesem Autorisationscode ein wiederverwendbares Access-Token anfragen. Dieses Access-Token dient zur Authentifizierung des Benutzers, sodass kein Benutzername und keine Passwörter ausgetauscht oder gespeichert werden müssen.
+
+\begin{figure}[H]
+\centering
+	\scalebox{0.5}{\input{uml-diagramms/oauth}}
+	\caption{OAuth-Autorisierungsprozess zwischen Norbert und Dropbox.com}
+	\label{04ergebnis:oauth}	
+\end{figure}
+
+
+\section{Dropbox Endpoints}
+
+Die Dropbox HTTP-API besteht aus mehreren Endpoints (Abbildung \ref{04ergebnis:dpendpoints}), die jeweils unterschiedliche Funktionen bereitstellen. Alle API-Aufrufe benötigen zu Autorisierung das individuelle Access-Token des Benutzers.
+
+\begin{enumerate}
+	\item \textit{dropbox.com:} Über diesen Endpoint/Webseite wird die OAuth-Autorisierung durchgeführt. Es wird nur einmalig zur Generierung des Access-Tokens ein Kontakt zu diesem Endpoint hergestellt.
+	
+	\item \textit{api.dropboxapi.com (RPC-Endpoint):}  Über die Domain api.dropboxapi.com können RPCs (remote procedure calls) ausgeführt werden. Dabei nimmt dieser Endpoint JSON-Strings im HTTP-Body entgegen und führt je nach aufgerufener URL verschiedene Funktionen aus. Ein RPC-Funktion ist beispielsweise list\_{folder} (\textit{https://api.dropboxapi.com/2/files/list\_{folder}}), die als Parameter einen Pfad erwartet und dann alle im entsprechenden Ordner sich
+ befindenden Dateien auflistet. Das Ergebnis der Funktion wird daraufhin wieder im JSON-Format zurückgesendet.
+ 
+ 	\item \textit{content.dropboxapi.com (Download/Upload-Endpoint):} Wie der Name schon sagt, können über den Download/Upload-Endpoint Dateien heruntergeladen oder hochgeladen werden. Die benötigten Meta-Daten (Pfad, Datei ID etc.) werden dabei im HTTP-Header als JSON oder URL-Argument übergeben. Funktionsergebnisse werden im JSON-Format im HTTP-Response Header übergeben und Dateien im HTTP-Body übersendet.
+\end{enumerate}
+
+\begin{figure}[H]
+\centering
+	\scalebox{0.5}{\input{uml-diagramms/dropboxendpoints}}
+	\caption{API-Zugriffe über die Dropbox-Endpoints}
+	\label{04ergebnis:dpendpoints}	
+\end{figure}
+
+%\section{Webhooks \& Benachrichtigungen}
+%
+%Die Benutzer von Norbert wollen nicht jedes mal wenn Sie Änderungen an ihrer Dropbox vornehmen, diese manuell an Norbert weitermelden. Stattdessen sollte dies automatisch vonstatten gehen. Dazu existieren zwei Architekturansätze:
+%
+%\begin{enumerate}
+%	\item Norbert \enquote{scannt} automatisch in bestimmten Zeitintervallen die Dropbox nach Änderungen (keine zusätzlichen Komponenten nötig).
+%	
+%	\item Dropbox benachrichtigt Norbert vollautomatisch bei Änderungen mittels Webhooks.
+%\end{enumerate}
+%
+%Beide Ansätze erfüllen ihren Zweck und haben ihre Vor- und Nachteile. Der erste Ansatz ist einfach umzusetzen und kann beispielsweise jede Nacht ausgeführt werden. Doch der zweite Ansatz kann Norbert schneller auf Änderungen reagieren lassen, benötigt aber zusätzliche Komponenten. Da schnelles Wissensmanagement im Vordergrund steht wird in diesem Kapitel auf die benötigten Komponenten zur Implementierung des zweiten Ansatzes eingegangen.
+%
+%Webhooks sind ein nicht standardisiertes Verfahren um Echtzeitbenachrichtigungen zwischen Servern und Software auszutauschen. Die Kommunikation findet dabei über HTTP-POST-Requests statt. Abbildung \ref{04ergebnis:webhook} zeigt den Ablauf der Benachrichtigungen und die daraufhin angestoßenen Prozesse.
+%
+%\begin{figure}[H]
+%\centering
+%	\scalebox{0.5}{\input{uml-diagramms/webhook}}
+%	\caption{API-Zugriffe über die Dropbox-Endpoints}
+%	\label{04ergebnis:webhook}	
+%\end{figure}
