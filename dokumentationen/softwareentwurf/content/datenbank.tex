@@ -15,8 +15,7 @@ MongoDB speichert die Daten in verschiedenen Collections. Diese nehmen eine ähn
 		\item \textbf{Users}: Speichert die Benutzer von Norbert und ihre Zugangsdaten.
 		\item \textbf{Entries}: Speichert die Entries, die von den Benutzern erzeugt wurden.
 		\item \textbf{Informations}: Speichert die Informationen, die aus externen Systemen importiert wurden.
-		\item \textbf{Reccomendations}: Speichert die generierten Vorschläge.
-		\item \textbf{Tags}: Vom Nutzer vergebene Tags für Entries.
+		\item \textbf{Recommendations}: Speichert die generierten Vorschläge.
 	\end{enumerate}
 
 	\paragraph{Users} % (fold)
@@ -50,11 +49,23 @@ MongoDB speichert die Daten in verschiedenen Collections. Diese nehmen eine ähn
 
 				"created_at": 1234,       # Unix-Timestamp des Erstellzeitpunktes 
 				                          # des Entries.
-				
+
+				"dirty": false,           # Das dirty-Flag gibt an, ob sich
+				                          # das Entry geändert hat.
+				                          # In diesem Fall muss es beim nächsten
+				                          # Durchlauf des Schedulers neu
+				                          # verarbeitet werden (Suchindex, Vorschläge!).
+
 				"owned_by": [42, 43],     # Ein Array mit den IDs der Benutzer,
 				                          # denen der Eintrag gehört.
 				                          # Alle diese Benutzer sehen den Eintrag in
 				                          # ihrem Newsfeed und können ihn bearbeiten.
+
+				"hidden_for": [42]        # Eine Teilmenge des "owned-by" Feldes, 
+				                          # die angibt, welche Benutzer den Entry
+				                          # in ihrem Newsfeed ausgeblendet haben.
+				                          # Über die Suche ist er dann immernoch 
+				                          # auffindbar.
 				
 				"private": false,         # Wenn der Eintrag als privat markiert
 				                          # wurde, kann er von anderen Benutzern 
@@ -74,7 +85,7 @@ MongoDB speichert die Daten in verschiedenen Collections. Diese nehmen eine ähn
 				
 				"title": "Überschrift",   # Der Titel des Entries
 				
-				"tags": [51, 32],         # Ein Array mit den IDs der Tags, die der 
+				"tags": ["C", "Übung"],   # Ein Array mit den Tags, die der 
 				                          # Benutzer für den Entry vergeben hat.
 				
 				"components": [           # Ein Array mit den Komponenten des Entry
@@ -85,5 +96,70 @@ MongoDB speichert die Daten in verschiedenen Collections. Diese nehmen eine ähn
 			}
 		\end{lstlisting}
 
+		Jedes Objekt im components-Array ist dabei nach dem folgenden Schema aufgebaut:
+
+		\begin{lstlisting}[language=JSON]
+			{
+				"type": "text",           # Der Typ der Komponente
+
+				"generated": false        # Gibt an, ob die Komponente von Norbert
+				                          # aus dem Inhalt extrahiert wurde.
+
+				"data": {                 # Der eigentliche Inhalt der Komponente.
+					/* ... */               # der Aufbau des data-Objekts ist abhängig
+				}                         # von dem verwendeten Komponenten-Typ.
+			}
+		\end{lstlisting}
 	% paragraph entries (end)
+	\paragraph{Informations} % (fold)
+	\label{par:informations}
+		
+		Jede Information wird als ein Objekt in dieser Collection gespeichert. Informations sind grundsätzlich sehr ähnlich zu Entries aufgebaut. Ein Information-Objekt ist nach dem folgenden Schema aufgebaut:
+
+		\begin{lstlisting}[language=JSON]
+			{
+				"id": 123,                # Eindeutige ID
+
+				"created_at": 1234,       # Unix-Timestamp des Erstellzeitpunktes
+				                          # der Information.
+
+				"dirty": false,           # Das dirty-flag gibt an, ob sich
+				                          # die Information vom externen Service
+				                          # geändert hat.
+				                          # In diesem Fall muss sie beim nächsten
+				                          # Durchlauf des Schedulers neu
+				                          # verarbeitet werden (Suchindex!).
+
+				"hidden_for": [42, 12]    # Ein array mit den IDs der Benutzer, die
+				                          # die Information aus ihrem Newsfeed
+				                          # "gelöscht" haben. Bei diesen wird 
+				                          # die Information nicht mehr angezeigt.
+				                          # Sie kann jedoch trotzdem noch über die
+				                          # Suche gefunden werden.
+				
+				"title": "Überschrift",   # Der Titel der Information
+				
+				"components": [           # Ein Array mit den Komponenten der Information
+					{ /* Component 1 */ },
+					{ /* Component 2 */ },
+					{ /* Component 3 */ }
+				]
+			}
+		\end{lstlisting}
+
+		Die Komponen-Liste der Informations hat das selbe Format, wie die Komponenten-Liste eines Entries.
+
+	% paragraph informations (end)
+	\paragraph{Recommendations} % (fold)
+	\label{par:reccomendations}
+		
+		Für jede erzeugte Recommendation wird ein Objekt in der Recommendation-Collection angelegt, das dem folgenden Schema entspricht:
+
+		\begin{lstlisting}[language=JSON]
+			{
+				
+			}
+		\end{lstlisting}
+
+	% paragraph reccomendations (end)
 % section datenbankschema (end)
