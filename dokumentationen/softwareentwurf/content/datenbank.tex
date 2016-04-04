@@ -1,0 +1,89 @@
+%!TEX root = ../documentation.tex
+
+\chapter{Datenbank}
+
+Um die anfallenden Daten zentral speichern zu können, wird eine Datenbank benötigt. Als Datenbankmanagementsystem wird MongoDB verwendet. Die Gründe dafür sind, dass der dokumnetenorientierte Ansatz von MongoDB sehr gut mit Javascript harmoniert und das Abspeichern von Entries sehr einfach macht.
+
+MongoDB speichert die Daten in verschiedenen Collections. Diese nehmen eine ähnliche Rolle ein wie die Tabellen bei relationalen Datenbankmanagementsystemen. Eine Collection ist eine Sammlung von Objekten, die einen beliebigen Aufgau haben dürfen.
+
+\section{Datenbankschema} % (fold)
+\label{sec:datenbankschema}
+
+	Die folgenden Collections werden von Norbert verwendet:
+
+	\begin{enumerate}
+		\item \textbf{Users}: Speichert die Benutzer von Norbert und ihre Zugangsdaten.
+		\item \textbf{Entries}: Speichert die Entries, die von den Benutzern erzeugt wurden.
+		\item \textbf{Informations}: Speichert die Informationen, die aus externen Systemen importiert wurden.
+		\item \textbf{Reccomendations}: Speichert die generierten Vorschläge.
+		\item \textbf{Tags}: Vom Nutzer vergebene Tags für Entries.
+	\end{enumerate}
+
+	\paragraph{Users} % (fold)
+	\label{par:users}
+
+		Jedes Objekt in der Users-Collection repräsentiert einen Benutzer von Norbert. Ein solches Objekt ist nach dem folgenden Schema aufgebaut:
+
+		\begin{lstlisting}[language=JSON]
+			{
+				"id": 42,                # Eindeutige ID
+
+				"username": "benni",     # Der Benutzername, 
+				                         # der zur Anmeldung genutzt wird.
+
+				"name": "Ben Utzer",     # Der volle Name des Benutzers
+
+				"password_hash": "xdjc", # Das gehashte Passwort
+				"password_salt": "cjdx"  # und der Salt, der zum hashen des Passworts 
+				                         # verwendet wurde.
+			}
+		\end{lstlisting}
+	% paragraph users (end)
+	\paragraph{Entries} % (fold)
+	\label{par:entries}
+		
+		Jeder Entry wird als ein Objekt in der Entries-Collection repräsentiert. Ein solches Objekt besteht aus einem Titel, diversen Metadaten und einer Liste mit Components. Ein Entry-Objekt ist nach dem folgenden Schema aufgebaut:
+
+		\begin{lstlisting}[language=JSON]
+			{
+				"id": 123,                # Eindeutige ID
+
+				"created_at": 1234,       # Unix-Timestamp des Erstellzeitpunktes 
+				                          # des Entries.
+				
+				"owned_by": [42, 43],     # Ein Array mit den IDs der Benutzer,
+				                          # denen der Eintrag gehört.
+				                          # Alle diese Benutzer sehen den Eintrag in
+				                          # ihrem Newsfeed und können ihn bearbeiten.
+				
+				"private": false,         # Wenn der Eintrag als privat markiert
+				                          # wurde, kann er von anderen Benutzern 
+				                          # nicht über die Suche gefunden werden
+				                          # und wird niemandem vorgeschlagen.
+				
+				"equality_group": 123,    # Bei neuen Entries wird der Wert 
+				                          # "equality_group" gleich der id des
+				                          # Entries gesetzt. Wird der Entry beim
+				                          # akzeptieren einer Reccomendation geklont,
+				                          # so hat der neue Eintrag zwar eine neue id,
+				                          # behält jedoch die equality_group.
+				                          # Die so entstehenden Äquivalenzklassen an 
+				                          # ähnlichen Entries werden dafür genutzt, 
+				                          # in der Suche und bei den Vorschlägen
+				                          # duplikate zu vermeiden.
+				
+				"title": "Überschrift",   # Der Titel des Entries
+				
+				"tags": [51, 32],         # Ein Array mit den IDs der Tags, die der 
+				                          # Benutzer für den Entry vergeben hat.
+				
+				"components": [           # Ein Array mit den Komponenten des Entry
+					{ /* Component 1 */ },
+					{ /* Component 2 */ },
+					{ /* Component 3 */ }
+				]
+			}
+		\end{lstlisting}
+
+	% paragraph entries (end)
+% section datenbankschema (end)
