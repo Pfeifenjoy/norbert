@@ -24,11 +24,7 @@ Folgende Funktionalitäten müssen von der Architektur zwingend erfüllt werden,
   	\item Die Vorschlagslogik berechnet anhand der vorhandenen Daten Vorschläge, welche über die Kommunikationsschnittstelle an den Client geliefert werden.
   	\end{enumerate}
 
-  	Mit dieser Architektur treten aber mehrere Probleme auf:
-  	\begin{enumerate}
-  	\item Das manuelle Verwalten von Daten in separaten Dateien ist sehr aufwendig und extremst fehleranfällig.
-  	\item Der genaue Ablauf 
-  	\end{enumerate}
+  	
 \begin{figure}[H]
 \centering
 \includegraphics[scale=0.6]{uml-diagramms/overview_hlvl.pdf}
@@ -36,8 +32,15 @@ Folgende Funktionalitäten müssen von der Architektur zwingend erfüllt werden,
 \label{fig: Overview_HLVL}
 \end{figure}
 
+Mit dieser Architektur treten aber mehrere Probleme auf:
+  	\begin{enumerate}
+  	\item Das manuelle Verwalten von Daten in separaten Dateien ist sehr aufwendig und extremst fehleranfällig.
+  	\item Der Ablauf interner Prozesse ist nicht definiert und es ist unklar, wie dieser gesteuert wird
+  	\end{enumerate}
+
 \section{Datenhaltung}
 
+Das erste Problem kann durch die Verwendung eines Datenbanksystems gelöst werden. Durch eine Datenbank können die Daten zentral verfügbar gemacht werden. Außerdem ist der Zugriff über ein Datenbanksystem weniger fehleranfällig und in der Regel auch effizienter, da die meisten Datenbanksysteme bereits von Haus aus Performanceoptimierungen wie Puffer etc. mitbringen. 
 \begin{figure}[H]
 \centering
 \includegraphics[scale=0.75]{uml-diagramms/daten_hlvl.pdf}
@@ -46,6 +49,8 @@ Folgende Funktionalitäten müssen von der Architektur zwingend erfüllt werden,
 \end{figure}
 
 \section{Interne Prozesse}
+
+Das zweite Problem kann durch eine Komponente zur Aufgabenverwaltung gelöst werden. Anstatt Aufgaben wahllos in Echtzeit zu bearbeiten, werden diese zunächst durch die Aufgabenverwaltung in eine Warteschlange eingereiht. Diese Liste an Aufgaben wird dann in regelmäßigen Abständen durch den Core, also die zentrale Logik- und Rechenkomponente, abgearbeitet. Ausnahme hierbei ist das Liefern von Daten an den Client, da dies möglichst schnell erfolgen sollte. Durch das Sammeln von Aufgaben und zyklisches Verarbeiten kann unter anderem die Anzahl seperater Schreibzugriffe auf die Datenbank reduziert werden, wodurch weniger Ressourcen verbraucht werden. Die in Abbildung \ref{fig: Overview_Detail} gezeigte Architektur erfüllt die genannten Anforderungen und löst die in Abbildung \ref{fig: Overview_HLVL} auftretenden Probleme. Die genauere Funktionsweise einzelner Komponenten wird in den folgenden Kapiteln beschrieben.
 
 \begin{figure}[H]
 \centering
