@@ -149,7 +149,7 @@ MongoDB speichert die Daten in verschiedenen Collections. Diese nehmen eine ähn
 
 		Die Komponen-Liste der Informations hat das selbe Format, wie die Komponenten-Liste eines Entries.
 
-	% paragraph informations (end)
+	% paragraph Informationsions (end)
 	\paragraph{Recommendations} % (fold)
 	\label{par:reccomendations}
 		
@@ -157,7 +157,18 @@ MongoDB speichert die Daten in verschiedenen Collections. Diese nehmen eine ähn
 
 		\begin{lstlisting}[language=JSON]
 			{
-				
+				"user_id": 42,            # Id des Benutzers, dem der Vorschlag
+				                          # angezeigt werden soll.
+
+				"entry_id": 512           # Id des Eintrags, auf den sich der
+				                          # Vorschlag bezieht.
+
+				"hidden": false           # Gibt an, ob der Vorschlag gelöscht wurde. 
+				                          # Dann wird er nicht mehr angezeigt. Es ist 
+				                          # nicht möglich, beim Löschen einfach das 
+				                          # Objekt aus der Collection zu löschen, da 
+				                          # der Vorschlag sonst neu
+				                          # generiert werden würde. 
 			}
 		\end{lstlisting}
 
