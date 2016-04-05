@@ -1,48 +1,82 @@
 \chapter{Frontend}
 
-Da die Anwendung auf mehreren Plattformen laufen soll wird die Applikation als HTML5 App programmiert.
-Dabei besteht das Frontend aus folgenden Views:
+\section{Ziele}
 \begin{tabularx}{\textwidth}{|l|X|}
     \toprule
     \textbf{ID-Kürzel} & \textbf{Beschreibung} \\
     \midrule
     \endhead
     \hline
+    \caption{Ziele der Frontend-Architektur}
+    \endfoot
+    FZ-10 & Einzelne Teile des Frontends können getrennt voneinander entwickelt werden.\\
+    FZ-20 & Es gibt eine Trennung von Daten- und Anzeigelogik geben.\\
+    FZ-30 & Das Frontend ist leicht um neue Funktionen erweiterbar.\\
+    FZ-40 & Das Frontend ist responsiv gestaltet.\\
+\end{tabularx}
+
+\section{Views}
+Da die Anwendung auf mehreren Plattformen laufen soll wird die Applikation als HTML5 App programmiert.
+Dabei besteht das Frontend aus folgenden Views:
+\begin{tabularx}{\textwidth}{|l|X|l|}
+    \toprule
+    \textbf{ID-Kürzel} & \textbf{Beschreibung} & \textbf{Route}\\
+    \midrule
+    \endhead
+    \hline
     \caption{Einsatzbereiche}
     \label{Einsatzbereiche:tabelle}
     \endfoot
-    F-10 & Newsfeed\\
-    F-20 & User Login \\
-    F-30 & User Registrieren \\
-    F-40 & Profilverwaltung und Einstellungen\\
-    F-50 & Detailansicht von Einträgen\\
-    F-60 & Adminansicht\\
+    F-10 & Newsfeed & \verb+/+\\
+    F-20 & User Login & \verb+/login+ \\
+    F-30 & User Registrieren & \verb+/register+ \\
+    F-40 & Profilverwaltung und Einstellungen & \verb+/profile+\\
+    F-50 & Detailansicht von Einträgen & \verb+/+\\
+    F-60 & Adminansicht & \verb+/administration+\\
 \end{tabularx}
 
-Wie zu sehen ist besteht das Frontend aus sehr wenigen \enquote{Views} und der Benutzer muss immer im Newsfeed oder dem Login landen, wenn er die Seite neu lädt. 
-Es muss also kein komplexes Routing System implementiert werden, welches Routen in der Url speichern kann.
-Allerdings ist es wichtig, dass sich die Anwendung einen \enquote{Globalen Zustand} teilt,
-damit sobald sich z.B. etwas in den Einstellungen ändert diese direkt auf den Rest der Anwendung angewandt wird.
-Oder sobald der User einen Eintrag in der Detailansicht bearbeitet, soll dieser im Newsfeed geändert werden.
+\section{Newsfeed}
+Der Newsfeed ist eine Kollektion aus Einträgen und Vorschlägen (Informationen). Diese werden nach Relevanz soritert.
+Dabei kann das Frontend die Einträge abfragen. Der Server ist verantwortlich für die Sortierung der Einträge.
 
-\section{React.js als View der Anwendung}
-React.js soll in Kombination mit Flux für das Frontend eingesetzt werden.
-React.js wird dazu für die Erstellung der Komponenten oder der Views verwendet und Flux dient als Architektur der Anwendung.
-
-Der Vorteil von React.js ist, dass die Anwendung in einzelne Komponenten unterteilt werden kann.
-Dies erleichter die Entwicklung der Anwendung im Team.
-\begin{figure}[H]\label{frontend:react-components}
+\subsection{Bearbeiten des Newsfeeds}
+\begin{figure}[H]
     \centering
-    \includegraphics[width=0.4\textwidth]{images/react-components.png}
-    \caption{Beispiel Komponenten}
+    \includegraphics[width=0.9\textwidth]{images/DialogeFrontend.png}
+    \caption{Ablauf von Dialogen}
 \end{figure}
 
-In dem in Abbildung \ref{frontend:react-components} gezeigten beispiel können alle gelb umramten Teile Komponenten sein.
-So kümmert sich die Formular Komponente um das absenden der Request sobald der User versucht sich einzuloggen. 
-Andere Komponten wie z.B. Text oder Icons sind lediglich als View gedacht.
+Ein Benutzer muss sich immer Authentifizieren bevor er seinen Newsfeed sieht.
+Anschließend erhält er eine Übersicht seiner Einträge. Jetzt hat er die Möglichkeit Einträge anzulege, verändern, löschen oder einen
+Vorschlag in seinen Newsfeed aufzunehmen.
+Wenn ein Eintrag erstellt oder bearbeitet wird öffnet sich ein Dialog in dem der Entsprechende Eintrag bearbeitet werden kann.
+Anschließend wird der neue Newsfeed dargestellt.
 
-\section{Flux als Architekturpattern}
-Ein großer Nachteil vieler Kleiner Komponenten in einer Anwendung ist es, dass diese sich einen Zustand könnten, welcher synchronisiert werden muss.
+\section{Profilverwaltung und Einstellungen}
+In der Profilverwaltung und den Einstellungen  kann der Benutzer sein Passwort, Username oder Email ändern. 
+Außerdem kann eingestellt werden, ob der Benutzer an Einträge erinnert werden möchte oder nicht (Notifikationen).
+
+
+
+\section{Komponenten der Anwendung}
+\begin{figure}[H]\label{frontend:mockup}
+    \centering
+    \includegraphics[width=0.7\textwidth]{images/mock-up.JPG}
+    \caption{Komponenten des Newsfeeds}
+\end{figure}
+
+Wie in Abbildung \ref{frontend:mockup} zu sehen ist besteht die Anwendung aus mehreren Einträgen und Vorschlägen.
+Diese UI-Elemente können als Komponenten angesehen werden.  
+Deshalb soll das UI auf React.js basieren, da dort jedes UI-Element eine Komponente ist, die einen Zustand hat und mehrere Aktionen ausführen kann.
+Der zustand beinhaltet immer die anzuzeigenden Daten. Wird eine Aktion wie z.B. ein Klick-Event ausgelöst ändert sich der Zustand und die Komponente wird
+neu gerendert.\footnote{Siehe \url{https://facebook.github.io/react/}}
+Dies erleichter die Entwicklung der Anwendung im Team und erhöht die Wiederverwendung von UI-Komponenten.
+
+\section{Trennung von Daten und Anzeigelogik}
+Eines der Ziele ist es Daten und Anzeigelogik getrennt von einander zu entwickeln. 
+Deshalb können nicht alle Daten in den UI-Komponenten gespeichert werden. Möchten z.B. mehrere Komponenten auf die selben 
+Daten zugreifen wird ein extra Lager (Store) für diese Daten benötigt.
+
 Dazu wird Flux als ein Architektur Pattern eingesetzt.
 Die Grundbestandteile dieser Architektur sind Komponenten, Storages, Actions und ein Dispatcher.
 Dabei dienen die Komponenten zur Interaktion mit dem User, stellen somit also den \enquote{View} der Anwendung dar.

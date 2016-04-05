@@ -1,0 +1,72 @@
+\chapter{RESTful API}
+Die RESTful API basiert auf JSON und ist die zentrale Schnittstelle zwischen den Client Anwendungen (frontend) und dem Backend.
+Sie basiert auf http, welshalb alle Anfragen vom Client gesteuert werden.
+
+\section{Übersicht der Funktionen}
+Im folgenden werden alle Funktionen der RESTful Schnittstelle aufgelisted. 
+\begin{tabularx}{\textwidth}{|l|l|l|X|}
+    \toprule
+    \textbf{ID} & \textbf{Methode} & \textbf{Pfad} & \textbf{Beschreibung} \\
+    \midrule
+    \endhead
+    \hline
+    \caption{RESTful Pfade}
+    \label{RESTful:pfade}
+    \endfoot
+
+    \multicolumn{4}{|l|}{R-10 Userverwaltung}\\
+    \hline
+
+    R-10.1 & POST & /users/ & Erstelle einen Benutzer. Es müssen ein \enquote{username} und ein \enquote{password} übergeben werden.\\
+    R-10.2 & PUT & /users/:userId & Bearbeiten eines users.\\
+    R-10.3 & DELETE & /users/:userId & Lösche einen User.\\
+    R-10.4 & GET & /users/login & Authentifizierung durch session. \enquote{username} und \enquote{password} müssen übergeben werden.\\
+    R-10.5 & GET & /users/logout & Beendigung der Session.\\
+
+    \hline
+    \multicolumn{4}{|l|}{R-20 Newsfeed}\\
+    \hline
+
+    R-20.1 & GET & /newsfeed/:userid & Hole alle Einträge für den Nutzer basierten Newsfeed. \enquote{top} definiert den Anfang der Einträge relativ zum aktuellen Zeitpunkt. \enquote{skip} definiert wie viele Einträge zurückgegeben werden. Zurückgegeben wird ein Array aus Einträgen.\\ 
+    R-20.2 & POST & /entry/ & Füge einen Eintrag zum Newsfeed hinzu. Der Parameter heißt \enquote{entry}.\\ 
+    R-20.3 & GET & /entry/:id & Gibt alle Daten zu dem Eintrag mit der id wieder.\\
+    R-20.4 & DELETE & /entry/:id & Löschen eines Eintrags.\\
+    R-20.5 & PUT & /entry/:id & Updaten eines Eintrags.\\
+
+    \hline
+    \multicolumn{4}{|l|}{R-30 Notifikationen}\\
+    \hline
+    R-30.1 & GET & /notifications/:userid/ & Holen aller Notifikationen.\\ 
+
+
+\end{tabularx}
+
+\section{Authentifizierung}
+Ein Benutzer darf lediglich die zu ihm gehörenden Einträge bearbeiten. 
+Bei allen Funktionen außer dem Login und der Registrierung muss der Benutzer authentifiziert sein.
+
+\section{Einträge}
+Einträge werden durch die RESTful API als JSON-Objekt zurückgegeben.
+
+Sie können folgende Struktur haben:
+
+\begin{lstlisting}[language=JSON]
+{
+    "title": "Eintrag",
+    "tags": ["tag1", "tag2"],
+    "components": [...(Objects)]
+}
+\end{lstlisting}
+
+\section{Notifikationen}
+A notification is a JSON object with the following structure:
+
+\begin{lstlisting}[language=JSON]
+{
+    "date": int (UNIX timestamp),
+    "entryId": int
+}
+\end{lstlisting}
+
+Mit dieser information kann das Frontend die Notification zu einem bestimmten Zeitpunkt aufrufen. Über die \enquote{entryId} kann der passende Eintrag angefordert werden.
+
