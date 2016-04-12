@@ -31,8 +31,7 @@ var server = new SMTPServer({
     // disable STARTTLS to allow authentication in clear text mode
     disabledCommands: ['STARTTLS'],
 
-    // By default only PLAIN and LOGIN are enabled
-    authMethods: ['PLAIN', 'LOGIN', 'CRAM-MD5'],
+    
 
     // Accept messages up to 10 MB
     size: 10 * 1024 * 1024,
