@@ -1,6 +1,6 @@
 \chapter{RESTful API}
 Die RESTful API basiert auf JSON und ist die zentrale Schnittstelle zwischen den Client Anwendungen (frontend) und dem Backend.
-Sie basiert auf http, welshalb alle Anfragen vom Client gesteuert werden.
+Sie basiert auf HTTP-Requests, weshalb alle Anfragen vom Client gesteuert werden.
 
 \section{Übersicht der Funktionen}
 Im folgenden werden alle Funktionen der RESTful Schnittstelle aufgelisted. 
@@ -38,12 +38,18 @@ Im folgenden werden alle Funktionen der RESTful Schnittstelle aufgelisted.
     \hline
     R-30.1 & GET & /notifications/:userid/ & Holen aller Notifikationen.\\ 
 
+    \hline
+    \multicolumn{4}{|l|}{R-40 Suche}\\
+    \hline
+    R-40.1 & GET & /search/ & Es werden alle Einträge anhand des Parameters \enquote{query} durchsucht.
+                                Das Ergebnis ist eine Liste von Einträge und Informationen zurückgegeben.\\
 
 \end{tabularx}
 
 \section{Authentifizierung}
 Ein Benutzer darf lediglich die zu ihm gehörenden Einträge bearbeiten. 
 Bei allen Funktionen außer dem Login und der Registrierung muss der Benutzer authentifiziert sein.
+Die Authentifiszierung wird durch Sessions realisiert.
 
 \section{Einträge}
 Einträge werden durch die RESTful API als JSON-Objekt zurückgegeben.
@@ -59,7 +65,7 @@ Sie können folgende Struktur haben:
 \end{lstlisting}
 
 \section{Notifikationen}
-A notification is a JSON object with the following structure:
+Eine Notifikation ist ein JSON-Objekt mit folgender Struktur:
 
 \begin{lstlisting}[language=JSON]
 {
@@ -68,5 +74,5 @@ A notification is a JSON object with the following structure:
 }
 \end{lstlisting}
 
-Mit dieser information kann das Frontend die Notification zu einem bestimmten Zeitpunkt aufrufen. Über die \enquote{entryId} kann der passende Eintrag angefordert werden.
+Mit dieser Information kann das Frontend die Notifikation zu einem bestimmten Zeitpunkt aufrufen. Über die \enquote{entryId} kann der passende Eintrag angefordert werden.
 

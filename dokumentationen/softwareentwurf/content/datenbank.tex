@@ -4,7 +4,7 @@
 
 Um die anfallenden Daten zentral speichern zu können, wird eine Datenbank benötigt. Als Datenbankmanagementsystem wird MongoDB verwendet. Die Gründe dafür sind, dass der dokumnetenorientierte Ansatz von MongoDB sehr gut mit Javascript harmoniert und das Abspeichern von Entries sehr einfach macht.
 
-MongoDB speichert die Daten in verschiedenen Collections. Diese nehmen eine ähnliche Rolle ein wie die Tabellen bei relationalen Datenbankmanagementsystemen. Eine Collection ist eine Sammlung von Objekten, die einen beliebigen Aufgau haben dürfen.
+MongoDB speichert die Daten in verschiedenen Collections. Diese nehmen eine ähnliche Rolle ein wie die Tabellen bei relationalen Datenbankmanagementsystemen. Eine Collection ist eine Sammlung von Objekten, die einen beliebigen Aufbau haben dürfen.
 
 \section{Datenbankschema} % (fold)
 \label{sec:datenbankschema}
@@ -14,7 +14,7 @@ MongoDB speichert die Daten in verschiedenen Collections. Diese nehmen eine ähn
 	\begin{enumerate}
 		\item \textbf{Users}: Speichert die Benutzer von Norbert und ihre Zugangsdaten.
 		\item \textbf{Entries}: Speichert die Entries, die von den Benutzern erzeugt wurden.
-		\item \textbf{Informations}: Speichert die Informationen, die aus externen Systemen importiert wurden.
+		\item \textbf{Information}: Speichert die Informationen, die aus externen Systemen importiert wurden.
 		\item \textbf{Recommendations}: Speichert die generierten Vorschläge.
 	\end{enumerate}
 
@@ -111,10 +111,10 @@ MongoDB speichert die Daten in verschiedenen Collections. Diese nehmen eine ähn
 			}
 		\end{lstlisting}
 	% paragraph entries (end)
-	\paragraph{Informations} % (fold)
+	\paragraph{Information} % (fold)
 	\label{par:informations}
 		
-		Jede Information wird als ein Objekt in dieser Collection gespeichert. Informations sind grundsätzlich sehr ähnlich zu Entries aufgebaut. Ein Information-Objekt ist nach dem folgenden Schema aufgebaut:
+		Jede Information wird als ein Objekt in dieser Collection gespeichert. Information sind grundsätzlich sehr ähnlich zu Entries aufgebaut. Ein Information-Objekt ist nach dem folgenden Schema aufgebaut:
 
 		\begin{lstlisting}[language=JSON]
 			{
@@ -147,7 +147,7 @@ MongoDB speichert die Daten in verschiedenen Collections. Diese nehmen eine ähn
 			}
 		\end{lstlisting}
 
-		Die Komponen-Liste der Informations hat das selbe Format, wie die Komponenten-Liste eines Entries.
+		Die Komponen-Liste der Information hat das selbe Format, wie die Komponenten-Liste eines Entries.
 
 	% paragraph Informationsions (end)
 	\paragraph{Recommendations} % (fold)
