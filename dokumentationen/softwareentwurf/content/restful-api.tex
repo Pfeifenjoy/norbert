@@ -38,12 +38,18 @@ Im folgenden werden alle Funktionen der RESTful Schnittstelle aufgelisted.
     \hline
     R-30.1 & GET & /notifications/:userid/ & Holen aller Notifikationen.\\ 
 
+    \hline
+    \multicolumn{4}{|l|}{R-40 Suche}\\
+    \hline
+    R-40.1 & GET & /search/ & Es werden alle Einträge anhand des Parameters \enquote{query} durchsucht.
+                                Das Ergebnis ist eine Liste von Einträge und Informationen zurückgegeben.\\
 
 \end{tabularx}
 
 \section{Authentifizierung}
 Ein Benutzer darf lediglich die zu ihm gehörenden Einträge bearbeiten. 
 Bei allen Funktionen außer dem Login und der Registrierung muss der Benutzer authentifiziert sein.
+Die Authentifiszierung wird durch Sessions realisiert.
 
 \section{Einträge}
 Einträge werden durch die RESTful API als JSON-Objekt zurückgegeben.
@@ -59,7 +65,6 @@ Sie können folgende Struktur haben:
 \end{lstlisting}
 
 \section{Notifikationen}
-%A notification is a JSON object with the following structure:
 Eine Notifikation ist ein JSON-Objekt mit folgender Struktur:
 
 \begin{lstlisting}[language=JSON]

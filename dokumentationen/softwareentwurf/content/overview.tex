@@ -1,6 +1,59 @@
 %!TEX root = ../documentation.tex
 
 \chapter{Grundlegende Komponenten und deren Funktionsweise}
+Norbert hat zur Aufgabe Informationen / Daten innerhalb eines Kurses zu teilen.
+Jeder Benutzer hat einen Newsfeed in dem diese Informationen angezeigt werden.
+Die Informationen werden von Newsfeeds der Benutzer und externen Diensten ermittelt.
+Anschließend muss es eine zentrale Logik geben, die diese \enquote{Daten} klassifiziert und den 
+Benutzern neue Daten vorschlägt. (Siehe Abbildung \ref{overview:general-function})
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.9\textwidth]{images/Allgemeine-Funktionsweise.png}
+    \caption{Funktionsweise des Newsfeeds}\label{overview:general-function}
+\end{figure}
+
+Eine grundlegende Anforderung dafür ist das sammeln von Daten.
+Diese können durch Studenten oder externe Dienste angelegt werden.
+
+Diese Daten werden wenn sie von einem Benutzer erstellt wurden als Einträge bezeichnet 
+und wenn sie von einem externen Dienst angelegt wurden als Informationen bezeichent.
+
+Bei Verwendung der Anwendung werden dem Benutzer seine Einträge angezeigt.
+
+Jetzt hat der Benuter die Möglichkeit neue Einträge zu erstellen und hinzuzufügen,
+oder er bekommt durch die Anwendung neue Einträge vorgeschlagen, welche im folgenden als Vorschlag bezeichnet werden.
+
+Die Daten von einem externen Dienst werden als Information gespeichert und den Benutzern angezeigt.
+
+Es gibt also insgesamt 3 verschiedene Arten von Daten mit denen ein Benutzer interagiert welche in Tabelle \ref{overview:newsfeedelement}
+zu sehen sind.
+
+\begin{table}[H]
+    \centering
+    \begin{tabularx}{\textwidth}{|X|X|X|}
+            \toprule
+            \textbf{Eintrag} & \textbf{Vorschlag} & \textbf{Information} \\
+            \midrule
+            \endhead
+            Ein Eintrag dient zum notieren von Daten. Er kann mehrere Eigenschaften haben, wie z.B. eine Erinnerung.
+            Ein Eintrag kann von einem Benutzer bearbeitet werden.
+            &
+            Die Anwendung analysiert ständig die Einträge aller Benutzer. Wenn erkannt wird, dass sich ein Benutzer
+            für einen Eintrag eines anderen Benutzers interessieren könnte wird ihm dieser als \enquote{Vorschlag} vorgeschlagen.
+            &
+            Wenn durch einen externen Dienst Daten produziert werden, wie z.B. eine E-Mail an den Kursverteiler versendet wird,
+            werden diese Daten als \enquote{Information} allen Benutzern vorgeschlagen.
+            Der Benutzer hat dann die Möglichkeit diese Informationen zu auszublenden, wenn er sich nicht dafür interessiert.
+            \\
+            \hline
+    \end{tabularx}
+    \caption{Elemente des Newsfeeds}\label{overview:newsfeedelement}
+\end{table}
+
+Da Benutzer nicht immer eine Verbindung zu der Anwendung haben wird für die Architektur eine Client-Server Architektur gewählt.
+Dadurch können Daten zentral auf einem Server gesammelt bzw. klassifiziert werden und anschließend an die Clients verteilt werden.
+Diese Architektur hat den Vorteil, dass die Daten zentral ausgewertet werden können.
 
 Folgende Funktionalitäten müssen von der Architektur zwingend erfüllt werden, damit Norbert korrekt funktionieren kann:
 \begin{enumerate}
@@ -10,7 +63,6 @@ Folgende Funktionalitäten müssen von der Architektur zwingend erfüllt werden,
 	\item Der Client muss Einträge anlegen/bearbeiten können und auf Vorschläge reagieren können, bzw. seine Aktionen Norbert mitteilen können.
 	\item Norbert muss ToDo-Vorschläge liefern können.
 \end{enumerate}
- 
 
 
 \section[Grundlegender Aufbau]{Grundlegender Aufbau aus Funktionssicht}
