@@ -1,6 +1,6 @@
 \chapter{RESTful API}
 Die RESTful API basiert auf JSON und ist die zentrale Schnittstelle zwischen den Client Anwendungen (frontend) und dem Backend.
-Sie basiert auf http, welshalb alle Anfragen vom Client gesteuert werden.
+Sie basiert auf HTTP-Requests, weshalb alle Anfragen vom Client gesteuert werden.
 
 \section{Übersicht der Funktionen}
 Im folgenden werden alle Funktionen der RESTful Schnittstelle aufgelisted. 
@@ -59,7 +59,8 @@ Sie können folgende Struktur haben:
 \end{lstlisting}
 
 \section{Notifikationen}
-A notification is a JSON object with the following structure:
+%A notification is a JSON object with the following structure:
+Eine Notifikation ist ein JSON-Objekt mit folgender Struktur:
 
 \begin{lstlisting}[language=JSON]
 {
@@ -68,5 +69,5 @@ A notification is a JSON object with the following structure:
 }
 \end{lstlisting}
 
-Mit dieser information kann das Frontend die Notification zu einem bestimmten Zeitpunkt aufrufen. Über die \enquote{entryId} kann der passende Eintrag angefordert werden.
+Mit dieser Information kann das Frontend die Notifikation zu einem bestimmten Zeitpunkt aufrufen. Über die \enquote{entryId} kann der passende Eintrag angefordert werden.
 

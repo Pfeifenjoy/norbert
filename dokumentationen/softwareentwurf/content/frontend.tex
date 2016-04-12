@@ -36,7 +36,7 @@ Dabei besteht das Frontend aus folgenden Views:
 \end{tabularx}
 
 \section{Newsfeed}
-Der Newsfeed ist eine Kollektion aus Einträgen und Vorschlägen (Informationen). Diese werden nach Relevanz soritert.
+Der Newsfeed ist eine Kollektion aus Einträgen und Vorschlägen (Informationen). Diese werden nach Relevanz sortiert.
 Dabei kann das Frontend die Einträge abfragen. Der Server ist verantwortlich für die Sortierung der Einträge.
 
 \subsection{Bearbeiten des Newsfeeds}
@@ -47,13 +47,13 @@ Dabei kann das Frontend die Einträge abfragen. Der Server ist verantwortlich f�
 \end{figure}
 
 Ein Benutzer muss sich immer Authentifizieren bevor er seinen Newsfeed sieht.
-Anschließend erhält er eine Übersicht seiner Einträge. Jetzt hat er die Möglichkeit Einträge anzulege, verändern, löschen oder einen
+Anschließend erhält er eine Übersicht seiner Einträge. Jetzt hat er die Möglichkeit Einträge anzulegen, verändern, löschen oder einen
 Vorschlag in seinen Newsfeed aufzunehmen.
-Wenn ein Eintrag erstellt oder bearbeitet wird öffnet sich ein Dialog in dem der Entsprechende Eintrag bearbeitet werden kann.
+Wenn ein Eintrag erstellt oder bearbeitet wird öffnet sich ein Dialog in dem der entsprechende Eintrag bearbeitet werden kann.
 Anschließend wird der neue Newsfeed dargestellt.
 
 \section{Profilverwaltung und Einstellungen}
-In der Profilverwaltung und den Einstellungen  kann der Benutzer sein Passwort, Username oder Email ändern. 
+In der Profilverwaltung und den Einstellungen  kann der Benutzer sein Passwort, Username oder E-Mail ändern. 
 Außerdem kann eingestellt werden, ob der Benutzer an Einträge erinnert werden möchte oder nicht (Notifikationen).
 
 
@@ -68,9 +68,9 @@ Außerdem kann eingestellt werden, ob der Benutzer an Einträge erinnert werden 
 Wie in Abbildung \ref{frontend:mockup} zu sehen ist besteht die Anwendung aus mehreren Einträgen und Vorschlägen.
 Diese UI-Elemente können als Komponenten angesehen werden.  
 Deshalb soll das UI auf React.js basieren, da dort jedes UI-Element eine Komponente ist, die einen Zustand hat und mehrere Aktionen ausführen kann.
-Der zustand beinhaltet immer die anzuzeigenden Daten. Wird eine Aktion wie z.B. ein Klick-Event ausgelöst ändert sich der Zustand und die Komponente wird
+Der Zustand beinhaltet immer die anzuzeigenden Daten. Wird eine Aktion wie z.B. ein Klick-Event ausgelöst ändert sich der Zustand und die Komponente wird
 neu gerendert.\footnote{Siehe \url{https://facebook.github.io/react/}}
-Dies erleichter die Entwicklung der Anwendung im Team und erhöht die Wiederverwendung von UI-Komponenten.
+Dies erleichtert die Entwicklung der Anwendung im Team und erhöht die Wiederverwendung von UI-Komponenten.
 
 \section{Trennung von Daten und Anzeigelogik}
 Eines der Ziele ist es Daten und Anzeigelogik getrennt von einander zu entwickeln. 
@@ -93,7 +93,7 @@ Geschieht dies wird der View der Komponente erneuert. \footnote{Vgl. \url{https:
     \url{https://facebook.github.io/flux/docs/actions-and-the-dispatcher.html#content}
 \end{figure}
 
-Diese Architektur unterstütz das Teilen eines Zustandes mehrerer Komponenten, da sich mehrere Komponenten auf einen Storage registrieren 
+Diese Architektur unterstützt das Teilen eines Zustandes mehrerer Komponenten, da sich mehrere Komponenten auf einen Storage registrieren 
 und Änderungen an dem Zustand der Anwendung immer global über eine Action ausgeführt werden. Somit können alle Stores ihre Daten bei spezifischen Aktionen aktualisieren.
 Dadurch wird vermieden, dass sobald sich ein Eintrag ändert eine extra Methode geschrieben werden muss welche den Newsfeed ändert.
 
