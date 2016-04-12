@@ -1,5 +1,20 @@
 %!TEX root = ../documentation.tex
 
 \chapter{Exception Policy}
-JavaScript wirft automatisch Exceptions, die durch einen Try Catch Block abgefangen werden können. Somit können fehlerhafte Ausführungen des Programms neu gestartet, dem Benutzer mitgeteilt oder übersprungen werden.
+Das folgende Kapitel beschreibt, welche Fehlerarten, während des Systembetriebs auftreten können.
 
+\begin{tabularx}{\textwidth}{|l|X|X|}
+    \toprule
+    \textbf{ID-Kürzel} & \textbf{Beschreibung} & \textbf{Begründung}\\
+    \midrule
+    \endhead
+    \hline
+    \caption{Exception Policy}
+    
+    \endfoot
+    E-10 & Falsche Benutzereingabe & Dem User wird mitgeteilt, dass seine Eingabe falsch ist und fordert diesen nach einer nochmaligen Eingabe auf.\\ \hline
+    E-20 & Falscher Request an REST-API & Der Anwendung HTTP-Statuscode wird zurückgegeben. \\ \hline
+    E-40 & Softwarefehler & Der Fehler wird in einer Log-Datei vermerkt.  \\ \hline
+  
+  
+\end{tabularx}
