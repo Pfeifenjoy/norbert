@@ -36,6 +36,8 @@ Im folgenden werden alle Funktionen der RESTful Schnittstelle aufgelisted.
 
     R-20.6 & GET & /newsfeed/recommendation/:userid & Hole alle Empfehlungen für einen Benutzer. \\
 
+    R-20.7 & DELETE & /newsfeed/recommendation/:id & Löschen eines Vorschlags.\\
+    R-20.8 & DELETE & /newsfeed/information/:id & Löschen einer Information.\\
     \hline
     \multicolumn{4}{|l|}{R-30 Notifikationen}\\
     \hline
@@ -52,7 +54,7 @@ Im folgenden werden alle Funktionen der RESTful Schnittstelle aufgelisted.
 \section{Authentifizierung}
 Ein Benutzer darf lediglich die zu ihm gehörenden Einträge bearbeiten. 
 Bei allen Funktionen außer dem Login und der Registrierung muss der Benutzer authentifiziert sein.
-Die Authentifiszierung wird durch Sessions realisiert.
+Die Authentifizierung wird durch Sessions realisiert.
 
 \section{Einträge}
 Einträge werden durch die RESTful API als JSON-Objekt zurückgegeben.
