@@ -1,4 +1,5 @@
 \chapter{RESTful API}
+Test
 Die RESTful API basiert auf JSON und ist die zentrale Schnittstelle zwischen den Client Anwendungen (frontend) und dem Backend.
 Sie basiert auf HTTP-Requests, weshalb alle Anfragen vom Client gesteuert werden.
 
@@ -27,12 +28,16 @@ Im folgenden werden alle Funktionen der RESTful Schnittstelle aufgelisted.
     \multicolumn{4}{|l|}{R-20 Newsfeed}\\
     \hline
 
-    R-20.1 & GET & /newsfeed/:userid & Hole alle Einträge für den Nutzer basierten Newsfeed. \enquote{top} definiert den Anfang der Einträge relativ zum aktuellen Zeitpunkt. \enquote{skip} definiert wie viele Einträge zurückgegeben werden. Zurückgegeben wird ein Array aus Einträgen.\\ 
+    R-20.1 & GET & /newsfeed/:userid & Hole alle Einträge für den Nutzer basierten Newsfeed. Zurückgegeben wird ein Array aus Einträgen. Der Parameter \verb+start+ definiert das Start-Datum und der Parameter \verb+count+ definiert wieviele Newsfeedelemente zurückgegeben werden sollen. Der Paramerter \verb+count+ kann auch negativ sein.\\ 
     R-20.2 & POST & /entry/ & Füge einen Eintrag zum Newsfeed hinzu. Der Parameter heißt \enquote{entry}.\\ 
     R-20.3 & GET & /entry/:id & Gibt alle Daten zu dem Eintrag mit der id wieder.\\
     R-20.4 & DELETE & /entry/:id & Löschen eines Eintrags.\\
     R-20.5 & PUT & /entry/:id & Updaten eines Eintrags.\\
 
+    R-20.6 & GET & /newsfeed/recommendation/:userid & Hole alle Empfehlungen für einen Benutzer. \\
+
+    R-20.7 & DELETE & /newsfeed/recommendation/:id & Löschen eines Vorschlags.\\
+    R-20.8 & DELETE & /newsfeed/information/:id & Löschen einer Information.\\
     \hline
     \multicolumn{4}{|l|}{R-30 Notifikationen}\\
     \hline
@@ -49,7 +54,7 @@ Im folgenden werden alle Funktionen der RESTful Schnittstelle aufgelisted.
 \section{Authentifizierung}
 Ein Benutzer darf lediglich die zu ihm gehörenden Einträge bearbeiten. 
 Bei allen Funktionen außer dem Login und der Registrierung muss der Benutzer authentifiziert sein.
-Die Authentifiszierung wird durch Sessions realisiert.
+Die Authentifizierung wird durch Sessions realisiert.
 
 \section{Einträge}
 Einträge werden durch die RESTful API als JSON-Objekt zurückgegeben.

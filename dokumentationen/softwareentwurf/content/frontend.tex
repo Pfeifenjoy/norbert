@@ -10,9 +10,8 @@
     \caption{Ziele der Frontend-Architektur}
     \endfoot
     FZ-10 & Einzelne Teile des Frontends können getrennt voneinander entwickelt werden.\\
-    FZ-20 & Es gibt eine Trennung von Daten- und Anzeigelogik geben.\\
+    FZ-20 & Es gibt eine Trennung von Daten- und Anzeigelogik.\\
     FZ-30 & Das Frontend ist leicht um neue Funktionen erweiterbar.\\
-    FZ-40 & Das Frontend ist responsiv gestaltet.\\
 \end{tabularx}
 
 \section{Views}
@@ -33,10 +32,11 @@ Dabei besteht das Frontend aus folgenden Views:
     F-40 & Profilverwaltung und Einstellungen & \verb+/profile+\\
     F-50 & Detailansicht von Einträgen & \verb+/+\\
     F-60 & Adminansicht & \verb+/administration+\\
+    F-70 & View zur Anzeige von Suchergebnissen & \verb+/search-results+\\
 \end{tabularx}
 
 \section{Newsfeed}
-Der Newsfeed ist eine Kollektion aus Einträgen und Vorschlägen (Informationen). Diese werden nach Relevanz sortiert.
+Der Newsfeed ist eine Kollektion aus Einträgen, Informationen und Vorschlägen. Diese werden nach Relevanz sortiert.
 Dabei kann das Frontend die Einträge abfragen. Der Server ist verantwortlich für die Sortierung der Einträge.
 
 \subsection{Bearbeiten des Newsfeeds}
@@ -82,7 +82,7 @@ Die Grundbestandteile dieser Architektur sind Komponenten, Storages, Actions und
 Dabei dienen die Komponenten zur Interaktion mit dem User, stellen somit also den \enquote{View} der Anwendung dar.
 Die Komponenten können Actions auslösen, welche einfache Funktionen sind die ausgeführt werden.
 Diese Actions senden ein Objekt mit einer ID an den Dispatcher, welcher die Objekte an alle Stores verteilt.
-Ein Store ist wie der Name schon sagt ein Ort zum lagern von Daten. Jeder Store stellt eine Methode \enquote{handleAction} zur Verfügung.
+Ein Store ist ein Ort zum lagern von Daten. Jeder Store stellt eine Methode \enquote{handleAction} zur Verfügung.
 Diese wird von dem Dispatcher aufgerufen und das Objekt der Action übergeben. 
 Anschließend kann der Store aufgrund der in der Action definierten ID seine Daten aktualisieren.
 Jetzt können sich Komponenten bei dem Store registrieren um über Änderungen informiert zu werden.
