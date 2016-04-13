@@ -9,13 +9,12 @@ MongoDB speichert die Daten in verschiedenen Collections. Diese nehmen eine ähn
 \section{Datenbankschema} % (fold)
 \label{sec:datenbankschema}
 
-	Die folgenden Collections werden von Norbert verwendet:
+	Die folgenden Collections werden von Norbert für die Geschäftslogikdaten verwendet:
 
 	\begin{enumerate}
 		\item \textbf{Users}: Speichert die Benutzer von Norbert und ihre Zugangsdaten.
 		\item \textbf{Entries}: Speichert die Entries, die von den Benutzern erzeugt wurden.
 		\item \textbf{Information}: Speichert die Informationen, die aus externen Systemen importiert wurden.
-		\item \textbf{Recommendations}: Speichert die generierten Vorschläge.
 	\end{enumerate}
 
 	\paragraph{Users} % (fold)
@@ -150,27 +149,4 @@ MongoDB speichert die Daten in verschiedenen Collections. Diese nehmen eine ähn
 		Die Komponen-Liste der Information hat das selbe Format, wie die Komponenten-Liste eines Entries.
 
 	% paragraph Informationsions (end)
-	\paragraph{Recommendations} % (fold)
-	\label{par:reccomendations}
-		
-		Für jede erzeugte Recommendation wird ein Objekt in der Recommendation-Collection angelegt, das dem folgenden Schema entspricht:
-
-		\begin{lstlisting}[language=JSON]
-			{
-				"user_id": 42,            # Id des Benutzers, dem der Vorschlag
-				                          # angezeigt werden soll.
-
-				"entry_id": 512           # Id des Eintrags, auf den sich der
-				                          # Vorschlag bezieht.
-
-				"hidden": false           # Gibt an, ob der Vorschlag gelöscht wurde. 
-				                          # Dann wird er nicht mehr angezeigt. Es ist 
-				                          # nicht möglich, beim Löschen einfach das 
-				                          # Objekt aus der Collection zu löschen, da 
-				                          # der Vorschlag sonst neu
-				                          # generiert werden würde. 
-			}
-		\end{lstlisting}
-
-	% paragraph reccomendations (end)
 % section datenbankschema (end)

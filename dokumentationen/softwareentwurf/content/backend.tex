@@ -1,0 +1,64 @@
+\chapter{Backend} % (fold)
+\label{cha:backend}
+	Damit das Frontend auf zentral verwaltete Daten zugreifen kann, wird serverseitig die entsprechende Logik benötigt. Diese bildet das Backend und hat die folgenden Aufgaben:
+
+	\begin{enumerate}
+		\item Ausliefern des Frontends an den Benutzer.
+		\item Zentrale Verwaltung aller Einträge, Informationen, Vorschläge und Benutzer.
+		\item Importieren und Aufbereiten von Informationen aus externen Systemen wie Dropbox, dem E-Mail Verteiler oder dem Kurskalender.
+		\item Verwaltung von Dateien, die Teil eines Eintrags oder einer Information sind.
+		\item Generieren von Vorschlägen basierend auf den Interessen der Nutzer.
+		\item Durchsuchbar machen von Einträgen und Informationen.
+		\item Anbieten von Diensten zur Datenabfrage und -Manipulation über die RESTfull API.
+	\end{enumerate}
+
+	\section{Übersicht} % (fold)
+	\label{sec:ubersicht}
+		Ein großer Teil der Aufgaben, die das Backend zu erfüllen hat, beinhaltet die Kommunikation mit anderen Systemen wie zum Beispiel Dropbox oder dem Kurskalender. Wenn Anfragen an solche externe Systeme gestellt werden, vergeht teilweise sehr viel Zeit, bis diese antworten. Um diese Wartezeiten effektiv nutzen zu können, soll beim Entwurf des Backends verstärkt auf asynchrone Techniken gesetzt werden. Daher wird für die Entwicklung des Backends die Programmiersprache Javascript verwendet, die im Bereich der asynchronen Programmierung ihre Stärken hat. % ToDo: Formulierung
+
+		Das Backend kann grundsätzlich in drei große Teile zerlegt werden: 
+		\begin{enumerate}
+			\item \textbf{Die Kommunikationsschnittstelle} ist für die Kommunikation mit den Clients verantwortlich. Sie muss das Frontend in Form von HTML-, CSS- und Javascript-Dateien ausliefern. Außerdem muss die RESTfull API bereitgestellt werden, über die das Frontend mit dem Backend kommuniziert.
+			\item \textbf{Der Core} enthält die Implementation der zentralen Geschäftslogik. Er muss die anfallenden Daten verwalten, Vorschläge generieren und die Suchfunktion bereitstellen. Der Core speichert seine anfallenden Daten in einer Datenbank.
+			\item \textbf{Die Anbindung externer Dienste} integriert Dropbox, den Kurskalender und den Emailverteiler des Kurses in das System.
+		\end{enumerate}
+	% section ubersicht (end)
+	% ToDo: Node.js
+	\section{RESTfull API} % (fold)
+	\label{sec:restfull_api}
+		Als Interface zwischen dem Frontend und dem Backend dient eine RESTfull API. Ihr Aufbau wurde bereits im vorhergehenden Kapitel spezifiziert. Um bei HTTP Requests an die einzelnen Routen die richtigen Aktionen tätigen zu können, wird ein Router benötigt. Hierfür kommt die Bibliothek Express.js\footnote{expressjs.com} zum Einsatz. Bei jedem eingehenden HTTP Request wird je nach URL eine passende Funktion ausgeführt. Diese kann dann auf den Core zugreifen, um die entsprechenden Aktionen zu tätigen oder Daten abzufragen. Anschließend wird die HTTP Response generiert und die Anfrage ist beendet.
+
+	% section restfull_api (end)
+	\section{Import von Informationen aus externen Systemen} % (fold)
+	\label{sec:import_von_informationen_aus_externen_systemen}
+		Die externen Systeme wie Dropbox unterliegen nicht unserer Kontrolle. Auf mögliche Änderungen von APIs oder gar deren Deaktivierung haben wir keinen Einfluss. Daher sollten wir die Möglichkeit haben, auf solche Änderungen möglichst einfach zu reagieren: Die Anbindung jedes externen Systems sollte austauschbar sein. Außerdem sollte sie nicht über das gesamte Backend verteilt, sondern an einer einzigen Stelle im Code erfolgen. Die Anbindung externer Systeme ist daher strikt von der zentralen Geschäftslogik getrennt.
+
+		Jedes System, aus dem Daten importiert werden kann, ist ein \enquote{Information Provider}. Damit der Core alle Information Provider gleich behandeln kann, müssen sie alle ein gemeinsames, fest definiertes Interface implementieren. Dadurch werden die einzelnen Information Provider austauschbar. Jeder Information Provider muss die folgenden Funktionen implementieren:
+
+		\textbf{void syncInformations(data\_handle): } Weist den Information Provider an, seine Informationen im System von Norbert mit seiner Datenquelle zu synchronisieren. Über das Objekt data\_handle bekommt der Information Provider dafür Lese- und Schreibzugriff auf die nötigen Daten.
+		 
+	% section import_von_informationen_aus_externen_systemen (end)
+	\section{Datenanalyse} % (fold)
+	\label{sec:datenanalyse}
+		Zur Bereitstellung der Suchfunktion sowie zur generierung von Einträgen müssen die Daten zunächst analysiert werden. Er besteht aus den folgenden Schritten:
+
+		\begin{enumerate}
+			\item \textbf{Vorverarbeitung} Es wird der Text aus den Einträgen und Informationen extrahiert. Dieser wird in seine einzelnen Worte zerlegt. Wörter ohne Bedeutung wie \enquote{ist}, \enquote{und} oder \enquote{ich} werden entfernt. Die Wörter werden normalisiert, indem die Wortendungen abgeschnitten werden. Jedem eigenständigen Wort wird eine eindeutige ID zugewiesen, die im Folgenden verwendet wird, um Wörter zu repräsentieren, um den Speicherverbrauch zu minimieren.
+
+			\item \textbf{Berechnung des TF-IDF Maßes} Das TF-IDF\footnote{https://de.wikipedia.org/wiki/Tf-idf-Ma\%C3\%9F} maß gibt für ein Wort und ein Eintrag/Information zurück, wie relevant das Wort für diesen Eintrag ist. Dieser Wert muss für jeden Eintrag und jedes Wort berechnet werden.
+
+			\item \textbf{Clustering der Einträge/Informationen} Die Einträge werden basierend auf den berechneten TF-IDF-Werten mithilfe eines GMM (Gaussian Mixture Model) zu Clustern gruppiert. Jedes Cluster fasst dabei Einträge zusammen, die ähnlich zueinander sind. Das Ergebnis dieses Verfahrens is eine Liste mit Clustern, sowie für jeden Eintrag und jedes Cluster eine Wahrscheinlichkeit, dass der Eintrag zu diesem Cluster gehört.
+
+			\item \textbf{Analyse der Nutzerinteressen} Über die vorhandenen Einträge jedes Benutzers wird ermittelt, wie sehr sich der Benutzer für welches der generierten Cluster interessiert. Das potenzielle Interesse des Benutzers an einem Eintrag ermittelt sich aus der Wahrscheinlichkeit, dass der Eintrag in Clustern befindet, die für den Benutzer interessant sind. Zusätzlich wird noch ein zeitlicher Faktor mit eingerechnet, der aktuelle Einträge als interessanter einstuft.
+		\end{enumerate}
+
+		Der Datenanalyseprozess kann je nach Anzahl der Einträge und Informationen im System recht lange dauern. Daher wird er in regelmäßigen Abständen vom Scheduler im Hintergrund ausgeführt, sodass er den Serverprozess nicht blockiert.
+
+		Als Vorschläge ergeben sich die Einträge, die als besonders interessant für den Benutzer eingestuft wurden, sich aber noch nicht in seinem Newsfeed befinden.
+
+		Um die Suche umzusetzen, müssen die Einträge und Informationen nur nach den Summe der berechneten TF-IDF-Werte für die Suchterme sortiert werden.
+
+		Da Informationen nur über die Suche gefunden werden müssen, nicht aber als Vorschläge angezeigt werden können, müssen diese nur Schritte 1 und 2 durchlaufen. Einträge müssen jedoch den vollständigen Prozess durchlaufen.
+
+	% section datenanalyse (end)
+% chapter backend (end)
