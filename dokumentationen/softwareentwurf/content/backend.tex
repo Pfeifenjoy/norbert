@@ -26,7 +26,7 @@
 	% ToDo: Node.js
 	\section{RESTfull API} % (fold)
 	\label{sec:restfull_api}
-		Als Interface zwischen dem Frontend und dem Backend dient eine RESTfull API. Ihr Aufbau wurde bereits im vorhergehenden Kapitel spezifiziert. Um bei HTTP Requests an die einzelnen Routen die richtigen Aktionen tätigen zu können, wird ein Router benötigt. Hierfür kommt die Bibliothek Express.js\footnote{expressjs.com} zum Einsatz. Bei jedem eingehenden HTTP Request wird je nach URL eine passende Funktion ausgeführt. Diese kann dann auf den Core zugreifen, um die entsprechenden Aktionen zu tätigen oder Daten abzufragen. Anschließend wird die HTTP Response generiert und die Anfrage ist beendet.
+		Als Interface zwischen dem Frontend und dem Backend dient eine RESTfull API. Ihr Aufbau wurde bereits im vorhergehenden Kapitel spezifiziert. Um bei HTTP Requests an die einzelnen Routen die richtigen Aktionen tätigen zu können, wird ein Router benötigt. Hierfür kommt die Bibliothek Express.js\footnote{\url{expressjs.com}} zum Einsatz. Bei jedem eingehenden HTTP Request wird je nach URL eine passende Funktion ausgeführt. Diese kann dann auf den Core zugreifen, um die entsprechenden Aktionen zu tätigen oder Daten abzufragen. Anschließend wird die HTTP Response generiert und die Anfrage ist beendet.
 
 	% section restfull_api (end)
 	\section{Import von Informationen aus externen Systemen} % (fold)
@@ -40,16 +40,16 @@
 	% section import_von_informationen_aus_externen_systemen (end)
 	\section{Datenanalyse} % (fold)
 	\label{sec:datenanalyse}
-		Zur Bereitstellung der Suchfunktion sowie zur generierung von Einträgen müssen die Daten zunächst analysiert werden. Er besteht aus den folgenden Schritten:
+		Zur Bereitstellung der Suchfunktion sowie zur generierung von Vorschlägen, müssen die Daten zunächst analysiert werden. Der Analyseprozess besteht aus den folgenden Schritten:
 
 		\begin{enumerate}
 			\item \textbf{Vorverarbeitung} Es wird der Text aus den Einträgen und Informationen extrahiert. Dieser wird in seine einzelnen Worte zerlegt. Wörter ohne Bedeutung wie \enquote{ist}, \enquote{und} oder \enquote{ich} werden entfernt. Die Wörter werden normalisiert, indem die Wortendungen abgeschnitten werden. Jedem eigenständigen Wort wird eine eindeutige ID zugewiesen, die im Folgenden verwendet wird, um Wörter zu repräsentieren, um den Speicherverbrauch zu minimieren.
 
-			\item \textbf{Berechnung des TF-IDF Maßes} Das TF-IDF\footnote{\url{https://de.wikipedia.org/wiki/Tf-idf-Ma\%C3\%9F}} maß gibt für ein Wort und ein Eintrag/Information zurück, wie relevant das Wort für diesen Eintrag ist. Dieser Wert muss für jeden Eintrag und jedes Wort berechnet werden.
+			\item \textbf{Berechnung des TF-IDF Maßes} Das TF-IDF\footnote{\url{https://de.wikipedia.org/wiki/Tf-idf-Ma\%C3\%9F}} maß gibt für ein Wort und ein Eintrag / Information zurück, wie relevant das Wort für diesen Eintrag ist. Dieser Wert muss für jeden Eintrag und jedes Wort berechnet werden.
 
 			\item \textbf{Clustering der Einträge/Informationen} Die Einträge werden basierend auf den berechneten TF-IDF-Werten mithilfe eines GMM (Gaussian Mixture Model) \footnote{\url{http://www.ics.uci.edu/~smyth/courses/cs274/notes/EMnotes.pdf}} zu Clustern gruppiert. Jedes Cluster fasst dabei Einträge zusammen, die ähnlich zueinander sind. Das Ergebnis dieses Verfahrens is eine Liste mit Clustern, sowie für jeden Eintrag und jedes Cluster eine Wahrscheinlichkeit, dass der Eintrag zu diesem Cluster gehört.
 
-			\item \textbf{Analyse der Nutzerinteressen} Über die vorhandenen Einträge jedes Benutzers wird ermittelt, wie sehr sich der Benutzer für welches der generierten Cluster interessiert. Das potenzielle Interesse des Benutzers an einem Eintrag ermittelt sich aus der Wahrscheinlichkeit, dass der Eintrag in Clustern befindet, die für den Benutzer interessant sind. Zusätzlich wird noch ein zeitlicher Faktor mit eingerechnet, der aktuelle Einträge als interessanter einstuft.
+			\item \textbf{Analyse der Nutzerinteressen} Über die vorhandenen Einträge jedes Benutzers wird ermittelt, wie sehr sich der Benutzer für welches der generierten Cluster interessiert. Das potenzielle Interesse des Benutzers an einem Eintrag ermittelt sich aus der Wahrscheinlichkeit, dass sich der Eintrag in Clustern befindet, die für den Benutzer interessant sind. Zusätzlich wird noch ein zeitlicher Faktor mit eingerechnet, der aktuelle Einträge als interessanter einstuft.
 		\end{enumerate}
 
 		Der Datenanalyseprozess kann je nach Anzahl der Einträge und Informationen im System recht lange dauern. Daher wird er in regelmäßigen Abständen vom Scheduler im Hintergrund ausgeführt, sodass er den Serverprozess nicht blockiert.
