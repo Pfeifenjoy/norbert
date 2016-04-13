@@ -2,7 +2,7 @@
 
 \chapter{Datenbank}
 
-Um die anfallenden Daten zentral speichern zu können, wird eine Datenbank benötigt. Als Datenbankmanagementsystem wird MongoDB verwendet. Die Gründe dafür sind, dass der dokumnetenorientierte Ansatz von MongoDB sehr gut mit Javascript harmoniert und das Abspeichern von Entries sehr einfach macht.
+Um die anfallenden Daten zentral speichern zu können, wird eine Datenbank benötigt. Als Datenbankmanagementsystem wird MongoDB verwendet. Da die Einträge keinen festen Aufbau haben, eignet sich ein Dokumentenorientierter Ansatz für Norbert besonders gut. Deshalb wird MongoDB als Datenbankmanagementsystem verwendet.
 
 MongoDB speichert die Daten in verschiedenen Collections. Diese nehmen eine ähnliche Rolle ein wie die Tabellen bei relationalen Datenbankmanagementsystemen. Eine Collection ist eine Sammlung von Objekten, die einen beliebigen Aufbau haben dürfen.
 
@@ -13,7 +13,7 @@ MongoDB speichert die Daten in verschiedenen Collections. Diese nehmen eine ähn
 
 	\begin{enumerate}
 		\item \textbf{Users}: Speichert die Benutzer von Norbert und ihre Zugangsdaten.
-		\item \textbf{Entries}: Speichert die Entries, die von den Benutzern erzeugt wurden.
+		\item \textbf{Entries}: Speichert die Einträge, die von den Benutzern erzeugt wurden.
 		\item \textbf{Information}: Speichert die Informationen, die aus externen Systemen importiert wurden.
 	\end{enumerate}
 
@@ -40,54 +40,49 @@ MongoDB speichert die Daten in verschiedenen Collections. Diese nehmen eine ähn
 	\paragraph{Entries} % (fold)
 	\label{par:entries}
 		
-		Jeder Entry wird als ein Objekt in der Entries-Collection repräsentiert. Ein solches Objekt besteht aus einem Titel, diversen Metadaten und einer Liste mit Components. Ein Entry-Objekt ist nach dem folgenden Schema aufgebaut:
+		Jeder Eintrag wird als ein Objekt in der Entries-Collection repräsentiert. Ein solches Objekt besteht aus einem Titel, diversen Metadaten und einer Liste mit Components. Ein Entry-Objekt ist nach dem folgenden Schema aufgebaut:
 
 		\begin{lstlisting}[language=JSON]
 			{
 				"id": 123,                # Eindeutige ID
 
 				"created_at": 1234,       # Unix-Timestamp des Erstellzeitpunktes 
-				                          # des Entries.
+				                          # des Eintrags.
 
 				"dirty": false,           # Das dirty-Flag gibt an, ob sich
-				                          # das Entry geändert hat.
+				                          # der Eintrag geändert hat.
 				                          # In diesem Fall muss es beim nächsten
 				                          # Durchlauf des Schedulers neu
 				                          # verarbeitet werden (Suchindex, Vorschläge!).
 
-				"owned_by": [42, 43],     # Ein Array mit den IDs der Benutzer,
-				                          # denen der Eintrag gehört.
-				                          # Alle diese Benutzer sehen den Eintrag in
-				                          # ihrem Newsfeed und können ihn bearbeiten.
-
-				"hidden_for": [42]        # Eine Teilmenge des "owned-by" Feldes, 
-				                          # die angibt, welche Benutzer den Entry
-				                          # in ihrem Newsfeed ausgeblendet haben.
-				                          # Über die Suche ist er dann immernoch 
-				                          # auffindbar.
+				"owned_by": 42,           # Die ID des Benutzers,
+				                          # dem der Eintrag gehört.
+				                          # Dieser Benutzer sieht den Eintrag in
+				                          # seinem Newsfeed und kann ihn bearbeiten.
 				
-				"private": false,         # Wenn der Eintrag als privat markiert
-				                          # wurde, kann er von anderen Benutzern 
-				                          # nicht über die Suche gefunden werden
-				                          # und wird niemandem vorgeschlagen.
-				
-				"equality_group": 123,    # Bei neuen Entries wird der Wert 
-				                          # "equality_group" gleich der id des
-				                          # Entries gesetzt. Wird der Entry beim
-				                          # akzeptieren einer Reccomendation geklont,
-				                          # so hat der neue Eintrag zwar eine neue id,
+				"equality_group": 123,    # Bei neuen Einträgen wird für den Wert 
+				                          # "equality_group" ein eindeutiger Wert
+				                          # gewählt. Wird der Eintrag beim
+				                          # Akzeptieren eines Vorschlags geklont,
+				                          # so hat der neue Eintrag zwar eine neue ID,
 				                          # behält jedoch die equality_group.
 				                          # Die so entstehenden Äquivalenzklassen an 
-				                          # ähnlichen Entries werden dafür genutzt, 
+				                          # ähnlichen Einträgen werden dafür genutzt, 
 				                          # in der Suche und bei den Vorschlägen
 				                          # duplikate zu vermeiden.
-				
-				"title": "Überschrift",   # Der Titel des Entries
+
+				"hidden_for": [42, 12]    # Ein array mit den IDs der Benutzer, die
+				                          # die den Eintrag als Vorschlag angezeigt
+				                          # bekommen haben und diesen abgelehnt haben.
+				                          # Bei diesen wird der Vorschlag für den
+				                          # Eintrag nicht mehr angezeigt.
+
+				"title": "Überschrift",   # Der Titel des Eintrags
 				
 				"tags": ["C", "Übung"],   # Ein Array mit den Tags, die der 
-				                          # Benutzer für den Entry vergeben hat.
+				                          # Benutzer für den Eintrag vergeben hat.
 				
-				"components": [           # Ein Array mit den Komponenten des Entry
+				"components": [           # Ein Array mit den Komponenten des Eintrags
 					{ /* Component 1 */ },
 					{ /* Component 2 */ },
 					{ /* Component 3 */ }
@@ -113,7 +108,7 @@ MongoDB speichert die Daten in verschiedenen Collections. Diese nehmen eine ähn
 	\paragraph{Information} % (fold)
 	\label{par:informations}
 		
-		Jede Information wird als ein Objekt in dieser Collection gespeichert. Information sind grundsätzlich sehr ähnlich zu Entries aufgebaut. Ein Information-Objekt ist nach dem folgenden Schema aufgebaut:
+		Jede Information wird als ein Objekt in dieser Collection gespeichert. Informationen sind grundsätzlich sehr ähnlich zu Einträgen aufgebaut. Ein Information-Objekt ist nach dem folgenden Schema aufgebaut:
 
 		\begin{lstlisting}[language=JSON]
 			{
@@ -127,7 +122,7 @@ MongoDB speichert die Daten in verschiedenen Collections. Diese nehmen eine ähn
 				                          # geändert hat.
 				                          # In diesem Fall muss sie beim nächsten
 				                          # Durchlauf des Schedulers neu
-				                          # verarbeitet werden (Suchindex!).
+				                          # verarbeitet werden.
 
 				"hidden_for": [42, 12]    # Ein array mit den IDs der Benutzer, die
 				                          # die Information aus ihrem Newsfeed
