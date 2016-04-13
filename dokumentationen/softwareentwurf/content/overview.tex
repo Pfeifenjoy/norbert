@@ -103,11 +103,11 @@ Das erste Problem kann durch die Verwendung eines Datenbanksystems gelöst werde
 
 \section{Interne Prozesse}
 
-Das zweite Problem kann durch eine Komponente zur Aufgabenverwaltung gelöst werden. Anstatt alle Aufgaben in Echtzeit zu bearbeiten, werden bestimmte Aufgaben, die besonders performancelastig sein können, zyklisch bearbeitet. Die Aufgabenverwaltung lässt dieses Aufgaben zyklisch durch den Core, also die zentrale Logik- und Rechenkomponente, abarbeiten. Das Erstellen/Bearbeiten von Einträgen, das Liefern von Daten an den Client, sowie das Akzeptieren von Voschlägen erfolgt weiterhin in Echtzeit. Vorschläge werden allerdings nur noch in bestimmten Intervallen berechnet, außerdem erfolgt die Indizierung der angebundenen Dropbox zyklisch. Andere Aufgaben, die nicht zwingend in Echtzeit ausgeführt werden müssen, können auch zyklisch ausgeführt werden. Die in Abbildung \ref{fig: Overview_Detail} gezeigte Architektur erfüllt die genannten Anforderungen und löst die in Abbildung \ref{fig: Overview_HLVL} auftretenden Probleme. Die genauere Funktionsweise einzelner Komponenten wird in den folgenden Kapiteln beschrieben.
+Das zweite Problem kann durch eine Komponente zur Aufgabenverwaltung gelöst werden. Anstatt alle Aufgaben in Echtzeit zu bearbeiten, werden bestimmte Aufgaben, die besonders performancelastig sein können, zyklisch bearbeitet. Die Aufgabenverwaltung lässt diese Aufgaben zyklisch durch den Core, also die zentrale Logik- und Rechenkomponente, abarbeiten. Das Erstellen/Bearbeiten von Einträgen, das Liefern von Daten an den Client, sowie das Akzeptieren von Voschlägen erfolgt weiterhin in Echtzeit. Vorschläge werden allerdings nur noch in bestimmten Intervallen berechnet, außerdem erfolgt die Indizierung der angebundenen Dropbox zyklisch. Andere Aufgaben, die nicht zwingend in Echtzeit ausgeführt werden müssen, können auch zyklisch ausgeführt werden. Die in Abbildung \ref{fig: Overview_Detail} gezeigte Architektur erfüllt die genannten Anforderungen und löst die in Abbildung \ref{fig: Overview_HLVL} auftretenden Probleme. Die genauere Funktionsweise einzelner Komponenten wird in den folgenden Kapiteln beschrieben.
 
 \begin{figure}[H]
 \centering
-\includegraphics[scale=0.6]{uml-diagramms/overview_detail.pdf}
+\includegraphics[scale=0.55]{uml-diagramms/overview_detail.pdf}
 \caption{Kapselung der internen Prozesse}
 \label{fig: Overview_Detail}
 \end{figure}
