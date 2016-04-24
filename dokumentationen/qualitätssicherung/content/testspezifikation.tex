@@ -3,37 +3,35 @@
 \chapter{Testspezifikation}
 Das folgende Kapitel beschreibt verschiedene Testszenarien.
 
-\section{T-10 - Nutzer erstellen und Eintrag anlegen}
-\subsection{Ziel}
-Die Test deckt die Hauptfunktionalität von Norbert - Your StudyBuddy ab. Zuerst wird ein User angelegt. Nachdem sich der Nutzer eingelogt hat, erstellt er einen Test-Eintrag.
 
-\subsection{Voraussetzung}
-Norbert läuft auf einem Server. 
 
-\subsection{Test Durchführung}
-\begin{enumerate}
-\item Öffenen sie eine Webbrowser ihrer Wahl.
-\item Geben Sie in die Adressleiste folgenden Link ein: LOCALHOST:3000. \\Es öffnet sich die Startseite von Norbert.
-\item Wechseln Sie zum Regitrierungs Dialog, indem sie auf \enquote{registrieren} klicken. Es öffnent sich ein Formular \enquote{Registrieren}.
-\item Geben Sie in dem Feld \enquote{User} \textbf{user01} ein.
-\item Geben Sie in dem Feld \enquote{Passwort} \textbf{norbert123} ein.
-\item Geben Sie in dem Feld \enquote{Passwort wiederholen} \textbf{norbert123} ein.
-\item Klicken sie auf den Button registrieren. Sie haben nun einen Account erfolgreich angelegt.
-\item Legen sie nun einen Eintrag an.
-\begin{enumerate}
-\item Klicken sie auf das \enquote{+} Zeichen im rechten unteren Bereich des Bildschirms..
-\item Es öffnet sich ein Popup.
-\item Eingaben
-\item Eingaben
-\end{enumerate}
-\item Klicken sie auf speichern. Der Eintrag wird angezeigt.
-\item Ändern sie den Titel.
-\begin{enumerate}
-\item Eintrag bearbeiten button.Es öffnet sich ein Pop-up
-\item Bearbeiten sie den Titel zu: 
-\item Klicken sie speichern, um die Änderungen zu speichern.
-\end{enumerate}
-\item Der Eintrag hat nun den Titel ???.
-\item Um sich aus zu loggen, klicken sie in der rechten oberen Ecke auf \enquote{Logout}.
-\end{enumerate}
+\begin{tabularx}{\textwidth}{|l|X|X|X|}
+    \toprule
+    \textbf{ID-Kürzel} & \textbf{Beschreibung} & \textbf{Erwartetes Ergebnis}& \textbf{Kommentar} \\
+    \midrule
+    \endhead
+    \hline
+    \caption{Testspezifikationen}
+    
+    \endfoot
+    \multicolumn{4}{|l|}{User Daten}\\ \hline
+    T-U10 & Benutzername eindeutig & Hallo & FDJKS \\ \hline
+    T-U20 & Passwort Länge & & \\\hline
+    \multicolumn{4}{|l|}{Einträge}\\ \hline
+    T-E10 & Eintrag anlegen & & \\\hline
+   	T-E20 & Eintrag bearbeiten & & \\\hline
+    T-E30 & Eintrag löschen & & \\\hline
+    \multicolumn{4}{|l|}{Dateiupload} \\\hline
+    T-D10 & Datei in Dropbox hochladen & & \\ \hline
+    \multicolumn{4}{|l|}{ICal Datei }\\ \hline
+    T-I10 & .ical Einträge als Notification anzeigen & & \\
+
+    
+  
+	
+ 
+  
+\end{tabularx}
+
+
 
