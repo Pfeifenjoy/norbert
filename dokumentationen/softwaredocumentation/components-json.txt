@@ -1,0 +1,40 @@
+Die Komponenten sind wie folgt aufgebaut:
+
+Es gibt immer einen Typ und Daten:
+
+{
+    type: [String],
+    data: [Object]
+}
+
+Mögliche Typen sind:
+
+ - DESCRIPTION
+ - NOTIFICATION
+ - TASK
+ - DOCUMENT 
+
+Die Typen haben folgende Struktur ihrer Daten:
+
+DESCRIPTION:
+{
+    text: [String]
+}
+
+
+NOTIFICATION:
+{
+    date: [Timestamp]
+}
+
+DOCUMENT:
+{
+    name: [String],
+    url: [String]
+}
+
+TASK:
+{
+    text: [String],
+    finised: [Boolean]
+}
