@@ -1,8 +1,8 @@
 %!TEX root = ../documentation.te
 
-\chapter{Nutzer erstellen und Eintrag anlegen}
+\chapter{Testspezifikation - Nutzer erstellen und Eintrag anlegen}
 \section{Ziel}
-Die Test deckt die Hauptfunktionalität von Norbert - Your StudyBuddy ab. Zuerst wird ein User angelegt. Nachdem sich der Nutzer eingelogt hat, erstellt er einen Test-Eintrag.
+Die Test deckt die Hauptfunktionalität von Norbert - Your StudyBuddy ab. Zuerst wird ein User angelegt. Nachdem sich der Nutzer angemeldet hat, erstellt er einen Eintrag, bearbeitet den Eintrag und meldet sich anschließend wieder ab.
 
 
 \section{Voraussetzung}
@@ -11,27 +11,32 @@ Norbert läuft auf einem Server.
 \section{Test Durchführung}
 \begin{enumerate}
 \item Öffenen sie eine Webbrowser ihrer Wahl.
-\item Geben Sie in die Adressleiste folgenden Link ein: LOCALHOST:3000. \\Es öffnet sich die Startseite von Norbert.
-\item Wechseln Sie zum Regitrierungs Dialog, indem sie auf \enquote{registrieren} klicken. Es öffnent sich ein Formular \enquote{Registrieren}.
-\item Geben Sie in dem Feld \enquote{User} \textbf{user01} ein.
-\item Geben Sie in dem Feld \enquote{Passwort} \textbf{norbert123} ein.
-\item Geben Sie in dem Feld \enquote{Passwort wiederholen} \textbf{norbert123} ein.
-\item Klicken sie auf den Button registrieren. Sie haben nun einen Account erfolgreich angelegt.
+\item Geben Sie in die Adressleiste folgenden Link ein: http:localhost:3000. \\Es öffnet sich die Startseite von Norbert.
+\item Wechseln Sie zum Regitrierungsformular, indem sie auf \enquote{register} klicken. Es öffnet sich ein Formular \enquote{Registrieren}.
+\item Geben Sie in dem Feld \enquote{Username} \textbf{user01} ein.
+\item Geben Sie in dem Feld \enquote{Password} \textbf{norbert123} ein.
+\item Wiederholen sie die Passworteingabe im Feld \enquote{RePassword}: \textbf{norbert123} .
+\item Klicken sie auf den Button \enquote{Register}. Sie haben nun einen Account erfolgreich angelegt und werden automatisch zur Hauptseite weitergeleitet. 
 \item Legen sie nun einen Eintrag an.
 \begin{enumerate}
-\item Klicken sie auf das \enquote{+} Zeichen im rechten unteren Bereich des Bildschirms..
-\item Es öffnet sich ein Popup.
-\item Eingaben
-\item Eingaben
+\item Klicken sie auf das \enquote{+} Zeichen, um einen neuen Eintrag zu Erstellen.
+\item Es wird ein neuer Eintrag mit dem Titel \enquote{neuer Eintrag} im Newsfeed angelegt.
+\item Klicken sie auf die rechte obere Ecke bei dem unter Punkt b) erstellen Eintrag.\\ Es öffnet sich ein Popup.
+\item Ersetzen sie \enquote{Neuer Eintrag} in der Eingabeleiste durch: \textbf{ Mein erster Eintrag}.
+\item Schließen Sie das Pop-up durch drücken der ESC-Taste.\\ Der von Ihnen erstelle Eintrag wird nun im Newsfeed mit dem Titel \enquote{Mein erster Eintrag} angezeigt.
 \end{enumerate}
-\item Klicken sie auf speichern. Der Eintrag wird angezeigt.
-\item Ändern sie den Titel.
+\item Fügen sie dem Eintrag eine Beschreibung hinzu. Öffnen Sie den Eintrag durch Drücken des Stift-Symbol im rechten oberen Eck des Eintrags. Es öffnet sich wieder das Pop-up, damit der Eintrag bearbeitet werden kann.
 \begin{enumerate}
-\item Eintrag bearbeiten button.Es öffnet sich ein Pop-up
-\item Bearbeiten sie den Titel zu: 
-\item Klicken sie speichern, um die Änderungen zu speichern.
+\item Wählen Sie in dem Dropdown Menü den Menüpunkt \enquote{Beschreibung} aus.
+\item Ein Textfeld wird dem Eintrag hinzugefügt.
+\item Schreiben Sie nun in das Textfeld: \textbf{Das ist eine Beschreibung!}. 
+\item Schließen Sie das Pop-up durch Drücken der ESC-Taste.
 \end{enumerate}
-\item Der Eintrag hat nun den Titel ???.
-\item Um sich aus zu loggen, klicken sie in der rechten oberen Ecke auf \enquote{Logout}.
+\item Im Newsfeed ist nun der Eintrag mit dem Titel \enquote{Mein erster Eintrag} und der Beschreibung \enquote{Das ist eine Beschreibung!} zu sehen.
+\item Melden Sie sich nun von Norbert ab.
+\begin{enumerate}
+\item Klicken Sie im rechten oberen Eck der Webseite, in der Menüleiste, auf \enquote{Verlassen}.
+\item Sie sind nun abgemeldet und sehen nun wieder die Login-Seite. \\Dort können Sie sich mit ihrem angelegten Benutzernamen \textbf{user01} und dem vergebenen Passwort \textbf{norbert123} wieder anmelden.
+\end{enumerate}
 \end{enumerate}
 
